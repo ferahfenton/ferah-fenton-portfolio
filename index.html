@@ -706,7 +706,7 @@
           <div class="project-body"><p class="project-tag">Brand Identity · Packaging · Social</p><h3>5Gum Rebrand</h3><p>Reimagining 5Gum as a sensory-first experience — flavour you can see, feel &amp; interact with.</p></div>
         </a>
         <a class="project-card" href="javascript:void(0)" onclick="openProject('serviceuno')">
-          <div class="project-thumb pt-b" style="font-size:2rem;">🃏</div>
+          <div class="project-thumb pt-b"></div>
           <div class="project-body"><p class="project-tag">Product Design · Card Game · Service Design</p><h3>Service Design Uno</h3><p>An educational card game that teaches service design principles — built for 3–8 players in 30–45 minutes.</p></div>
         </a>
         <a class="project-card" href="#">
@@ -1230,21 +1230,22 @@
   </section>
 
   <!-- PROJECT: SERVICE DESIGN UNO -->
-  <section class="panel proj-panel" id="proj-serviceuno" style="display:none; background:#0a1628; flex-direction:column; align-items:flex-start; justify-content:flex-start; overflow-y:auto; position:fixed; inset:0; z-index:500;">
+  <section class="panel proj-panel" id="proj-serviceuno" style="display:none; background:#242A3B; flex-direction:column; align-items:flex-start; justify-content:flex-start; overflow-y:auto; position:fixed; inset:0; z-index:500;">
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito+Sans:wght@300;400;600&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-      .sdu-pg { font-family: 'Space Grotesk', sans-serif; }
+      .sdu-pg { font-family: 'Nunito Sans', sans-serif; }
       .sdu-nav {
         width: 100%; padding: 22px 56px;
         display: flex; align-items: center; justify-content: space-between;
         position: sticky; top: 0; z-index: 10;
-        background: rgba(10,22,40,0.85); backdrop-filter: blur(12px);
+        background: rgba(36,42,59,0.88); backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(255,255,255,0.06);
         box-sizing: border-box;
       }
       .sdu-back {
         background: none; border: 1px solid rgba(255,255,255,0.2);
         color: white; border-radius: 8px; padding: 8px 18px;
-        font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem;
+        font-family: 'Nunito Sans', sans-serif; font-size: 0.85rem;
         cursor: pointer; transition: background 0.2s;
       }
       .sdu-back:hover { background: rgba(255,255,255,0.08); }
@@ -1259,12 +1260,14 @@
         display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
       }
       .sdu-hero h1 {
-        font-family: 'Audiowide', sans-serif;
+        font-family: 'Fugaz One', cursive;
         font-size: clamp(2.4rem, 5vw, 4rem);
         color: white; line-height: 1.1; margin-bottom: 24px;
+        text-transform: uppercase;
       }
       .sdu-hero h1 span { color: #3b82f6; }
       .sdu-tagline {
+        font-family: 'Nunito Sans', sans-serif;
         font-size: 0.97rem; font-weight: 300;
         color: rgba(255,255,255,0.55); line-height: 1.85;
         margin-bottom: 28px;
@@ -1289,12 +1292,13 @@
         border-top: 1px solid rgba(255,255,255,0.07); padding-top: 50px;
       }
       .sdu-section h2 {
-        font-family: 'Audiowide', sans-serif;
+        font-family: 'Fugaz One', cursive;
         font-size: clamp(1.6rem, 3vw, 2.4rem);
+        text-transform: uppercase;
         color: white; margin-bottom: 16px;
       }
       .sdu-section p {
-        font-family: 'Space Grotesk', sans-serif;
+        font-family: 'Nunito Sans', sans-serif;
         font-size: 0.97rem; font-weight: 300;
         color: rgba(255,255,255,0.55); line-height: 1.85;
         max-width: 640px;
@@ -1304,7 +1308,7 @@
         padding: 40px 56px 60px; box-sizing: border-box;
         display: flex; align-items: center; justify-content: space-between;
         border-top: 1px solid rgba(255,255,255,0.07);
-        font-family: 'Space Grotesk', sans-serif;
+        font-family: 'Nunito Sans', sans-serif;
         font-size: 0.75rem; color: rgba(255,255,255,0.2);
       }
     </style>
@@ -1329,12 +1333,7 @@
           <span class="sdu-tag-pill">Team Project</span>
         </div>
       </div>
-      <div style="display:flex; align-items:center; justify-content:center;">
-        <div style="width:100%; max-width:460px; background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.2); border-radius:24px; padding:40px; text-align:center;">
-          <div style="font-size:5rem; margin-bottom:16px;">🃏</div>
-          <div style="font-family:'Space Grotesk',sans-serif; color:rgba(255,255,255,0.3); font-size:0.8rem; letter-spacing:2px; text-transform:uppercase;">Service Design for Business</div>
-        </div>
-      </div>
+      <div></div>
     </div>
 
     <!-- overview -->
