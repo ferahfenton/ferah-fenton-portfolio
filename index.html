@@ -705,9 +705,9 @@
           <div class="project-thumb pt-r" style="background:#1a1a1a; font-size:2rem;">5</div>
           <div class="project-body"><p class="project-tag">Brand Identity · Packaging · Social</p><h3>5Gum Rebrand</h3><p>Reimagining 5Gum as a sensory-first experience — flavour you can see, feel &amp; interact with.</p></div>
         </a>
-        <a class="project-card" href="#">
-          <div class="project-thumb pt-y">📱</div>
-          <div class="project-body"><p class="project-tag">Product Design</p><h3>Project Two</h3><p>A UX/UI project built in Figma with full prototyping &amp; research.</p></div>
+        <a class="project-card" href="javascript:void(0)" onclick="openProject('serviceuno')">
+          <div class="project-thumb pt-b" style="font-size:2rem;">🃏</div>
+          <div class="project-body"><p class="project-tag">Product Design · Card Game · Service Design</p><h3>Service Design Uno</h3><p>An educational card game that teaches service design principles — built for 3–8 players in 30–45 minutes.</p></div>
         </a>
         <a class="project-card" href="#">
           <div class="project-thumb pt-g">🎥</div>
@@ -1228,6 +1228,147 @@
     </div>
 
   </section>
+
+  <!-- PROJECT: SERVICE DESIGN UNO -->
+  <section class="panel proj-panel" id="proj-serviceuno" style="display:none; background:#0a1628; flex-direction:column; align-items:flex-start; justify-content:flex-start; overflow-y:auto; position:fixed; inset:0; z-index:500;">
+    <style>
+      .sdu-pg { font-family: 'Space Grotesk', sans-serif; }
+      .sdu-nav {
+        width: 100%; padding: 22px 56px;
+        display: flex; align-items: center; justify-content: space-between;
+        position: sticky; top: 0; z-index: 10;
+        background: rgba(10,22,40,0.85); backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        box-sizing: border-box;
+      }
+      .sdu-back {
+        background: none; border: 1px solid rgba(255,255,255,0.2);
+        color: white; border-radius: 8px; padding: 8px 18px;
+        font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem;
+        cursor: pointer; transition: background 0.2s;
+      }
+      .sdu-back:hover { background: rgba(255,255,255,0.08); }
+      .sdu-nav-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.8rem; color: rgba(255,255,255,0.35);
+        text-transform: uppercase; letter-spacing: 2px;
+      }
+      .sdu-hero {
+        width: 100%; max-width: 1200px; margin: 0 auto;
+        padding: 80px 56px 60px; box-sizing: border-box;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      }
+      .sdu-hero h1 {
+        font-family: 'Audiowide', sans-serif;
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        color: white; line-height: 1.1; margin-bottom: 24px;
+      }
+      .sdu-hero h1 span { color: #3b82f6; }
+      .sdu-tagline {
+        font-size: 0.97rem; font-weight: 300;
+        color: rgba(255,255,255,0.55); line-height: 1.85;
+        margin-bottom: 28px;
+      }
+      .sdu-tag-pill {
+        display: inline-block; padding: 6px 14px;
+        border: 1px solid rgba(59,130,246,0.4);
+        border-radius: 20px; font-size: 0.72rem;
+        color: #3b82f6; margin: 4px 4px 0 0;
+        font-family: 'Space Grotesk', sans-serif;
+        text-transform: uppercase; letter-spacing: 1px;
+      }
+      .sdu-section {
+        width: 100%; max-width: 1200px; margin: 0 auto;
+        padding: 50px 56px; box-sizing: border-box;
+      }
+      .sdu-label {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.7rem; font-weight: 500;
+        color: rgba(255,255,255,0.25); text-transform: uppercase;
+        letter-spacing: 3px; margin-bottom: 16px;
+        border-top: 1px solid rgba(255,255,255,0.07); padding-top: 50px;
+      }
+      .sdu-section h2 {
+        font-family: 'Audiowide', sans-serif;
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        color: white; margin-bottom: 16px;
+      }
+      .sdu-section p {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.97rem; font-weight: 300;
+        color: rgba(255,255,255,0.55); line-height: 1.85;
+        max-width: 640px;
+      }
+      .sdu-footer {
+        width: 100%; max-width: 1200px; margin: 0 auto;
+        padding: 40px 56px 60px; box-sizing: border-box;
+        display: flex; align-items: center; justify-content: space-between;
+        border-top: 1px solid rgba(255,255,255,0.07);
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.75rem; color: rgba(255,255,255,0.2);
+      }
+    </style>
+
+    <!-- sticky nav -->
+    <div class="sdu-nav sdu-pg">
+      <button class="sdu-back" onclick="closeProject()">← Back to Portfolio</button>
+      <span class="sdu-nav-title">Service Design Uno — 2026</span>
+      <span style="width:120px"></span>
+    </div>
+
+    <!-- hero -->
+    <div class="sdu-hero sdu-pg">
+      <div>
+        <h1>SERVICE<br>DESIGN <span>UNO</span></h1>
+        <p class="sdu-tagline">An educational card game designed to teach the core principles of service design — through play. Built for 3–8 players, 30–45 minutes, and a whole lot of strategic thinking.</p>
+        <div>
+          <span class="sdu-tag-pill">Product Design</span>
+          <span class="sdu-tag-pill">Card Game</span>
+          <span class="sdu-tag-pill">Service Design</span>
+          <span class="sdu-tag-pill">Educational</span>
+          <span class="sdu-tag-pill">Team Project</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:center;">
+        <div style="width:100%; max-width:460px; background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.2); border-radius:24px; padding:40px; text-align:center;">
+          <div style="font-size:5rem; margin-bottom:16px;">🃏</div>
+          <div style="font-family:'Space Grotesk',sans-serif; color:rgba(255,255,255,0.3); font-size:0.8rem; letter-spacing:2px; text-transform:uppercase;">Service Design for Business</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- overview -->
+    <div class="sdu-section sdu-pg">
+      <p class="sdu-label">Overview</p>
+      <div style="display:grid; grid-template-columns:3fr 2fr; gap:48px; align-items:flex-start;">
+        <div>
+          <h2>The Brief</h2>
+          <p>As part of a team design project, we were tasked with creating a professional-quality, card-based educational game that teaches the comprehensive service design content from <em>Service Design for Business</em>. The game needed to support 3–8 players, run for 30–45 minutes, and be polished enough for a knowledge exchange — where other teams would play our game and we'd play theirs.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div style="background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.15); border-radius:12px; padding:20px;">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:0.65rem; color:#3b82f6; text-transform:uppercase; letter-spacing:2px; margin-bottom:8px;">Players</div>
+            <div style="font-family:'Audiowide',sans-serif; color:white; font-size:1.2rem;">3 – 8</div>
+          </div>
+          <div style="background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.15); border-radius:12px; padding:20px;">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:0.65rem; color:#3b82f6; text-transform:uppercase; letter-spacing:2px; margin-bottom:8px;">Duration</div>
+            <div style="font-family:'Audiowide',sans-serif; color:white; font-size:1.2rem;">30 – 45 min</div>
+          </div>
+          <div style="background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.15); border-radius:12px; padding:20px;">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:0.65rem; color:#3b82f6; text-transform:uppercase; letter-spacing:2px; margin-bottom:8px;">Format</div>
+            <div style="font-family:'Audiowide',sans-serif; color:white; font-size:1.2rem;">Card Game</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sdu-footer sdu-pg">
+      <p>Ferah Fenton · 2026 · Team Project</p>
+      <button class="sdu-back" onclick="closeProject()">← Back to Portfolio</button>
+    </div>
+
+  </section>
+
 </div><!-- end #panels -->
 
 <script>
