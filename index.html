@@ -1369,7 +1369,7 @@
           .deck-wrap {
             margin-top: 28px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-start;
             width: 100%;
             overflow: hidden;
             max-width: 170px;
@@ -1388,7 +1388,7 @@
             flex-shrink: 0;
             width: 120px;
             border-radius: 10px;
-            transform: translateX(520px);
+            transform: translateX(-520px);
             transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
             pointer-events: none;
           }
@@ -1396,14 +1396,14 @@
             transform: translateX(0);
             pointer-events: auto;
           }
-          .fly-card:nth-child(1) { transition-delay: 0.05s; }
-          .fly-card:nth-child(2) { transition-delay: 0.15s; }
-          .fly-card:nth-child(3) { transition-delay: 0.25s; }
-          .fly-card:nth-child(4) { transition-delay: 0.35s; }
-          .deck-wrap.closing .fly-card:nth-child(1) { transition-delay: 0.3s; }
-          .deck-wrap.closing .fly-card:nth-child(2) { transition-delay: 0.2s; }
+          .fly-card:nth-child(2) { transition-delay: 0.05s; }
+          .fly-card:nth-child(3) { transition-delay: 0.15s; }
+          .fly-card:nth-child(4) { transition-delay: 0.25s; }
+          .fly-card:nth-child(5) { transition-delay: 0.35s; }
+          .deck-wrap.closing .fly-card:nth-child(5) { transition-delay: 0.3s; }
+          .deck-wrap.closing .fly-card:nth-child(4) { transition-delay: 0.2s; }
           .deck-wrap.closing .fly-card:nth-child(3) { transition-delay: 0.1s; }
-          .deck-wrap.closing .fly-card:nth-child(4) { transition-delay: 0s; }
+          .deck-wrap.closing .fly-card:nth-child(2) { transition-delay: 0s; }
           .back-trigger {
             flex-shrink: 0;
             width: 160px;
@@ -1417,11 +1417,11 @@
             font-family: 'Nunito Sans', sans-serif;
             font-size: 0.82rem;
             color: rgba(255,255,255,0.4);
-            text-align: right;
+            text-align: left;
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: flex-start;
             gap: 6px;
           }
           .press-hint .hint-arrow {
@@ -1436,14 +1436,14 @@
 
         <div class="deck-wrap" id="cardDeck">
           <div class="deck-inner">
+            <img class="back-trigger" src="images/backofcard.png" alt="Card Back" onclick="toggleDeck()" />
             <img class="fly-card" src="images/bi.png" alt="Business Impact" />
             <img class="fly-card" src="images/es.png" alt="Evidence & Sequencing" />
             <img class="fly-card" src="images/coc.png" alt="Co-Creation" />
             <img class="fly-card" src="images/cc.png" alt="Customer Centricity" />
-            <img class="back-trigger" src="images/backofcard.png" alt="Card Back" onclick="toggleDeck()" />
           </div>
         </div>
-        <p class="press-hint"><span class="hint-arrow">↑</span> press me!</p>
+        <p class="press-hint">press me! <span class="hint-arrow">↑</span></p>
 
         <script>
           function toggleDeck() {
