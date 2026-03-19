@@ -898,6 +898,19 @@
         font-family: 'Space Grotesk', sans-serif;
         font-size: 0.82rem; color: rgba(255,255,255,0.2);
       }
+      .hover-zoom {
+        overflow: hidden;
+        border-radius: 16px;
+      }
+      .hover-zoom img {
+        transition: transform 0.4s ease;
+        display: block;
+        width: 100%;
+        border-radius: 16px;
+      }
+      .hover-zoom:hover img {
+        transform: scale(1.05);
+      }
     </style>
 
     <!-- sticky nav -->
@@ -965,8 +978,8 @@
       <p class="proj-section-label">Packaging</p>
       <h2>The tactile cases</h2>
       <p>A new look on their already popular gum cases — these ones with texture to emulate every flavour's personality — invite you to not just taste, but truly feel each flavour. With 5 words describing exactly what flavour profile you'll experience, and every surface telling a story, turning a simple chew into a full sensory experience.</p>
-      <div style="margin-top:28px; border-radius:16px; overflow:hidden;">
-        <img src="images/image_006.png" alt="5Gum Packaging All Flavours" style="width:100%; display:block; border-radius:16px;" />
+      <div class="hover-zoom" style="margin-top:28px;">
+        <img src="images/image_006.png" alt="5Gum Packaging All Flavours" />
       </div>
     </div>
 
@@ -974,8 +987,8 @@
     <div class="proj-section pg">
       <h2>The paperback pack</h2>
       <p>The iconic paperback packs with a sleek new embossed look. Unique and easily transportable. It highlights the five same key words and texture associated which each flavour and sensation profile.</p>
-      <div style="margin-top:28px; border-radius:16px; overflow:hidden;">
-        <img src="images/gumpaperpackets.png" alt="5Gum Paperback Pack" style="width:100%; display:block; border-radius:16px;" />
+      <div class="hover-zoom" style="margin-top:28px;">
+        <img src="images/gumpaperpackets.png" alt="5Gum Paperback Pack" />
       </div>
     </div>
 
