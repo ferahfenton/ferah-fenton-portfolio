@@ -1409,26 +1409,27 @@
           .deck-scene.closing .fc-2 { transition-delay: 0.1s; }
           .deck-scene.closing .fc-1 { transition-delay: 0s; }
           .press-hint {
-            margin-top: 10px;
+            margin-bottom: 18px;
             font-family: 'Nunito Sans', sans-serif;
             font-size: 0.82rem;
             color: rgba(255,255,255,0.4);
             width: 100%;
             display: flex;
-            align-items: center;
-            justify-content: flex-end;
+            flex-direction: column;
+            align-items: flex-end;
             gap: 6px;
           }
           .hint-arrow {
-            font-size: 1rem;
-            animation: bounce-up 1.2s ease-in-out infinite;
+            font-size: 1.1rem;
+            animation: bounce-down 1.2s ease-in-out infinite;
           }
-          @keyframes bounce-up {
+          @keyframes bounce-down {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
+            50% { transform: translateY(4px); }
           }
         </style>
 
+        <p class="press-hint">Press me to see the Foundation cards!<span class="hint-arrow">↓</span></p>
         <div class="deck-scene" id="cardDeck">
           <img class="fly-card fc-1" src="images/bi.png"  alt="Business Impact" />
           <img class="fly-card fc-2" src="images/es.png"  alt="Evidence & Sequencing" />
@@ -1436,7 +1437,6 @@
           <img class="fly-card fc-4" src="images/cc.png"  alt="Customer Centricity" />
           <img class="back-trigger"  src="images/backofcard.png" alt="Card Back" onclick="toggleDeck()" />
         </div>
-        <p class="press-hint">press me! <span class="hint-arrow">↑</span></p>
 
         <script>
           function toggleDeck() {
