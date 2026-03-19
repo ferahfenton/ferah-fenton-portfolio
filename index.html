@@ -1361,8 +1361,103 @@
           </div>
         </div>
       </div>
-      <div style="display:flex; align-items:flex-start; justify-content:center;">
+      <div style="display:flex; align-items:flex-start; justify-content:center; flex-direction:column;">
         <img src="images/SDmain.png" alt="Service Design Uno" style="width:100%; border-radius:20px; display:block;" />
+
+        <!-- card fan animation -->
+        <style>
+          .deck-wrap {
+            margin-top: 28px;
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            overflow: hidden;
+            max-width: 170px;
+            transition: max-width 0.85s cubic-bezier(0.34, 1.1, 0.64, 1);
+          }
+          .deck-wrap.open {
+            max-width: 900px;
+          }
+          .deck-inner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+          }
+          .fly-card {
+            flex-shrink: 0;
+            width: 120px;
+            border-radius: 10px;
+            transform: translateX(520px);
+            transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+          }
+          .deck-wrap.open .fly-card {
+            transform: translateX(0);
+            pointer-events: auto;
+          }
+          .fly-card:nth-child(1) { transition-delay: 0.05s; }
+          .fly-card:nth-child(2) { transition-delay: 0.15s; }
+          .fly-card:nth-child(3) { transition-delay: 0.25s; }
+          .fly-card:nth-child(4) { transition-delay: 0.35s; }
+          .deck-wrap.closing .fly-card:nth-child(1) { transition-delay: 0.3s; }
+          .deck-wrap.closing .fly-card:nth-child(2) { transition-delay: 0.2s; }
+          .deck-wrap.closing .fly-card:nth-child(3) { transition-delay: 0.1s; }
+          .deck-wrap.closing .fly-card:nth-child(4) { transition-delay: 0s; }
+          .back-trigger {
+            flex-shrink: 0;
+            width: 160px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+          }
+          .back-trigger:hover { transform: scale(1.04); }
+          .press-hint {
+            margin-top: 10px;
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.4);
+            text-align: right;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 6px;
+          }
+          .press-hint .hint-arrow {
+            font-size: 1rem;
+            animation: bounce-up 1.2s ease-in-out infinite;
+          }
+          @keyframes bounce-up {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+          }
+        </style>
+
+        <div class="deck-wrap" id="cardDeck">
+          <div class="deck-inner">
+            <img class="fly-card" src="images/bi.png" alt="Business Impact" />
+            <img class="fly-card" src="images/es.png" alt="Evidence & Sequencing" />
+            <img class="fly-card" src="images/coc.png" alt="Co-Creation" />
+            <img class="fly-card" src="images/cc.png" alt="Customer Centricity" />
+            <img class="back-trigger" src="images/backofcard.png" alt="Card Back" onclick="toggleDeck()" />
+          </div>
+        </div>
+        <p class="press-hint"><span class="hint-arrow">↑</span> press me!</p>
+
+        <script>
+          function toggleDeck() {
+            const deck = document.getElementById('cardDeck');
+            if (deck.classList.contains('open')) {
+              deck.classList.add('closing');
+              deck.classList.remove('open');
+              setTimeout(() => deck.classList.remove('closing'), 800);
+            } else {
+              deck.classList.remove('closing');
+              deck.classList.add('open');
+            }
+          }
+        </script>
       </div>
     </div>
     <div class="sdu-footer sdu-pg">
