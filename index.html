@@ -879,7 +879,17 @@
       }
       .texture-grid-item {
         border-radius: 12px; overflow: hidden; aspect-ratio: 3/4;
-        position: relative;
+        position: relative; z-index: 1;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+      }
+      .texture-grid:hover .texture-grid-item {
+        opacity: 0.45;
+        transform: scale(0.96);
+      }
+      .texture-grid .texture-grid-item:hover {
+        opacity: 1;
+        transform: scale(1.12);
+        z-index: 10;
       }
       .texture-grid-item img { width:100%; height:100%; object-fit:cover; }
       .texture-grid-item span {
