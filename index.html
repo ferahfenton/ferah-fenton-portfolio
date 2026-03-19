@@ -1366,65 +1366,60 @@
 
         <!-- card fan animation -->
         <style>
-          .deck-wrap {
+          .deck-scene {
             margin-top: 28px;
+            position: relative;
             display: flex;
-            justify-content: flex-start;
+            justify-content: flex-end;
+            align-items: flex-start;
             width: 100%;
-            overflow: hidden;
-            max-width: 170px;
-            transition: max-width 0.85s cubic-bezier(0.34, 1.1, 0.64, 1);
+            height: 200px;
           }
-          .deck-wrap.open {
-            max-width: 900px;
-          }
-          .deck-inner {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-shrink: 0;
-          }
-          .fly-card {
-            flex-shrink: 0;
-            width: 120px;
-            border-radius: 10px;
-            transform: translateX(-520px);
-            transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
-            pointer-events: none;
-          }
-          .deck-wrap.open .fly-card {
-            transform: translateX(0);
-            pointer-events: auto;
-          }
-          .fly-card:nth-child(2) { transition-delay: 0.05s; }
-          .fly-card:nth-child(3) { transition-delay: 0.15s; }
-          .fly-card:nth-child(4) { transition-delay: 0.25s; }
-          .fly-card:nth-child(5) { transition-delay: 0.35s; }
-          .deck-wrap.closing .fly-card:nth-child(5) { transition-delay: 0.3s; }
-          .deck-wrap.closing .fly-card:nth-child(4) { transition-delay: 0.2s; }
-          .deck-wrap.closing .fly-card:nth-child(3) { transition-delay: 0.1s; }
-          .deck-wrap.closing .fly-card:nth-child(2) { transition-delay: 0s; }
           .back-trigger {
-            flex-shrink: 0;
-            width: 160px;
+            position: relative;
+            z-index: 10;
+            width: 155px;
             border-radius: 10px;
             cursor: pointer;
+            flex-shrink: 0;
             transition: transform 0.2s ease;
           }
-          .back-trigger:hover { transform: scale(1.04); }
+          .back-trigger:hover { transform: scale(1.05); }
+          .fly-card {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 115px;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateX(0px);
+            pointer-events: none;
+            z-index: 5;
+            transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        opacity 0.35s ease;
+          }
+          /* open: cards fly left into position */
+          .deck-scene.open .fc-4 { transform: translateX(-165px); opacity: 1; transition-delay: 0s;    pointer-events: auto; }
+          .deck-scene.open .fc-3 { transform: translateX(-290px); opacity: 1; transition-delay: 0.1s;  pointer-events: auto; }
+          .deck-scene.open .fc-2 { transform: translateX(-415px); opacity: 1; transition-delay: 0.2s;  pointer-events: auto; }
+          .deck-scene.open .fc-1 { transform: translateX(-540px); opacity: 1; transition-delay: 0.3s;  pointer-events: auto; }
+          /* closing: reverse stagger */
+          .deck-scene.closing .fc-4 { transition-delay: 0.3s; }
+          .deck-scene.closing .fc-3 { transition-delay: 0.2s; }
+          .deck-scene.closing .fc-2 { transition-delay: 0.1s; }
+          .deck-scene.closing .fc-1 { transition-delay: 0s; }
           .press-hint {
             margin-top: 10px;
             font-family: 'Nunito Sans', sans-serif;
             font-size: 0.82rem;
             color: rgba(255,255,255,0.4);
-            text-align: left;
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: flex-end;
             gap: 6px;
           }
-          .press-hint .hint-arrow {
+          .hint-arrow {
             font-size: 1rem;
             animation: bounce-up 1.2s ease-in-out infinite;
           }
@@ -1434,14 +1429,12 @@
           }
         </style>
 
-        <div class="deck-wrap" id="cardDeck">
-          <div class="deck-inner">
-            <img class="back-trigger" src="images/backofcard.png" alt="Card Back" onclick="toggleDeck()" />
-            <img class="fly-card" src="images/bi.png" alt="Business Impact" />
-            <img class="fly-card" src="images/es.png" alt="Evidence & Sequencing" />
-            <img class="fly-card" src="images/coc.png" alt="Co-Creation" />
-            <img class="fly-card" src="images/cc.png" alt="Customer Centricity" />
-          </div>
+        <div class="deck-scene" id="cardDeck">
+          <img class="fly-card fc-1" src="images/bi.png"  alt="Business Impact" />
+          <img class="fly-card fc-2" src="images/es.png"  alt="Evidence & Sequencing" />
+          <img class="fly-card fc-3" src="images/coc.png" alt="Co-Creation" />
+          <img class="fly-card fc-4" src="images/cc.png"  alt="Customer Centricity" />
+          <img class="back-trigger"  src="images/backofcard.png" alt="Card Back" onclick="toggleDeck()" />
         </div>
         <p class="press-hint">press me! <span class="hint-arrow">↑</span></p>
 
