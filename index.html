@@ -936,6 +936,44 @@
       .hover-zoom:hover {
         z-index: 10;
       }
+      /* carousel */
+      .carousel-wrap {
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .carousel-track {
+        display: flex;
+        gap: 16px;
+        width: max-content;
+        animation: carousel-scroll 18s linear infinite;
+      }
+      .carousel-wrap:hover .carousel-track {
+        animation-play-state: paused;
+      }
+      .carousel-item {
+        flex: 0 0 auto;
+        width: 340px;
+        border-radius: 14px;
+        overflow: hidden;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+      .carousel-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+        z-index: 2;
+      }
+      .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 14px;
+      }
+      @keyframes carousel-scroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
       .hover-zoom:hover img {
         transform: scale(1.12);
       }
@@ -1017,6 +1055,21 @@
       <p>The iconic paperback packs with a sleek new embossed look. Unique and easily transportable. It highlights the five same key words and texture associated which each flavour and sensation profile.</p>
       <div class="hover-zoom" style="margin-top:28px;">
         <img src="images/gumpaperpackets.png" alt="5Gum Paperback Pack" />
+      </div>
+
+      <!-- action carousel -->
+      <div class="carousel-wrap" style="margin-top:32px; position:relative; overflow:hidden;">
+        <div class="carousel-track">
+          <div class="carousel-item"><img src="images/pepperaction.png" alt="Pepper Action" /></div>
+          <div class="carousel-item"><img src="images/iceaction.png" alt="Ice Action" /></div>
+          <div class="carousel-item"><img src="images/spearaction.png" alt="Spear Action" /></div>
+          <div class="carousel-item"><img src="images/wateraction.png" alt="Water Action" /></div>
+          <!-- duplicated for seamless loop -->
+          <div class="carousel-item"><img src="images/pepperaction.png" alt="Pepper Action" /></div>
+          <div class="carousel-item"><img src="images/iceaction.png" alt="Ice Action" /></div>
+          <div class="carousel-item"><img src="images/spearaction.png" alt="Spear Action" /></div>
+          <div class="carousel-item"><img src="images/wateraction.png" alt="Water Action" /></div>
+        </div>
       </div>
     </div>
 
