@@ -937,9 +937,13 @@
         z-index: 10;
       }
       /* carousel */
+      .carousel-outer {
+        overflow: hidden;
+        width: 100%;
+      }
       .carousel-wrap {
         border-radius: 16px;
-        overflow: hidden;
+        padding: 32px 0;
       }
       .carousel-track {
         display: flex;
@@ -954,7 +958,6 @@
         flex: 0 0 auto;
         width: 340px;
         border-radius: 14px;
-        overflow: hidden;
         transition: transform 0.35s ease, box-shadow 0.35s ease;
       }
       .carousel-item:hover {
@@ -1004,7 +1007,8 @@
       </div>
 
       <!-- action carousel -->
-    <div class="carousel-wrap" style="margin-top:0; position:relative; overflow:hidden; padding: 32px 0;">
+    <div class="carousel-outer">
+    <div class="carousel-wrap" style="margin-top:0; position:relative;">
       <div class="carousel-track">
         <div class="carousel-item"><img src="images/pepperaction.png" alt="Pepper Action" /></div>
         <div class="carousel-item"><img src="images/iceaction.png" alt="Ice Action" /></div>
@@ -1016,6 +1020,7 @@
         <div class="carousel-item"><img src="images/spearaction.png" alt="Spear Action" /></div>
         <div class="carousel-item"><img src="images/wateraction.png" alt="Water Action" /></div>
       </div>
+    </div>
     </div>
 
       <!-- overview -->
