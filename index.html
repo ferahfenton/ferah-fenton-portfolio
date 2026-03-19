@@ -976,6 +976,41 @@
         100% { transform: translateX(-50%); }
       }
 
+      /* phone pop-out */
+      .phone-popout {
+        position: relative;
+        width: 340px;
+        cursor: pointer;
+      }
+      .phone-base {
+        width: 100%;
+        display: block;
+        border-radius: 24px;
+      }
+      .phone-popup {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 90%;
+        transform: translate(-50%, -50%) scale(0.15);
+        opacity: 0;
+        border-radius: 16px;
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+        z-index: 10;
+        pointer-events: none;
+      }
+      .phone-popout:hover .phone-popup {
+        transform: translate(-50%, -50%) scale(2.8);
+        opacity: 1;
+      }
+      .phone-popout:hover .phone-base {
+        filter: brightness(0.4);
+        transition: filter 0.3s ease;
+      }
+      .phone-base {
+        transition: filter 0.3s ease;
+      }
+
       .hover-zoom:hover img {
         transform: scale(1.12);
       }
@@ -1143,11 +1178,18 @@
       </div>
     </div>
 
-    <!-- more coming -->
+    <!-- socials -->
     <div class="proj-section pg">
-      <p class="proj-section-label">Packaging & Social</p>
-      <h2>More coming soon</h2>
-      <p>Product photography, packaging mockups, and social content are on their way. Check back soon.</p>
+      <p class="proj-section-label">Socials</p>
+      <h2>The Sensational Lock In</h2>
+      <p>The new social media strategy stays true to the raw and real nature of the rebrand. It centers around pushing consumers to lock in during the moments that matter most — at the gym, while studying, or finally getting to those procrastinated chores. It's the perfect time to pop a piece, focus on your surroundings, center yourself, and get into the grind.</p>
+
+      <div style="margin-top:48px; display:flex; justify-content:center;">
+        <div class="phone-popout">
+          <img class="phone-base" src="images/socialmediaphone.png" alt="5Gum Social Media Phone" />
+          <img class="phone-popup" src="images/socialmedia.png" alt="5Gum Social Media" />
+        </div>
+      </div>
     </div>
 
     <div class="proj-footer pg">
