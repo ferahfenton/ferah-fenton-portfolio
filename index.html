@@ -1418,11 +1418,7 @@
             .hint-arrow {
               font-size: 1.1rem;
               display: inline-block;
-              animation: bounce-side 1.2s ease-in-out infinite;
-            }
-            @keyframes bounce-side {
-              0%, 100% { transform: translateX(0); }
-              50% { transform: translateX(5px); }
+              animation: bounce-down 1.2s ease-in-out infinite;
             }
             @keyframes bounce-down {
               0%, 100% { transform: translateY(0); }
@@ -1484,7 +1480,7 @@
           </style>
 
           <div style="border-top:1px solid rgba(255,255,255,0.07); margin-top:40px; padding-top:40px;">
-            <p class="press-hint">PRESS TO SEE <span style="color:#F04924; font-size:inherit; font-family:inherit;">FOUNDATION</span> CARDS! <span class="hint-arrow">→</span></p>
+            <p class="press-hint">PRESS TO SEE <span style="color:#F04924; font-size:inherit; font-family:inherit;">FOUNDATION</span> CARDS! <span class="hint-arrow">↓</span></p>
             <div class="deck-scene" id="cardDeck">
               <img class="back-trigger"  src="images/backofcard.png" alt="Card Back" onclick="toggleDeck()" />
               <img class="fly-card fc-1" src="images/bi.png"  alt="Business Impact" />
@@ -1493,7 +1489,7 @@
               <img class="fly-card fc-4" src="images/cc.png"  alt="Customer Centricity" />
             </div>
 
-            <p class="press-hint-r" style="margin-top:48px;">PRESS TO SEE <span style="color:#F04924; font-size:inherit; font-family:inherit;">TOOL</span> CARDS! <span class="hint-arrow">→</span></p>
+            <p class="press-hint-r" style="margin-top:48px;">PRESS TO SEE <span style="color:#F04924; font-size:inherit; font-family:inherit;">TOOL</span> CARDS! <span class="hint-arrow">↓</span></p>
             <div class="deck-scene-r" id="toolDeck">
               <img class="back-trigger-r" src="images/backofcard.png" alt="Card Back" onclick="toggleToolDeck()" />
               <img class="fly-card-r ft-1" src="images/per.png"   alt="Tool Card 1" />
