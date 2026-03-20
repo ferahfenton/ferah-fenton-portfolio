@@ -1594,27 +1594,13 @@
         <script>
           function toggleAnyDeck(deckId) {
             var deck = document.getElementById(deckId);
-            var f = document.getElementById('insfront');
-            var b = document.getElementById('insback');
             if (deck.classList.contains('open')) {
               deck.classList.add('closing');
               deck.classList.remove('open');
-              setTimeout(function(){
-                deck.classList.remove('closing');
-                var anyStillOpen = ['cardDeck','toolDeck','challengeDeck'].some(function(id){
-                  var el = document.getElementById(id);
-                  return el && el.classList.contains('open');
-                });
-                if (!anyStillOpen) {
-                  if (f) { f.style.transition='opacity 0.4s ease'; f.style.opacity='1'; }
-                  if (b) { b.style.transition='opacity 0.4s ease'; b.style.opacity='1'; }
-                }
-              }, 800);
+              setTimeout(function(){ deck.classList.remove('closing'); }, 800);
             } else {
               deck.classList.remove('closing');
               deck.classList.add('open');
-              if (f) { f.style.transition='opacity 0.4s ease'; f.style.opacity='0.5'; }
-              if (b) { b.style.transition='opacity 0.4s ease'; b.style.opacity='0.5'; }
             }
           }
           function toggleDeck()          { toggleAnyDeck('cardDeck'); }
