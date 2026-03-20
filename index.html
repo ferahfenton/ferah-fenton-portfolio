@@ -1442,9 +1442,79 @@
           <img class="back-trigger"  src="images/backofcard.png" alt="Card Back" onclick="toggleDeck()" />
         </div>
 
+        <!-- tool cards -->
+        <style>
+          .deck-scene-r {
+            margin-top: 28px;
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+            height: 200px;
+          }
+          .back-trigger-r {
+            position: relative;
+            z-index: 10;
+            width: 120px;
+            border-radius: 10px;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+          }
+          .back-trigger-r:hover { transform: scale(1.04); }
+          .fly-card-r {
+            position: absolute;
+            left: 0;
+            width: 120px;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateX(0px);
+            pointer-events: none;
+            transition: transform 0.55s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;
+          }
+          .deck-scene-r.open .ft-1 { transform: translateX(145px);  opacity: 1; transition-delay: 0.3s;  pointer-events: auto; }
+          .deck-scene-r.open .ft-2 { transform: translateX(275px);  opacity: 1; transition-delay: 0.2s;  pointer-events: auto; }
+          .deck-scene-r.open .ft-3 { transform: translateX(405px);  opacity: 1; transition-delay: 0.1s;  pointer-events: auto; }
+          .deck-scene-r.open .ft-4 { transform: translateX(535px);  opacity: 1; transition-delay: 0s;    pointer-events: auto; }
+          .deck-scene-r.closing .ft-1 { transition-delay: 0s; }
+          .deck-scene-r.closing .ft-2 { transition-delay: 0.1s; }
+          .deck-scene-r.closing .ft-3 { transition-delay: 0.2s; }
+          .deck-scene-r.closing .ft-4 { transition-delay: 0.3s; }
+          .press-hint-r {
+            font-family: 'Fugaz One', cursive;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            color: white;
+            text-align: left;
+            margin-bottom: 10px;
+            animation: bounce-down 1.4s ease-in-out infinite;
+          }
+        </style>
+
+        <p class="press-hint-r">PRESS TO SEE <span style="color:#F04924; font-size:inherit; font-family:inherit;">TOOL</span> CARDS!<span class="hint-arrow">↓</span></p>
+        <div class="deck-scene-r" id="toolDeck">
+          <img class="back-trigger-r" src="images/backofcard.png" alt="Card Back" onclick="toggleToolDeck()" />
+          <img class="fly-card-r ft-1" src="images/per.png"   alt="Tool Card 1" />
+          <img class="fly-card-r ft-2" src="images/pro.png"   alt="Tool Card 2" />
+          <img class="fly-card-r ft-3" src="images/scope.png" alt="Tool Card 3" />
+          <img class="fly-card-r ft-4" src="images/syst.png"  alt="Tool Card 4" />
+        </div>
+
         <script>
           function toggleDeck() {
             const deck = document.getElementById('cardDeck');
+            if (deck.classList.contains('open')) {
+              deck.classList.add('closing');
+              deck.classList.remove('open');
+              setTimeout(() => deck.classList.remove('closing'), 800);
+            } else {
+              deck.classList.remove('closing');
+              deck.classList.add('open');
+            }
+          }
+          function toggleToolDeck() {
+            const deck = document.getElementById('toolDeck');
             if (deck.classList.contains('open')) {
               deck.classList.add('closing');
               deck.classList.remove('open');
