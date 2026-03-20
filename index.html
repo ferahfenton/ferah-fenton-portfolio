@@ -767,7 +767,7 @@
       <p class="panel-label">✦ Just for Fun</p>
       <h2 class="panel-title">passion projects</h2>
       <div class="passion-grid">
-        <a class="project-card" href="#">
+        <a class="project-card" href="javascript:void(0)" onclick="openProject('graphicdesign')">
           <div class="project-thumb" style="background:#E8A838;"></div>
           <div class="project-body"><h3>Graphic Design</h3><p>Creating digital compositions using upcycled and original images, designing original posters, and producing custom digital graphics.</p></div>
         </a>
@@ -1955,6 +1955,96 @@
     <div class="lup-footer">
       <p>Ferah Fenton · 2025 · Concept Project</p>
       <button class="lup-back" onclick="closeProject()">← Back to Portfolio</button>
+    </div>
+
+  </section>
+
+  <!-- PROJECT: GRAPHIC DESIGN -->
+  <section class="panel proj-panel" id="proj-graphicdesign" style="display:none; background:#F7EDD8; flex-direction:column; align-items:stretch; justify-content:flex-start; overflow-y:auto; position:fixed; inset:0; z-index:500;">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+      .gd-nav {
+        width:100%; padding:22px 56px;
+        display:flex; align-items:center; justify-content:space-between;
+        position:sticky; top:0; z-index:9999;
+        background:rgba(247,237,216,0.92); backdrop-filter:blur(12px);
+        box-sizing:border-box; border-bottom:1px solid rgba(0,0,0,0.07);
+      }
+      .gd-back {
+        font-family:'DM Sans',sans-serif; font-size:0.88rem; font-weight:500;
+        color:rgba(0,0,0,0.45); background:none; border:none; cursor:pointer;
+        letter-spacing:0.03em; transition:color 0.2s;
+      }
+      .gd-back:hover { color:#C93535; }
+      .gd-nav-title {
+        font-family:'Fraunces',serif; font-size:0.95rem; font-weight:400;
+        color:rgba(0,0,0,0.35); letter-spacing:0.04em;
+      }
+      .gd-pg { padding-left:56px; padding-right:56px; box-sizing:border-box; }
+      .gd-hero {
+        display:grid; grid-template-columns:1fr 1.4fr;
+        gap:60px; align-items:flex-start;
+        padding-top:70px; padding-bottom:60px;
+      }
+      .gd-hero h1 {
+        font-family:'Fraunces',serif; font-size:clamp(3rem,6vw,5.5rem);
+        font-weight:700; line-height:1.05; color:#1a1a1a;
+        text-transform:uppercase; margin-bottom:24px;
+      }
+      .gd-hero h1 span { color:#C93535; }
+      .gd-tagline {
+        font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:300;
+        color:rgba(0,0,0,0.55); line-height:1.8; margin-bottom:32px;
+      }
+      .gd-label {
+        font-family:'DM Sans',sans-serif; font-size:0.68rem; font-weight:600;
+        color:#C93535; text-transform:uppercase; letter-spacing:3px; margin-bottom:10px;
+      }
+      .gd-section {
+        padding-top:60px; padding-bottom:60px;
+        border-top:1px solid rgba(0,0,0,0.08);
+      }
+      .gd-section h2 {
+        font-family:'Fraunces',serif; font-size:clamp(1.8rem,3vw,2.8rem);
+        font-weight:700; color:#1a1a1a; text-transform:uppercase;
+        margin-bottom:16px;
+      }
+      .gd-section h2 span { color:#C93535; }
+      .gd-section p {
+        font-family:'DM Sans',sans-serif; font-size:0.97rem; font-weight:300;
+        color:rgba(0,0,0,0.55); line-height:1.85;
+      }
+      .gd-footer {
+        padding:32px 56px; display:flex; align-items:center;
+        justify-content:space-between; border-top:1px solid rgba(0,0,0,0.08);
+        font-family:'DM Sans',sans-serif; font-size:0.8rem; color:rgba(0,0,0,0.3);
+      }
+    </style>
+
+    <!-- nav -->
+    <div class="gd-nav">
+      <button class="gd-back" onclick="closeProject()">← Back to Portfolio</button>
+      <span class="gd-nav-title">Graphic Design</span>
+      <span style="width:120px;"></span>
+    </div>
+
+    <!-- hero -->
+    <div class="gd-hero gd-pg">
+      <div>
+        <p class="gd-label">Passion Project</p>
+        <h1>Graphic<br><span>Design</span></h1>
+        <p class="gd-tagline">Creating digital compositions using upcycled and original images, designing original posters, and producing custom digital graphics.</p>
+      </div>
+      <div style="display:flex; align-items:flex-start; justify-content:center;">
+        <div style="width:100%; background:rgba(0,0,0,0.06); border-radius:20px; aspect-ratio:4/5; display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:'DM Sans',sans-serif; font-size:0.8rem; color:rgba(0,0,0,0.3);">image coming soon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="gd-footer gd-pg">
+      <p>Ferah Fenton · Passion Project</p>
+      <button class="gd-back" onclick="closeProject()">← Back to Portfolio</button>
     </div>
 
   </section>
