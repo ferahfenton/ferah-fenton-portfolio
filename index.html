@@ -1592,55 +1592,26 @@
         <img id="insback"  src="images/insback.png"  alt="Instructions Back"  style="width:100%; border-radius:16px; display:block; margin-top:20px;" />
 
         <script>
-          function dimIns(dim) {
+          function toggleAnyDeck(deckId) {
+            var deck = document.getElementById(deckId);
             var f = document.getElementById('insfront');
             var b = document.getElementById('insback');
-            var val = dim ? '0.5' : '1';
-            if (f) { f.style.transition = 'opacity 0.4s ease'; f.style.opacity = val; }
-            if (b) { b.style.transition = 'opacity 0.4s ease'; b.style.opacity = val; }
-          }
-          function anyDeckOpen() {
-            return ['cardDeck','toolDeck','challengeDeck'].some(function(id){
-              var el = document.getElementById(id);
-              return el && el.classList.contains('open');
-            });
-          }
-          function toggleDeck() {
-            var deck = document.getElementById('cardDeck');
             if (deck.classList.contains('open')) {
               deck.classList.add('closing');
               deck.classList.remove('open');
-              setTimeout(function(){ deck.classList.remove('closing'); if (!anyDeckOpen()) dimIns(false); }, 800);
+              if (f) { f.style.transition='opacity 0.4s ease'; f.style.opacity='1'; }
+              if (b) { b.style.transition='opacity 0.4s ease'; b.style.opacity='1'; }
+              setTimeout(function(){ deck.classList.remove('closing'); }, 800);
             } else {
               deck.classList.remove('closing');
               deck.classList.add('open');
-              dimIns(true);
+              if (f) { f.style.transition='opacity 0.4s ease'; f.style.opacity='0.5'; }
+              if (b) { b.style.transition='opacity 0.4s ease'; b.style.opacity='0.5'; }
             }
           }
-          function toggleToolDeck() {
-            var deck = document.getElementById('toolDeck');
-            if (deck.classList.contains('open')) {
-              deck.classList.add('closing');
-              deck.classList.remove('open');
-              setTimeout(function(){ deck.classList.remove('closing'); if (!anyDeckOpen()) dimIns(false); }, 800);
-            } else {
-              deck.classList.remove('closing');
-              deck.classList.add('open');
-              dimIns(true);
-            }
-          }
-          function toggleChallengeDeck() {
-            var deck = document.getElementById('challengeDeck');
-            if (deck.classList.contains('open')) {
-              deck.classList.add('closing');
-              deck.classList.remove('open');
-              setTimeout(function(){ deck.classList.remove('closing'); if (!anyDeckOpen()) dimIns(false); }, 900);
-            } else {
-              deck.classList.remove('closing');
-              deck.classList.add('open');
-              dimIns(true);
-            }
-          }
+          function toggleDeck()          { toggleAnyDeck('cardDeck'); }
+          function toggleToolDeck()      { toggleAnyDeck('toolDeck'); }
+          function toggleChallengeDeck() { toggleAnyDeck('challengeDeck'); }
         </script>
       </div>
     </div>
