@@ -1589,10 +1589,16 @@
         <p style="font-family:'Fugaz One',cursive; font-size:1.15rem; text-transform:uppercase; color:white; margin-top:48px; margin-bottom:20px; letter-spacing:0.03em;">
           SERVICE DESIGN UNO <span style="color:#F04924; font-size:inherit; font-family:inherit;">INSTRUCTIONS</span>
         </p>
-        <img src="images/insfront.png" alt="Instructions Front" style="width:100%; border-radius:16px; display:block;" />
-        <img src="images/insback.png"  alt="Instructions Back"  style="width:100%; border-radius:16px; display:block; margin-top:20px;" />
+        <img id="insfront" src="images/insfront.png" alt="Instructions Front" style="width:100%; border-radius:16px; display:block; transition: opacity 0.4s ease;" />
+        <img id="insback"  src="images/insback.png"  alt="Instructions Back"  style="width:100%; border-radius:16px; display:block; margin-top:20px; transition: opacity 0.4s ease;" />
 
         <script>
+          function updateInsOpacity() {
+            const anyOpen = ['cardDeck','toolDeck','challengeDeck'].some(id => document.getElementById(id).classList.contains('open'));
+            const opacity = anyOpen ? '0.5' : '1';
+            document.getElementById('insfront').style.opacity = opacity;
+            document.getElementById('insback').style.opacity  = opacity;
+          }
           function toggleDeck() {
             const deck = document.getElementById('cardDeck');
             if (deck.classList.contains('open')) {
@@ -1603,6 +1609,7 @@
               deck.classList.remove('closing');
               deck.classList.add('open');
             }
+            updateInsOpacity();
           }
           function toggleToolDeck() {
             const deck = document.getElementById('toolDeck');
@@ -1614,6 +1621,7 @@
               deck.classList.remove('closing');
               deck.classList.add('open');
             }
+            updateInsOpacity();
           }
           function toggleChallengeDeck() {
             const deck = document.getElementById('challengeDeck');
@@ -1625,6 +1633,7 @@
               deck.classList.remove('closing');
               deck.classList.add('open');
             }
+            updateInsOpacity();
           }
         </script>
       </div>
