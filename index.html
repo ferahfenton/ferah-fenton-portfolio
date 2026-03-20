@@ -723,9 +723,9 @@
           <div class="project-thumb pt-b"></div>
           <div class="project-body"><p class="project-tag">Product Design · Card Game · Educational</p><h3>Service Design Uno</h3><p>An educational card game that teaches service design principles — built for 3–8 players in 30–45 minutes.</p></div>
         </a>
-        <a class="project-card" href="#">
-          <div class="project-thumb pt-g">🎥</div>
-          <div class="project-body"><p class="project-tag">Motion / Video</p><h3>Project Three</h3><p>A video campaign bringing a brand story to life in Premiere Pro.</p></div>
+        <a class="project-card loadup-card" href="javascript:void(0)" onclick="openProject('loadup')">
+          <div class="project-thumb" style="background:#63A7CD;"></div>
+          <div class="project-body"><p class="project-tag">UX Design · Mobile App · Team Project</p><h3>LoadUP!</h3><p>A mobile platform solving shared laundry frustrations in student housing — live availability, virtual queues & digital payment.</p></div>
         </a>
         <a class="project-card" href="#">
           <div class="project-thumb pt-b">🌐</div>
@@ -1663,6 +1663,211 @@
     <div class="sdu-footer sdu-pg">
       <p>Ferah Fenton · 2025 · Team Project</p>
       <button class="sdu-back" onclick="closeProject()">← Back to Portfolio</button>
+    </div>
+
+  </section>
+
+  <!-- PROJECT: LOADUP -->
+  <section class="panel proj-panel" id="proj-loadup" style="display:none; background:#345B72; flex-direction:column; align-items:flex-start; justify-content:flex-start; overflow-y:auto; position:fixed; inset:0; z-index:500;">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Cuprum:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      .lup-pg { padding-left: 56px; padding-right: 56px; width: 100%; box-sizing: border-box; }
+      .lup-nav {
+        width: 100%; padding: 22px 56px;
+        display: flex; align-items: center; justify-content: space-between;
+        position: sticky; top: 0; z-index: 9999;
+        background: rgba(52,91,114,0.92); backdrop-filter: blur(12px);
+        box-sizing: border-box;
+      }
+      .lup-back {
+        font-family: 'Cuprum', sans-serif; font-size: 0.9rem; font-weight: 500;
+        color: rgba(255,255,255,0.6); background: none; border: none; cursor: pointer;
+        letter-spacing: 0.04em; transition: color 0.2s;
+      }
+      .lup-back:hover { color: white; }
+      .lup-nav-title {
+        font-family: 'Lilita One', cursive; font-size: 0.85rem;
+        color: rgba(255,255,255,0.35); letter-spacing: 0.06em; text-transform: uppercase;
+      }
+      .lup-hero {
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 56px; align-items: flex-start;
+        padding: 64px 56px 48px; box-sizing: border-box;
+      }
+      .lup-hero h1 {
+        font-family: 'Lilita One', cursive;
+        font-size: clamp(2.8rem, 6vw, 5rem);
+        color: white; line-height: 1.05;
+        margin-bottom: 20px;
+      }
+      .lup-hero h1 span { color: #63A7CD; }
+      .lup-tagline {
+        font-family: 'Cuprum', sans-serif; font-size: 1rem;
+        font-weight: 400; color: rgba(255,255,255,0.6);
+        line-height: 1.8; margin-bottom: 28px;
+      }
+      .lup-tag-pill {
+        display: inline-block; padding: 6px 14px;
+        border-radius: 999px; font-family: 'Cuprum', sans-serif;
+        font-size: 0.78rem; font-weight: 600;
+        background: white; margin: 4px 4px 4px 0;
+        letter-spacing: 0.03em;
+      }
+      .lup-pill-1 { color: #345B72; border: 2px solid #345B72; }
+      .lup-pill-2 { color: #63A7CD; border: 2px solid #63A7CD; }
+      .lup-pill-3 { color: #AEAEAE; border: 2px solid #AEAEAE; }
+      .lup-pill-4 { color: #888;    border: 2px solid #888; }
+      .lup-section {
+        padding: 48px 56px; border-top: 1px solid rgba(255,255,255,0.08);
+        box-sizing: border-box;
+      }
+      .lup-label {
+        font-family: 'Cuprum', sans-serif; font-size: 0.7rem;
+        font-weight: 600; color: rgba(255,255,255,0.25);
+        text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px;
+      }
+      .lup-section h2 {
+        font-family: 'Lilita One', cursive;
+        font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+        color: white; margin-bottom: 18px;
+      }
+      .lup-section h2 span { color: #63A7CD; }
+      .lup-section p {
+        font-family: 'Cuprum', sans-serif; font-size: 1rem;
+        font-weight: 400; color: rgba(255,255,255,0.6); line-height: 1.85;
+      }
+      .lup-stat-card {
+        background: rgba(99,167,205,0.1); border: 1px solid rgba(99,167,205,0.3);
+        border-radius: 12px; padding: 16px 22px; text-align: center;
+      }
+      .lup-stat-label {
+        font-family: 'Cuprum', sans-serif; font-size: 0.62rem; font-weight: 600;
+        color: #63A7CD; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px;
+      }
+      .lup-stat-value {
+        font-family: 'Lilita One', cursive; color: white; font-size: 1.1rem;
+      }
+      .lup-feature-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px;
+      }
+      .lup-feature-card {
+        background: rgba(99,167,205,0.08); border: 1px solid rgba(99,167,205,0.2);
+        border-radius: 16px; padding: 28px 24px;
+      }
+      .lup-feature-num {
+        font-family: 'Lilita One', cursive; font-size: 2rem; color: #63A7CD;
+        margin-bottom: 12px; line-height: 1;
+      }
+      .lup-feature-title {
+        font-family: 'Lilita One', cursive; font-size: 1.1rem; color: white;
+        margin-bottom: 10px;
+      }
+      .lup-feature-desc {
+        font-family: 'Cuprum', sans-serif; font-size: 0.93rem;
+        color: rgba(255,255,255,0.55); line-height: 1.7;
+      }
+      .lup-footer {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 32px 56px; border-top: 1px solid rgba(255,255,255,0.07);
+        font-family: 'Cuprum', sans-serif; font-size: 0.82rem;
+        color: rgba(255,255,255,0.2); box-sizing: border-box;
+      }
+    </style>
+
+    <!-- sticky nav -->
+    <div class="lup-nav">
+      <button class="lup-back" onclick="closeProject()">← Back to Portfolio</button>
+      <span class="lup-nav-title">LoadUP! — 2025</span>
+      <span style="width:120px"></span>
+    </div>
+
+    <!-- hero -->
+    <div class="lup-hero">
+      <div>
+        <h1>LOAD<span>UP!</span></h1>
+        <p class="lup-tagline">A mobile platform designed to solve the frustrations of shared laundry in student housing — real-time availability, virtual queues, and seamless digital payment.</p>
+        <div>
+          <span class="lup-tag-pill lup-pill-1">UX Design</span>
+          <span class="lup-tag-pill lup-pill-2">Mobile App</span>
+          <span class="lup-tag-pill lup-pill-3">Team Project</span>
+          <span class="lup-tag-pill lup-pill-4">Prototype</span>
+        </div>
+
+        <!-- overview inline -->
+        <div style="margin-top:48px; border-top:1px solid rgba(255,255,255,0.07); padding-top:40px;">
+          <p class="lup-label">Overview</p>
+          <h2 style="font-family:'Lilita One',cursive; font-size:clamp(1.4rem,2.5vw,2rem); color:white; margin-bottom:14px;">The <span style="color:#63A7CD;">Problem</span></h2>
+          <p style="font-family:'Cuprum',sans-serif; font-size:1rem; color:rgba(255,255,255,0.6); line-height:1.85; margin-bottom:28px;">Students in shared housing constantly face the same frustrations — walking to the laundry room only to find every machine occupied, waiting with no sense of how long a cycle has left, and scrambling for coins or dealing with unreliable card readers. LoadUP was designed to eliminate all three pain points in one seamless app.</p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <div class="lup-stat-card"><div class="lup-stat-label">Team Size</div><div class="lup-stat-value">4 People</div></div>
+            <div class="lup-stat-card"><div class="lup-stat-label">Type</div><div class="lup-stat-value">Mobile App</div></div>
+            <div class="lup-stat-card"><div class="lup-stat-label">Stage</div><div class="lup-stat-value">Prototype</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- right: placeholder for app mockup -->
+      <div style="display:flex; align-items:flex-start; justify-content:center;">
+        <div style="width:100%; min-height:400px; background:rgba(99,167,205,0.08); border:2px dashed rgba(99,167,205,0.25); border-radius:20px; display:flex; align-items:center; justify-content:center;">
+          <p style="font-family:'Cuprum',sans-serif; color:rgba(255,255,255,0.2); font-size:0.9rem; text-align:center;">App mockup coming soon</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- core features -->
+    <div class="lup-section lup-pg">
+      <p class="lup-label">Solution</p>
+      <h2>Core <span>Features</span></h2>
+      <p>LoadUP's solution focuses on three core features that directly address the pain points identified through user research and validated by surveys and interviews with students in shared housing.</p>
+      <div class="lup-feature-grid">
+        <div class="lup-feature-card">
+          <div class="lup-feature-num">01</div>
+          <div class="lup-feature-title">Live Visibility</div>
+          <div class="lup-feature-desc">Real-time machine status including cycle times — so students always know what's available before leaving their room.</div>
+        </div>
+        <div class="lup-feature-card">
+          <div class="lup-feature-num">02</div>
+          <div class="lup-feature-title">Virtual Queue</div>
+          <div class="lup-feature-desc">Reserve a spot in line without standing in the laundry room. Push notifications alert you when your machine is ready.</div>
+        </div>
+        <div class="lup-feature-card">
+          <div class="lup-feature-num">03</div>
+          <div class="lup-feature-title">Digital Payment</div>
+          <div class="lup-feature-desc">Integrated payment methods eliminate coins and finicky card readers — a Reserve & Pay workflow that locks machines for users.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- research & persona -->
+    <div class="lup-section lup-pg">
+      <p class="lup-label">Research</p>
+      <h2>Meet <span>Luke</span></h2>
+      <p>To ground our design decisions, we validated our research with surveys and interviews, then developed a primary persona — Luke, a busy second-year student who values efficiency and predictable routines. Luke hates uncertainty. He just wants to know when a machine is free, reserve it, and move on with his day.</p>
+    </div>
+
+    <!-- design principles -->
+    <div class="lup-section lup-pg">
+      <p class="lup-label">Design Approach</p>
+      <h2>Useful, Usable, <span>Desirable</span></h2>
+      <p>Throughout the design process, we applied three core principles to every decision:</p>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:28px;">
+        <div class="lup-feature-card">
+          <div class="lup-feature-title" style="color:#63A7CD;">Useful</div>
+          <div class="lup-feature-desc">Solving the core problem — students need to know machine availability without physically checking.</div>
+        </div>
+        <div class="lup-feature-card">
+          <div class="lup-feature-title" style="color:#63A7CD;">Usable</div>
+          <div class="lup-feature-desc">Providing clear feedback — intuitive dashboard, status indicators, and queue system that anyone can pick up instantly.</div>
+        </div>
+        <div class="lup-feature-card">
+          <div class="lup-feature-title" style="color:#63A7CD;">Desirable</div>
+          <div class="lup-feature-desc">Creating an emotionally pleasant experience — turning a frustrating chore into something efficient and stress-free.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lup-footer">
+      <p>Ferah Fenton · 2025 · Team Project</p>
+      <button class="lup-back" onclick="closeProject()">← Back to Portfolio</button>
     </div>
 
   </section>
