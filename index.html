@@ -445,6 +445,19 @@
     pointer-events: none;
   }
   .gum-card:hover .gum-card-hover-img { opacity: 1; }
+  .sdu-card { position: relative; }
+  .sdu-card-hover-img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .sdu-card:hover .sdu-card-hover-img { opacity: 1; }
 
   .project-thumb {
     height: 80px;
@@ -705,9 +718,10 @@
           <div class="project-thumb pt-r" style="background:#1a1a1a; font-size:2rem;">5</div>
           <div class="project-body"><p class="project-tag">Brand Identity · Packaging · Social</p><h3>5Gum Rebrand</h3><p>Reimagining 5Gum as a sensory-first experience — flavour you can see, feel &amp; interact with.</p></div>
         </a>
-        <a class="project-card" href="javascript:void(0)" onclick="openProject('serviceuno')">
+        <a class="project-card sdu-card" href="javascript:void(0)" onclick="openProject('serviceuno')">
+          <img class="sdu-card-hover-img" src="images/servicedesigncard.png" alt="" />
           <div class="project-thumb pt-b"></div>
-          <div class="project-body"><p class="project-tag">Product Design · Card Game · Service Design</p><h3>Service Design Uno</h3><p>An educational card game that teaches service design principles — built for 3–8 players in 30–45 minutes.</p></div>
+          <div class="project-body"><p class="project-tag">Product Design · Card Game · Educational</p><h3>Service Design Uno</h3><p>An educational card game that teaches service design principles — built for 3–8 players in 30–45 minutes.</p></div>
         </a>
         <a class="project-card" href="#">
           <div class="project-thumb pt-g">🎥</div>
