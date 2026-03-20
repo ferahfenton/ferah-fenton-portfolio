@@ -1235,15 +1235,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito+Sans:wght@300;400;600&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
       .sdu-pg { font-family: 'Nunito Sans', sans-serif; }
-      #proj-serviceuno.deck-open #insfront,
-      #proj-serviceuno.deck-open #insback {
-        opacity: 0.5 !important;
-        transition: opacity 0.4s ease;
-      }
-      #proj-serviceuno #insfront,
-      #proj-serviceuno #insback {
-        transition: opacity 0.4s ease;
-      }
       .sdu-nav {
         width: 100%; padding: 22px 56px;
         display: flex; align-items: center; justify-content: space-between;
@@ -1602,49 +1593,54 @@
         <img id="insback"  src="images/insback.png"  alt="Instructions Back"  style="width:100%; border-radius:16px; display:block; margin-top:20px;" />
 
         <script>
-          function syncDeckOpen() {
-            var sec = document.getElementById('proj-serviceuno');
-            var anyOpen = ['cardDeck','toolDeck','challengeDeck'].some(function(id){
+          function dimIns(dim) {
+            var f = document.getElementById('insfront');
+            var b = document.getElementById('insback');
+            var val = dim ? '0.5' : '1';
+            if (f) { f.style.transition = 'opacity 0.4s ease'; f.style.opacity = val; }
+            if (b) { b.style.transition = 'opacity 0.4s ease'; b.style.opacity = val; }
+          }
+          function anyDeckOpen() {
+            return ['cardDeck','toolDeck','challengeDeck'].some(function(id){
               var el = document.getElementById(id);
               return el && el.classList.contains('open');
             });
-            sec.classList.toggle('deck-open', anyOpen);
           }
           function toggleDeck() {
             var deck = document.getElementById('cardDeck');
             if (deck.classList.contains('open')) {
               deck.classList.add('closing');
               deck.classList.remove('open');
-              setTimeout(function(){ deck.classList.remove('closing'); syncDeckOpen(); }, 800);
+              setTimeout(function(){ deck.classList.remove('closing'); if (!anyDeckOpen()) dimIns(false); }, 800);
             } else {
               deck.classList.remove('closing');
               deck.classList.add('open');
+              dimIns(true);
             }
-            syncDeckOpen();
           }
           function toggleToolDeck() {
             var deck = document.getElementById('toolDeck');
             if (deck.classList.contains('open')) {
               deck.classList.add('closing');
               deck.classList.remove('open');
-              setTimeout(function(){ deck.classList.remove('closing'); syncDeckOpen(); }, 800);
+              setTimeout(function(){ deck.classList.remove('closing'); if (!anyDeckOpen()) dimIns(false); }, 800);
             } else {
               deck.classList.remove('closing');
               deck.classList.add('open');
+              dimIns(true);
             }
-            syncDeckOpen();
           }
           function toggleChallengeDeck() {
             var deck = document.getElementById('challengeDeck');
             if (deck.classList.contains('open')) {
               deck.classList.add('closing');
               deck.classList.remove('open');
-              setTimeout(function(){ deck.classList.remove('closing'); syncDeckOpen(); }, 900);
+              setTimeout(function(){ deck.classList.remove('closing'); if (!anyDeckOpen()) dimIns(false); }, 900);
             } else {
               deck.classList.remove('closing');
               deck.classList.add('open');
+              dimIns(true);
             }
-            syncDeckOpen();
           }
         </script>
       </div>
