@@ -2078,17 +2078,48 @@
 
     <!-- section 4 -->
     <div class="gd-section gd-pg">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:flex-start;">
         <div>
           <p class="gd-label">04</p>
-          <h2 style="font-family:'Risque',cursive; font-size:clamp(1.6rem,2.5vw,2.4rem); color:#ffffff; text-transform:uppercase; margin-bottom:14px;">Title <span style="color:#C93535;">Four</span></h2>
-          <p style="font-family:'DM Sans',sans-serif; font-size:0.97rem; font-weight:300; color:#7A4500; line-height:1.85;">Description for this piece goes here — tell the story behind it, the tools used, or what inspired it.</p>
+          <h2 style="font-family:'Risque',cursive; font-size:clamp(1.6rem,2.5vw,2.4rem); color:#ffffff; text-transform:uppercase; margin-bottom:14px;">What Does Design <span style="color:#C93535;">Mean</span>?</h2>
+          <p id="gd4-desc" style="font-family:'DM Sans',sans-serif; font-size:0.97rem; font-weight:300; color:#7A4500; line-height:1.85;">Click one</p>
         </div>
-        <div style="background:rgba(0,0,0,0.08); border-radius:16px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;">
-          <span style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:rgba(0,0,0,0.3);">image coming soon</span>
+        <div>
+          <!-- 2x2 grid -->
+          <div id="gd4-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <img class="gd4-thumb" src="images/poster1.jpeg" alt="Poster 1" onclick="expandGD4(0)" style="width:100%; border-radius:12px; cursor:pointer; display:block; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" />
+            <img class="gd4-thumb" src="images/poster2.jpeg" alt="Poster 2" onclick="expandGD4(1)" style="width:100%; border-radius:12px; cursor:pointer; display:block; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" />
+            <img class="gd4-thumb" src="images/poster3.jpeg" alt="Poster 3" onclick="expandGD4(2)" style="width:100%; border-radius:12px; cursor:pointer; display:block; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" />
+            <img class="gd4-thumb" src="images/poster4.jpeg" alt="Poster 4" onclick="expandGD4(3)" style="width:100%; border-radius:12px; cursor:pointer; display:block; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" />
+          </div>
+          <!-- expanded single image -->
+          <div id="gd4-expanded" style="display:none;">
+            <img id="gd4-big" src="" alt="" onclick="collapseGD4()" style="width:100%; border-radius:16px; cursor:pointer; display:block;" />
+            <p style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:#7A4500; margin-top:8px; text-align:center;">Click image to go back</p>
+          </div>
         </div>
       </div>
     </div>
+    <script>
+      var gd4Descs = [
+        'Description for poster 1 — add yours here.',
+        'Description for poster 2 — add yours here.',
+        'Description for poster 3 — add yours here.',
+        'Description for poster 4 — add yours here.'
+      ];
+      var gd4Srcs = ['images/poster1.jpeg','images/poster2.jpeg','images/poster3.jpeg','images/poster4.jpeg'];
+      function expandGD4(i) {
+        document.getElementById('gd4-grid').style.display = 'none';
+        document.getElementById('gd4-expanded').style.display = 'block';
+        document.getElementById('gd4-big').src = gd4Srcs[i];
+        document.getElementById('gd4-desc').textContent = gd4Descs[i];
+      }
+      function collapseGD4() {
+        document.getElementById('gd4-grid').style.display = 'grid';
+        document.getElementById('gd4-expanded').style.display = 'none';
+        document.getElementById('gd4-desc').textContent = 'Click one';
+      }
+    </script>
 
     <!-- section 5 -->
     <div class="gd-section gd-pg">
