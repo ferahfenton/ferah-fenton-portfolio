@@ -1499,6 +1499,84 @@
               <img class="fly-card-r ft-5" src="images/blu.png"   alt="Tool Card 5" />
               <img class="fly-card-r ft-6" src="images/feed.png"  alt="Tool Card 6" />
             </div>
+
+            <!-- challenge cards -->
+            <style>
+              .deck-scene-c {
+                margin-top: 28px;
+                position: relative;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                width: 100%;
+                height: 560px;
+              }
+              .back-trigger-c {
+                position: relative;
+                z-index: 10;
+                width: 155px;
+                border-radius: 10px;
+                cursor: pointer;
+                flex-shrink: 0;
+                transition: transform 0.2s ease;
+              }
+              .back-trigger-c:hover { transform: scale(1.04); }
+              .fly-card-c {
+                position: absolute;
+                left: 0; top: 0;
+                width: 115px;
+                border-radius: 10px;
+                opacity: 0;
+                transform: translate(0px, 0px);
+                pointer-events: none;
+                transition: transform 0.55s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;
+              }
+              /* Row 1 */
+              .deck-scene-c.open .cc-1  { transform: translate(170px,   0px); opacity:1; transition-delay:0s;     pointer-events:auto; }
+              .deck-scene-c.open .cc-2  { transform: translate(295px,   0px); opacity:1; transition-delay:0.05s;  pointer-events:auto; }
+              .deck-scene-c.open .cc-3  { transform: translate(420px,   0px); opacity:1; transition-delay:0.1s;   pointer-events:auto; }
+              .deck-scene-c.open .cc-4  { transform: translate(545px,   0px); opacity:1; transition-delay:0.15s;  pointer-events:auto; }
+              /* Row 2 */
+              .deck-scene-c.open .cc-5  { transform: translate(170px, 180px); opacity:1; transition-delay:0.2s;   pointer-events:auto; }
+              .deck-scene-c.open .cc-6  { transform: translate(295px, 180px); opacity:1; transition-delay:0.25s;  pointer-events:auto; }
+              .deck-scene-c.open .cc-7  { transform: translate(420px, 180px); opacity:1; transition-delay:0.3s;   pointer-events:auto; }
+              .deck-scene-c.open .cc-8  { transform: translate(545px, 180px); opacity:1; transition-delay:0.35s;  pointer-events:auto; }
+              /* Row 3 */
+              .deck-scene-c.open .cc-9  { transform: translate(170px, 360px); opacity:1; transition-delay:0.4s;   pointer-events:auto; }
+              .deck-scene-c.open .cc-10 { transform: translate(295px, 360px); opacity:1; transition-delay:0.45s;  pointer-events:auto; }
+              .deck-scene-c.open .cc-11 { transform: translate(420px, 360px); opacity:1; transition-delay:0.5s;   pointer-events:auto; }
+              .deck-scene-c.open .cc-12 { transform: translate(545px, 360px); opacity:1; transition-delay:0.55s;  pointer-events:auto; }
+              /* closing: reverse */
+              .deck-scene-c.closing .cc-12 { transition-delay:0s; }
+              .deck-scene-c.closing .cc-11 { transition-delay:0.05s; }
+              .deck-scene-c.closing .cc-10 { transition-delay:0.1s; }
+              .deck-scene-c.closing .cc-9  { transition-delay:0.15s; }
+              .deck-scene-c.closing .cc-8  { transition-delay:0.2s; }
+              .deck-scene-c.closing .cc-7  { transition-delay:0.25s; }
+              .deck-scene-c.closing .cc-6  { transition-delay:0.3s; }
+              .deck-scene-c.closing .cc-5  { transition-delay:0.35s; }
+              .deck-scene-c.closing .cc-4  { transition-delay:0.4s; }
+              .deck-scene-c.closing .cc-3  { transition-delay:0.45s; }
+              .deck-scene-c.closing .cc-2  { transition-delay:0.5s; }
+              .deck-scene-c.closing .cc-1  { transition-delay:0.55s; }
+            </style>
+
+            <p class="press-hint" style="margin-top:48px;">PRESS TO SEE <span style="color:#F04924; font-size:inherit; font-family:inherit;">CHALLENGE</span> CARDS! <span class="hint-arrow">↓</span></p>
+            <div class="deck-scene-c" id="challengeDeck">
+              <img class="back-trigger-c" src="images/backofcard.png" alt="Card Back" onclick="toggleChallengeDeck()" />
+              <img class="fly-card-c cc-1"  src="images/un.png"    alt="Challenge 1" />
+              <img class="fly-card-c cc-2"  src="images/bud.png"   alt="Challenge 2" />
+              <img class="fly-card-c cc-3"  src="images/bro.png"   alt="Challenge 3" />
+              <img class="fly-card-c cc-4"  src="images/silo.png"  alt="Challenge 4" />
+              <img class="fly-card-c cc-5"  src="images/ang.png"   alt="Challenge 5" />
+              <img class="fly-card-c cc-6"  src="images/unt.png"   alt="Challenge 6" />
+              <img class="fly-card-c cc-7"  src="images/lack.png"  alt="Challenge 7" />
+              <img class="fly-card-c cc-8"  src="images/leg.png"   alt="Challenge 8" />
+              <img class="fly-card-c cc-9"  src="images/ine.png"   alt="Challenge 9" />
+              <img class="fly-card-c cc-10" src="images/lim.png"   alt="Challenge 10" />
+              <img class="fly-card-c cc-11" src="images/com.png"   alt="Challenge 11" />
+              <img class="fly-card-c cc-12" src="images/short.png" alt="Challenge 12" />
+            </div>
           </div>
 
         </div>
@@ -1525,6 +1603,17 @@
               deck.classList.add('closing');
               deck.classList.remove('open');
               setTimeout(() => deck.classList.remove('closing'), 800);
+            } else {
+              deck.classList.remove('closing');
+              deck.classList.add('open');
+            }
+          }
+          function toggleChallengeDeck() {
+            const deck = document.getElementById('challengeDeck');
+            if (deck.classList.contains('open')) {
+              deck.classList.add('closing');
+              deck.classList.remove('open');
+              setTimeout(() => deck.classList.remove('closing'), 900);
             } else {
               deck.classList.remove('closing');
               deck.classList.add('open');
