@@ -1593,11 +1593,11 @@
         <img id="insback"  src="images/insback.png"  alt="Instructions Back"  style="width:100%; border-radius:16px; display:block; margin-top:20px; transition: opacity 0.4s ease;" />
 
         <script>
-          function updateInsOpacity() {
-            const anyOpen = ['cardDeck','toolDeck','challengeDeck'].some(id => document.getElementById(id).classList.contains('open'));
-            const opacity = anyOpen ? '0.5' : '1';
-            document.getElementById('insfront').style.opacity = opacity;
-            document.getElementById('insback').style.opacity  = opacity;
+          let openDeckCount = 0;
+          function setInsOpacity() {
+            const op = openDeckCount > 0 ? '0.5' : '1';
+            document.getElementById('insfront').style.opacity = op;
+            document.getElementById('insback').style.opacity  = op;
           }
           function toggleDeck() {
             const deck = document.getElementById('cardDeck');
@@ -1605,11 +1605,13 @@
               deck.classList.add('closing');
               deck.classList.remove('open');
               setTimeout(() => deck.classList.remove('closing'), 800);
+              openDeckCount--;
             } else {
               deck.classList.remove('closing');
               deck.classList.add('open');
+              openDeckCount++;
             }
-            updateInsOpacity();
+            setInsOpacity();
           }
           function toggleToolDeck() {
             const deck = document.getElementById('toolDeck');
@@ -1617,11 +1619,13 @@
               deck.classList.add('closing');
               deck.classList.remove('open');
               setTimeout(() => deck.classList.remove('closing'), 800);
+              openDeckCount--;
             } else {
               deck.classList.remove('closing');
               deck.classList.add('open');
+              openDeckCount++;
             }
-            updateInsOpacity();
+            setInsOpacity();
           }
           function toggleChallengeDeck() {
             const deck = document.getElementById('challengeDeck');
@@ -1629,11 +1633,13 @@
               deck.classList.add('closing');
               deck.classList.remove('open');
               setTimeout(() => deck.classList.remove('closing'), 900);
+              openDeckCount--;
             } else {
               deck.classList.remove('closing');
               deck.classList.add('open');
+              openDeckCount++;
             }
-            updateInsOpacity();
+            setInsOpacity();
           }
         </script>
       </div>
