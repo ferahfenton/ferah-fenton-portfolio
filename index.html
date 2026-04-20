@@ -86,6 +86,8 @@
   nav.dark-nav .nav-links a { color: #1a1a1a; }
   nav.lime-nav .nav-logo { color: #C9D763; }
   nav.lime-nav .nav-links a { color: #C9D763; }
+  nav.red-nav .nav-logo { color: #B80000; }
+  nav.red-nav .nav-links a { color: #B80000; }
 
   /* ── PANEL DOTS ── */
   #dot-nav {
@@ -2331,9 +2333,10 @@
     const i = Math.round(panels.scrollTop / window.innerHeight);
     dots.forEach((d, idx) => {
       d.classList.toggle('active', idx === i);
-      d.classList.toggle('dark', i === 3 || i === 5);
+      d.classList.toggle('dark', i === 5);
     });
-    navbar.classList.toggle('dark-nav', i === 3 || i === 5);
+    navbar.classList.toggle('dark-nav', i === 5);
+    navbar.classList.toggle('red-nav', i === 3);
     navbar.classList.toggle('lime-nav', i === 4);
   }, { passive: true });
 
