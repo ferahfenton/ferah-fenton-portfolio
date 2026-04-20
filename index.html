@@ -84,6 +84,8 @@
   .nav-links a:hover { opacity: 0.5; }
   nav.dark-nav .nav-logo { color: #1a1a1a; }
   nav.dark-nav .nav-links a { color: #1a1a1a; }
+  nav.lime-nav .nav-logo { color: #C9D763; }
+  nav.lime-nav .nav-links a { color: #C9D763; }
 
   /* ── PANEL DOTS ── */
   #dot-nav {
@@ -2329,9 +2331,10 @@
     const i = Math.round(panels.scrollTop / window.innerHeight);
     dots.forEach((d, idx) => {
       d.classList.toggle('active', idx === i);
-      d.classList.toggle('dark', i === 2 || i === 4);
+      d.classList.toggle('dark', i === 3 || i === 5);
     });
-    navbar.classList.toggle('dark-nav', i === 2 || i === 4);
+    navbar.classList.toggle('dark-nav', i === 3 || i === 5);
+    navbar.classList.toggle('lime-nav', i === 4);
   }, { passive: true });
 
   // Project panel open/close
