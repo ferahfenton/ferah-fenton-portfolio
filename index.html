@@ -405,6 +405,77 @@
     color: var(--red); margin-bottom: 6px;
   }
 
+  /* ── SHOWCASE CAROUSEL PANEL ── */
+  #p-showcase {
+    background: #1a1a1a;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    overflow: hidden;
+  }
+  .showcase-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 0 56px;
+    box-sizing: border-box;
+  }
+  .showcase-heading {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800;
+    color: #FFF5DD;
+    letter-spacing: -1px;
+    text-align: center;
+    line-height: 1.1;
+  }
+  .showcase-heading span {
+    color: var(--red);
+  }
+  .sc-carousel-outer {
+    overflow: hidden;
+    width: 100%;
+  }
+  .sc-carousel-wrap {
+    padding: 12px 0;
+  }
+  .sc-carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: sc-scroll 22s linear infinite;
+  }
+  .sc-carousel-wrap:hover .sc-carousel-track {
+    animation-play-state: paused;
+  }
+  .sc-carousel-item {
+    flex: 0 0 auto;
+    width: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: pointer;
+  }
+  .sc-carousel-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+    z-index: 2;
+  }
+  .sc-carousel-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+  }
+  @keyframes sc-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
   .panel-title {
     font-family: 'Manrope', sans-serif;
     font-size: clamp(2.2rem, 4vw, 3.5rem);
@@ -644,11 +715,11 @@
 <nav>
   <div class="nav-logo">fenton</div>
   <ul class="nav-links">
-    <li><a href="javascript:void(0)" onclick="goTo(1)">About</a></li>
-    <li><a href="javascript:void(0)" onclick="goTo(2)">Work</a></li>
-    <li><a href="javascript:void(0)" onclick="goTo(3)">Passion</a></li>
-    <li><a href="javascript:void(0)" onclick="goTo(4)">Skills</a></li>
-    <li><a href="javascript:void(0)" onclick="goTo(5)">Contact</a></li>
+    <li><a href="javascript:void(0)" onclick="goTo(2)">About</a></li>
+    <li><a href="javascript:void(0)" onclick="goTo(3)">Work</a></li>
+    <li><a href="javascript:void(0)" onclick="goTo(4)">Passion</a></li>
+    <li><a href="javascript:void(0)" onclick="goTo(5)">Skills</a></li>
+    <li><a href="javascript:void(0)" onclick="goTo(6)">Contact</a></li>
   </ul>
 </nav>
 
@@ -660,6 +731,7 @@
   <button class="dot" onclick="goTo(3)"></button>
   <button class="dot" onclick="goTo(4)"></button>
   <button class="dot" onclick="goTo(5)"></button>
+  <button class="dot" onclick="goTo(6)"></button>
 </div>
 
 <!-- PANEL 1: HERO -->
@@ -686,7 +758,33 @@
     </button>
   </section>
 
-  <!-- PANEL 2: ABOUT -->
+  <!-- PANEL 2: PROJECT SHOWCASE -->
+  <section class="panel" id="p-showcase">
+    <div class="showcase-inner">
+      <h2 class="showcase-heading">a look at my <span>work</span></h2>
+      <div class="sc-carousel-outer">
+        <div class="sc-carousel-wrap">
+          <div class="sc-carousel-track">
+            <div class="sc-carousel-item"><img src="images/5gum.png" alt="5Gum Rebrand" /></div>
+            <div class="sc-carousel-item"><img src="images/loadup.png" alt="LoadUP" /></div>
+            <div class="sc-carousel-item"><img src="images/sdcover.png" alt="Service Design Uno" /></div>
+            <div class="sc-carousel-item"><img src="images/magazine.png" alt="Magazine" /></div>
+            <div class="sc-carousel-item"><img src="images/designercover.png" alt="Designer Cover" /></div>
+            <div class="sc-carousel-item"><img src="images/mealmap.png" alt="Meal Map" /></div>
+            <!-- duplicated for seamless loop -->
+            <div class="sc-carousel-item"><img src="images/5gum.png" alt="5Gum Rebrand" /></div>
+            <div class="sc-carousel-item"><img src="images/loadup.png" alt="LoadUP" /></div>
+            <div class="sc-carousel-item"><img src="images/sdcover.png" alt="Service Design Uno" /></div>
+            <div class="sc-carousel-item"><img src="images/magazine.png" alt="Magazine" /></div>
+            <div class="sc-carousel-item"><img src="images/designercover.png" alt="Designer Cover" /></div>
+            <div class="sc-carousel-item"><img src="images/mealmap.png" alt="Meal Map" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL 3: ABOUT -->
   <section class="panel" id="p-about">
     <div class="about-inner">
 
@@ -698,7 +796,7 @@
           <span class="chip cy">Brand Strategy</span>
           <span class="chip cy">Marketing</span>
           <span class="chip cy">Product Design</span>
-          <a href="javascript:void(0)" onclick="goTo(4)" class="chip-unlock">unlock more of my skills →</a>
+          <a href="javascript:void(0)" onclick="goTo(5)" class="chip-unlock">unlock more of my skills →</a>
         </div>
       </div>
 
