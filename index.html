@@ -2364,7 +2364,7 @@
     const i = Math.round(panels.scrollTop / window.innerHeight);
     dots.forEach((d, idx) => {
       d.classList.toggle('active', idx === i);
-      d.classList.toggle('dark', i === 5);
+      d.classList.toggle('dark', i === 3 || i === 5);
     });
     navbar.classList.toggle('dark-nav', i === 5);
     navbar.classList.toggle('red-nav', i === 3);
