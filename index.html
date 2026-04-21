@@ -546,6 +546,32 @@
     pointer-events: none;
   }
   .loadup-card:hover .loadup-card-hover-img { opacity: 1; }
+  .mealmap-card { position: relative; }
+  .mealmap-card-hover-img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .mealmap-card:hover .mealmap-card-hover-img { opacity: 1; }
+  .magazine-card { position: relative; }
+  .magazine-card-hover-img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .magazine-card:hover .magazine-card-hover-img { opacity: 1; }
 
   .project-thumb {
     height: 80px;
@@ -923,11 +949,13 @@
           <div class="project-thumb" style="background:#63A7CD;"></div>
           <div class="project-body"><p class="project-tag">UX Design · Mobile App · Prototype</p><h3>LoadUP!</h3><p>A mobile platform solving shared laundry frustrations in student housing — live availability, virtual queues & digital payment.</p></div>
         </a>
-        <a class="project-card" href="#">
+        <a class="project-card mealmap-card" href="#">
+          <img class="mealmap-card-hover-img" src="images/mealmapcard.png" alt="" />
           <div class="project-thumb" style="background:#A2C496;"></div>
           <div class="project-body"><p class="project-tag">UX Design · Mobile App · Prototype</p><h3>Meal Map</h3><p>A prototype app helping students navigate university cafeterias safely through a standardized, reliable system for allergy communication, management, and education.</p></div>
         </a>
-        <a class="project-card" href="#">
+        <a class="project-card magazine-card" href="#">
+          <img class="magazine-card-hover-img" src="images/magazinecard.png" alt="" />
           <div class="project-thumb" style="background:#614A36;"></div>
           <div class="project-body"><p class="project-tag">Editorial Design · GBDA Magazine</p><h3>Pattern Magazine</h3><p>This editorial magazine explores the quiet beauty of patterns woven into everyday life, turning overlooked objects into something intentional and visually striking.</p></div>
         </a>
