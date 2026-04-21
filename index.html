@@ -949,7 +949,7 @@
           <div class="project-thumb" style="background:#63A7CD;"></div>
           <div class="project-body"><p class="project-tag">UX Design · Mobile App · Prototype</p><h3>LoadUP!</h3><p>A mobile platform solving shared laundry frustrations in student housing — live availability, virtual queues & digital payment.</p></div>
         </a>
-        <a class="project-card mealmap-card" href="#">
+        <a class="project-card mealmap-card" href="javascript:void(0)" onclick="openProject('mealmap')"
           <img class="mealmap-card-hover-img" src="images/mealmapcard.png" alt="" />
           <div class="project-thumb" style="background:#A2C496;"></div>
           <div class="project-body"><p class="project-tag">UX Design · Mobile App · Prototype</p><h3>Meal Map</h3><p>A prototype app helping students navigate university cafeterias safely through a standardized, reliable system for allergy communication, management, and education.</p></div>
@@ -2161,6 +2161,189 @@
     <div class="lup-footer">
       <p>Ferah Fenton · 2025 · Design Project</p>
       <button class="lup-back" onclick="closeProject()">← Back to Portfolio</button>
+    </div>
+
+  </section>
+
+  <!-- PROJECT: MEAL MAP -->
+  <section class="panel proj-panel" id="proj-mealmap" style="display:none; background:#729466; flex-direction:column; align-items:flex-start; justify-content:flex-start; overflow-y:auto; position:fixed; inset:0; z-index:500;">
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Coda:wght@400;800&display=swap" rel="stylesheet">
+    <style>
+      .mm-pg { padding-left: 56px; padding-right: 56px; width: 100%; box-sizing: border-box; }
+      .mm-nav {
+        width: 100%; padding: 22px 56px;
+        display: flex; align-items: center; justify-content: space-between;
+        position: sticky; top: 0; z-index: 9999;
+        background: rgba(114,148,102,0.92); backdrop-filter: blur(12px);
+        box-sizing: border-box;
+      }
+      .mm-back {
+        font-family: 'Coda', cursive; font-size: 0.9rem; font-weight: 800;
+        color: rgba(255,255,255,0.6); background: none; border: none; cursor: pointer;
+        letter-spacing: 0.04em; transition: color 0.2s;
+      }
+      .mm-back:hover { color: white; }
+      .mm-nav-title {
+        font-family: 'Gasoek One', sans-serif; font-size: 0.85rem;
+        color: rgba(255,255,255,0.35); letter-spacing: 0.06em; text-transform: uppercase;
+      }
+      .mm-hero {
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 56px; align-items: flex-start;
+        padding: 64px 56px 48px; box-sizing: border-box;
+      }
+      .mm-hero h1 {
+        font-family: 'Gasoek One', sans-serif;
+        font-size: clamp(2.8rem, 6vw, 5rem);
+        color: white; line-height: 1.05;
+        margin-bottom: 20px;
+      }
+      .mm-hero h1 span { color: #B0C9A7; }
+      .mm-tagline {
+        font-family: 'Coda', cursive; font-size: 1rem;
+        font-weight: 800; color: rgba(255,255,255,0.65);
+        line-height: 1.8; margin-bottom: 28px;
+      }
+      .mm-tag-pill {
+        display: inline-block; padding: 6px 14px;
+        border-radius: 999px; font-family: 'Coda', cursive;
+        font-size: 0.78rem; font-weight: 800;
+        background: white; margin: 4px 4px 4px 0;
+        letter-spacing: 0.03em;
+      }
+      .mm-pill-1 { color: #56704D; border: 2px solid #56704D; }
+      .mm-pill-2 { color: #B0C9A7; border: 2px solid #B0C9A7; }
+      .mm-pill-3 { color: #AEAEAE; border: 2px solid #AEAEAE; }
+      .mm-label {
+        font-family: 'Coda', cursive; font-size: 0.7rem;
+        font-weight: 800; color: rgba(255,255,255,0.3);
+        text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px;
+      }
+      .mm-section {
+        padding: 48px 56px; border-top: 1px solid rgba(255,255,255,0.1);
+        box-sizing: border-box;
+      }
+      .mm-section h2 {
+        font-family: 'Gasoek One', sans-serif;
+        font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+        color: white; margin-bottom: 18px;
+      }
+      .mm-section h2 span { color: #B0C9A7; }
+      .mm-section p {
+        font-family: 'Coda', cursive; font-size: 0.97rem;
+        font-weight: 800; color: rgba(255,255,255,0.65); line-height: 1.85;
+      }
+      .mm-feature-num {
+        font-family: 'Gasoek One', sans-serif; font-size: 2rem; color: #B0C9A7;
+        margin-bottom: 12px; line-height: 1;
+      }
+      .mm-feature-title {
+        font-family: 'Gasoek One', sans-serif; font-size: 1.1rem; color: white;
+        margin-bottom: 10px;
+      }
+      .mm-feature-desc {
+        font-family: 'Coda', cursive; font-size: 0.93rem; font-weight: 800;
+        color: rgba(255,255,255,0.55); line-height: 1.7;
+      }
+      .mm-feature-card {
+        background: rgba(176,201,167,0.1); border: 1px solid rgba(176,201,167,0.25);
+        border-radius: 16px; padding: 28px 24px;
+      }
+      .mm-footer {
+        width: 100%; display: flex; align-items: center; justify-content: space-between;
+        padding: 32px 56px 60px; border-top: 1px solid rgba(255,255,255,0.1);
+        font-family: 'Coda', cursive; font-size: 0.82rem; font-weight: 800;
+        color: rgba(255,255,255,0.25); box-sizing: border-box;
+      }
+    </style>
+
+    <!-- sticky nav -->
+    <div class="mm-nav">
+      <button class="mm-back" onclick="closeProject()">← Back to Portfolio</button>
+      <span class="mm-nav-title">Meal Map — 2025</span>
+      <span style="width:120px"></span>
+    </div>
+
+    <!-- hero -->
+    <div class="mm-hero">
+      <div>
+        <h1>MEAL<br><span>MAP</span></h1>
+        <p class="mm-tagline">A prototype app helping students navigate university cafeterias safely — providing a standardized, reliable system for allergy communication, management, and education.</p>
+        <div>
+          <span class="mm-tag-pill mm-pill-1">UX Design</span>
+          <span class="mm-tag-pill mm-pill-2">Mobile App</span>
+          <span class="mm-tag-pill mm-pill-3">Prototype</span>
+          <span class="mm-tag-pill mm-pill-1">Team Project</span>
+        </div>
+
+        <!-- overview -->
+        <div style="margin-top:48px; border-top:1px solid rgba(255,255,255,0.1); padding-top:40px;">
+          <p class="mm-label">Overview</p>
+          <h2 style="font-family:'Gasoek One',sans-serif; font-size:clamp(1.4rem,2.5vw,2rem); color:white; margin-bottom:14px;">The <span style="color:#B0C9A7;">Problem</span></h2>
+          <p style="font-family:'Coda',cursive; font-size:1rem; font-weight:800; color:rgba(255,255,255,0.65); line-height:1.85;">Students with food allergies face a stressful, inconsistent experience navigating university cafeterias. Ingredient information is hard to find, labelling varies across locations, and staff aren't always equipped to help. Meal Map was designed to give students with dietary restrictions a clear, confident, and safe way to eat on campus.</p>
+        </div>
+      </div>
+      <!-- right: app mockup -->
+      <div style="display:flex; align-items:flex-start; justify-content:center;">
+        <img src="images/mealmap.png" alt="Meal Map App Mockup" style="width:100%; border-radius:20px; display:block;" />
+      </div>
+    </div>
+
+    <!-- core features -->
+    <div class="mm-section mm-pg">
+      <p class="mm-label">Solution</p>
+      <h2>Core <span>Features</span></h2>
+      <p>Meal Map's solution focuses on three core features that directly address the pain points students with food allergies face every day on campus.</p>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:28px;">
+        <div class="mm-feature-card">
+          <div class="mm-feature-num">01</div>
+          <div class="mm-feature-title">Allergy Filtering</div>
+          <div class="mm-feature-desc">Students set up their allergy profile once — the app then filters every menu item across all campus locations to show only what's safe for them to eat.</div>
+        </div>
+        <div class="mm-feature-card">
+          <div class="mm-feature-num">02</div>
+          <div class="mm-feature-title">Live Menu Info</div>
+          <div class="mm-feature-desc">Real-time ingredient and allergen information for every item at every cafeteria, updated daily so students can always trust what they're seeing.</div>
+        </div>
+        <div class="mm-feature-card">
+          <div class="mm-feature-num">03</div>
+          <div class="mm-feature-title">Allergy Education</div>
+          <div class="mm-feature-desc">Built-in educational resources help students understand cross-contamination risks, read labels confidently, and make informed decisions about their meals.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- design approach -->
+    <div class="mm-section mm-pg">
+      <p class="mm-label">Design Approach</p>
+      <h2>Safe, Clear, <span>Empowering</span></h2>
+      <p>Every design decision was guided by three principles that put students with dietary restrictions first.</p>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:28px;">
+        <div class="mm-feature-card">
+          <div class="mm-feature-title" style="color:#B0C9A7;">Safe</div>
+          <div class="mm-feature-desc">Accurate, up-to-date allergen data so students can trust every meal decision they make.</div>
+        </div>
+        <div class="mm-feature-card">
+          <div class="mm-feature-title" style="color:#B0C9A7;">Clear</div>
+          <div class="mm-feature-desc">Simple, scannable UI that surfaces what matters — no digging through menus or guessing.</div>
+        </div>
+        <div class="mm-feature-card">
+          <div class="mm-feature-title" style="color:#B0C9A7;">Empowering</div>
+          <div class="mm-feature-desc">Giving students the knowledge and tools to eat on campus with confidence, not anxiety.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- role and impact -->
+    <div class="mm-section mm-pg">
+      <p class="mm-label">Role & Impact</p>
+      <h2>Role And <span>Impact</span></h2>
+      <p style="font-family:'Coda',cursive; font-size:1rem; font-weight:800; color:rgba(255,255,255,0.65); line-height:1.85; max-width:700px;">As part of a collaborative team, I contributed to both the UX design and the visual direction of Meal Map. I helped shape the allergy filtering system — working through the logic of how profiles would interact with live menu data — and took the lead on prototyping the core screens in Figma. I also developed the app's colour palette and visual identity, ensuring the interface felt calm, trustworthy, and easy to use for students managing dietary restrictions every day.</p>
+    </div>
+
+    <div class="mm-footer">
+      <p>Ferah Fenton · 2025 · Design Project</p>
+      <button class="mm-back" onclick="closeProject()">← Back to Portfolio</button>
     </div>
 
   </section>
