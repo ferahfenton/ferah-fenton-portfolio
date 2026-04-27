@@ -981,18 +981,18 @@
   <section class="panel" id="p-passion" style="overflow:hidden; position:relative;">
 
     <!-- click me button — aligned to nav (56px from left) -->
-    <button id="passion-cue-btn" onclick="shootPassionBall()" style="position:absolute; left:50%; transform:translateX(-50%); bottom:52px; background:transparent; border:none; color:#00611F; font-family:'Manrope',sans-serif; font-size:0.72rem; font-weight:500; padding:4px 0; cursor:pointer; letter-spacing:0.08em; transition:color 0.2s;"
-      onmouseover="this.style.color='#01a032'"
-      onmouseout="this.style.color='#017025'">
+    <button id="passion-cue-btn" onclick="shootPassionBall()" style="position:absolute; left:50%; transform:translateX(-50%); bottom:52px; z-index:10; background:transparent; border:none; color:#00611F; font-family:'Manrope',sans-serif; font-size:0.82rem; font-weight:500; padding:4px 0; cursor:pointer; letter-spacing:0.08em; transition:color 0.2s;"
+      onmouseover="this.style.color='#4AA338'"
+      onmouseout="this.style.color='#00611F'">
       <i>click me...</i>
     </button>
 
-    <div class="passion-inner" style="position:relative;">
+    <div class="passion-inner" style="position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh;">
       <p class="panel-label">✦ Just for Fun — press apple to see more</p>
       <h2 class="panel-title">passion projects</h2>
 
       <!-- animation stage -->
-      <div style="position:relative; display:flex; align-items:center; justify-content:center; width:100%; height:240px;">
+      <div style="position:relative; display:flex; align-items:center; justify-content:center; width:100%; flex:1; max-height:400px;">
 
         <!-- cue stick: hidden off-screen left -->
         <img id="passion-cue" src="images/cueblank.png" alt="" style="position:absolute; left:-700px; width:640px; opacity:0; transition:left 0.35s ease-out, opacity 0.3s ease; pointer-events:none; z-index:2;" />
