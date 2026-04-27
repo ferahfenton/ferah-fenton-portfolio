@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ferah Fenton</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Risque&display=swap" rel="stylesheet">
 <style>
   :root {
     --red:    #B80000;
@@ -981,14 +981,14 @@
   <section class="panel" id="p-passion" style="overflow:hidden; position:relative;">
 
     <!-- click me button — aligned to nav (56px from left) -->
-    <button id="passion-cue-btn" onclick="shootPassionBall()" style="position:absolute; left:50%; transform:translateX(-50%); bottom:52px; background:transparent; border:none; color:rgba(255,255,255,0.35); font-family:'Manrope',sans-serif; font-size:0.72rem; font-weight:500; padding:4px 0; cursor:pointer; letter-spacing:0.08em; transition:color 0.2s;"
-      onmouseover="this.style.color='rgba(255,255,255,0.65)'"
-      onmouseout="this.style.color='rgba(255,255,255,0.35)'">
-      click me...
+    <button id="passion-cue-btn" onclick="shootPassionBall()" style="position:absolute; left:50%; transform:translateX(-50%); bottom:52px; background:transparent; border:none; color:#00611F; font-family:'Manrope',sans-serif; font-size:0.72rem; font-weight:500; padding:4px 0; cursor:pointer; letter-spacing:0.08em; transition:color 0.2s;"
+      onmouseover="this.style.color='#01a032'"
+      onmouseout="this.style.color='#017025'">
+      <i>click me...</i>
     </button>
 
     <div class="passion-inner" style="position:relative;">
-      <p class="panel-label">✦ Just for Fun</p>
+      <p class="panel-label">✦ Just for Fun — press apple to see more</p>
       <h2 class="panel-title">passion projects</h2>
 
       <!-- animation stage -->
@@ -998,7 +998,7 @@
         <img id="passion-cue" src="images/cueblank.png" alt="" style="position:absolute; left:-700px; width:640px; opacity:0; transition:left 0.35s ease-out, opacity 0.3s ease; pointer-events:none; z-index:2;" />
 
         <!-- 8-ball -->
-        <div id="passion-ball-wrap" style="width:180px; position:relative; z-index:1;">
+        <div id="passion-ball-wrap" style="width:220px; position:relative; z-index:1;">
           <a id="passion-ball-link" href="javascript:void(0)" onclick="openProject('graphicdesign')" style="display:block; border-radius:50%; overflow:hidden; cursor:pointer; transition:transform 0.3s ease;"
             onmouseover="this.style.transform='scale(1.03)'"
             onmouseout="this.style.transform='scale(1)'">
