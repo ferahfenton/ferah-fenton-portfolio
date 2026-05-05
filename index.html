@@ -2626,117 +2626,78 @@
     <!-- nav -->
     <div class="gd-nav">
       <button class="gd-back" onclick="closeProject()">← Back to Portfolio</button>
-      <span class="gd-nav-title">Graphic Design</span>
+      <span class="gd-nav-title">Passion Projects</span>
       <span style="width:120px;"></span>
     </div>
 
     <!-- hero -->
-    <div class="gd-pg" style="text-align:center; padding-top:80px; padding-bottom:70px;">
+    <div class="gd-pg" style="text-align:center; padding-top:60px; padding-bottom:40px;">
       <p class="gd-label" style="text-align:center;">Passion Project</p>
-      <h1 style="font-family:'Risque',cursive; font-size:clamp(3rem,6vw,5.5rem); font-weight:700; line-height:1.05; color:#ffffff; text-transform:uppercase; margin-bottom:24px;">Graphic<br><span style="color:#C93535;">Design</span></h1>
+      <h1 style="font-family:'Risque',cursive; font-size:clamp(2.4rem,5vw,4.5rem); font-weight:700; line-height:1.05; color:#ffffff; text-transform:uppercase; margin-bottom:0;">Passion<br><span style="color:#C93535;">Projects</span></h1>
     </div>
 
-    <!-- section 1 -->
-    <div class="gd-section gd-pg">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
-        <div>
-          <p class="gd-label">01</p>
-          <h2 style="font-family:'Risque',cursive; font-size:clamp(1.6rem,2.5vw,2.4rem); color:#ffffff; text-transform:uppercase; margin-bottom:14px;">Cowboy <span style="color:#C93535;">Ponderin'</span></h2>
-          <p style="font-family:'DM Sans',sans-serif; font-size:0.97rem; font-weight:300; color:#7A4500; line-height:1.85;">A digital composition wrangled from Pinterest photos and reimagined in Photoshop. Colours, content, and composition were tweaked to spin the imagery into a cohesive, story piece that's all about contemplatin' life and early childhood, cowboy-style.</p>
-        </div>
-        <div style="border-radius:16px; overflow:hidden;">
-          <img src="images/cowboy.jpeg" alt="Cowboy Ponderin'" style="width:100%; display:block; border-radius:16px;" />
-        </div>
-      </div>
-    </div>
+    <!-- card grid -->
+    <div class="gd-pg" style="padding-bottom:60px;">
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
 
-    <!-- section 2 -->
-    <div class="gd-section gd-pg">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
-        <div>
-          <p class="gd-label">02</p>
-          <h2 style="font-family:'Risque',cursive; font-size:clamp(1.6rem,2.5vw,2.4rem); color:#ffffff; text-transform:uppercase; margin-bottom:14px;">Pin-Up <span style="color:#C93535;">Panic</span></h2>
-          <p style="font-family:'DM Sans',sans-serif; font-size:0.97rem; font-weight:300; color:#7A4500; line-height:1.85;">Sourced from Pinterest and reimagined entirely in Photoshop, this piece takes a dive into retro pin-up style with a modern bite. Colours and images were stretched and changed, elements rearranged, and girls were sent splashing into a scene that's equal parts vintage glam and crocodile drama — a jump into the unexpected.</p>
-        </div>
-        <div style="border-radius:16px; overflow:hidden;">
-          <img src="images/weee.jpeg" alt="Pin-Up Panic" style="width:70%; display:block; border-radius:16px; margin:0 auto;" />
-        </div>
-      </div>
-    </div>
-
-    <!-- section 3 -->
-    <div class="gd-section gd-pg">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
-        <div>
-          <p class="gd-label">03</p>
-          <h2 style="font-family:'Risque',cursive; font-size:clamp(1.6rem,2.5vw,2.4rem); color:#ffffff; text-transform:uppercase; margin-bottom:14px;">Bean <span style="color:#C93535;">Boulevard</span></h2>
-          <p style="font-family:'DM Sans',sans-serif; font-size:0.97rem; font-weight:300; color:#7A4500; line-height:1.85;">This is my idea of everyone's first stop on an early morning commute. This piece was also made sourcing images online and reimagined in Photoshop, colours, composition, and details were tweaked to brew the daily whimsical, caffeine-fueled journey!</p>
-        </div>
-        <div style="border-radius:16px; overflow:hidden;">
-          <img src="images/beanboul.jpeg" alt="Bean Boulevard" style="width:70%; display:block; border-radius:16px; margin:0 auto;" />
-        </div>
-      </div>
-    </div>
-
-    <!-- section 4 -->
-    <div class="gd-section gd-pg">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:flex-start;">
-        <div>
-          <p class="gd-label">04</p>
-          <h2 style="font-family:'Risque',cursive; font-size:clamp(1.6rem,2.5vw,2.4rem); color:#ffffff; text-transform:uppercase; margin-bottom:14px;">What Does Design <span style="color:#C93535;">Mean</span>?</h2>
-          <p id="gd4-desc" style="font-family:'DM Sans',sans-serif; font-size:0.97rem; font-weight:300; color:#7A4500; line-height:1.85;">Click an image to see it in detail!</p>
-        </div>
-        <div>
-          <!-- 2x2 grid -->
-          <div id="gd4-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; width:55%; margin:0 auto;">
-            <img class="gd4-thumb" src="images/poster1.jpeg" alt="Poster 1" onclick="expandGD4(0)" style="width:100%; border-radius:12px; cursor:pointer; display:block; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" />
-            <img class="gd4-thumb" src="images/poster2.jpeg" alt="Poster 2" onclick="expandGD4(1)" style="width:100%; border-radius:12px; cursor:pointer; display:block; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" />
-            <img class="gd4-thumb" src="images/poster3.jpeg" alt="Poster 3" onclick="expandGD4(2)" style="width:100%; border-radius:12px; cursor:pointer; display:block; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" />
-            <img class="gd4-thumb" src="images/poster4.jpeg" alt="Poster 4" onclick="expandGD4(3)" style="width:100%; border-radius:12px; cursor:pointer; display:block; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" />
-          </div>
-          <!-- expanded single image -->
-          <div id="gd4-expanded" style="display:none; width:55%; margin:0 auto;">
-            <img id="gd4-big" src="" alt="" onclick="collapseGD4()" style="width:100%; border-radius:16px; cursor:pointer; display:block;" />
-            <p style="font-family:'DM Sans',sans-serif; font-size:0.75rem; color:#7A4500; margin-top:8px; text-align:center;">Click image to go back</p>
+        <div style="background:rgba(0,0,0,0.08); border-radius:16px; overflow:hidden; display:flex; flex-direction:column;">
+          <img src="images/cowboy.jpeg" alt="Cowboy Ponderin'" style="width:100%; display:block; object-fit:cover; aspect-ratio:4/3;" />
+          <div style="padding:14px 16px;">
+            <p style="font-family:'Risque',cursive; font-size:0.95rem; color:#ffffff; margin:0;">Cowboy <span style="color:#C93535;">Ponderin'</span></p>
           </div>
         </div>
+
+        <div style="background:rgba(0,0,0,0.08); border-radius:16px; overflow:hidden; display:flex; flex-direction:column;">
+          <img src="images/weee.jpeg" alt="Pin-Up Panic" style="width:100%; display:block; object-fit:cover; aspect-ratio:4/3;" />
+          <div style="padding:14px 16px;">
+            <p style="font-family:'Risque',cursive; font-size:0.95rem; color:#ffffff; margin:0;">Pin-Up <span style="color:#C93535;">Panic</span></p>
+          </div>
+        </div>
+
+        <div style="background:rgba(0,0,0,0.08); border-radius:16px; overflow:hidden; display:flex; flex-direction:column;">
+          <img src="images/beanboul.jpeg" alt="Bean Boulevard" style="width:100%; display:block; object-fit:cover; aspect-ratio:4/3;" />
+          <div style="padding:14px 16px;">
+            <p style="font-family:'Risque',cursive; font-size:0.95rem; color:#ffffff; margin:0;">Bean <span style="color:#C93535;">Boulevard</span></p>
+          </div>
+        </div>
+
+        <div style="background:rgba(0,0,0,0.08); border-radius:16px; overflow:hidden; display:flex; flex-direction:column;">
+          <img src="images/poster1.jpeg" alt="Poster 1" style="width:100%; display:block; object-fit:cover; aspect-ratio:4/3;" />
+          <div style="padding:14px 16px;">
+            <p style="font-family:'Risque',cursive; font-size:0.95rem; color:#ffffff; margin:0;">What Does Design <span style="color:#C93535;">Mean? I</span></p>
+          </div>
+        </div>
+
+        <div style="background:rgba(0,0,0,0.08); border-radius:16px; overflow:hidden; display:flex; flex-direction:column;">
+          <img src="images/poster2.jpeg" alt="Poster 2" style="width:100%; display:block; object-fit:cover; aspect-ratio:4/3;" />
+          <div style="padding:14px 16px;">
+            <p style="font-family:'Risque',cursive; font-size:0.95rem; color:#ffffff; margin:0;">What Does Design <span style="color:#C93535;">Mean? II</span></p>
+          </div>
+        </div>
+
+        <div style="background:rgba(0,0,0,0.08); border-radius:16px; overflow:hidden; display:flex; flex-direction:column;">
+          <img src="images/poster3.jpeg" alt="Poster 3" style="width:100%; display:block; object-fit:cover; aspect-ratio:4/3;" />
+          <div style="padding:14px 16px;">
+            <p style="font-family:'Risque',cursive; font-size:0.95rem; color:#ffffff; margin:0;">What Does Design <span style="color:#C93535;">Mean? III</span></p>
+          </div>
+        </div>
+
+        <div style="background:rgba(0,0,0,0.08); border-radius:16px; overflow:hidden; display:flex; flex-direction:column;">
+          <img src="images/poster4.jpeg" alt="Poster 4" style="width:100%; display:block; object-fit:cover; aspect-ratio:4/3;" />
+          <div style="padding:14px 16px;">
+            <p style="font-family:'Risque',cursive; font-size:0.95rem; color:#ffffff; margin:0;">What Does Design <span style="color:#C93535;">Mean? IV</span></p>
+          </div>
+        </div>
+
+        <div style="background:rgba(0,0,0,0.08); border-radius:16px; overflow:hidden; display:flex; flex-direction:column;">
+          <img src="images/vania.jpeg" alt="The Essence of Vania" style="width:100%; display:block; object-fit:cover; aspect-ratio:4/3;" />
+          <div style="padding:14px 16px;">
+            <p style="font-family:'Risque',cursive; font-size:0.95rem; color:#ffffff; margin:0;">The Essence Of <span style="color:#C93535;">Vania</span></p>
+          </div>
+        </div>
+
       </div>
     </div>
-    <script>
-      var gd4Descs = [
-        'Inspired by my earlier Cowboy Ponderin\u2019 piece, this poster shows little video game children running away from a looming computer. The computer image was sourced from Pinterest and tweaked in Adobe Firefly, while the characters were generated and adjusted in Firefly, then everything was shaded, colour-graded, and layered with text to create a dynamic, narrative composition.',
-        'An experimental self-portrait generated mostly with the use of AI, where I directed and redirected the placement of every detail and element. The image was taken and transformed with AI as well. The result blends realism with creative control, and taught me how AI tools can be guided to produce highly specific, nuanced outcomes.',
-        'Drawing on the 50s\u201380s grainy photo aesthetic that inspires a lot of my work, this poster features a dinosaur sourced from Pinterest and reworked with AI and Photoshop. I carefully blended and colour graded to make all elements appear seamless, turning completely different images (aesthetically) into a single cohesive scene.',
-        'A playful, high-concept poster featuring a fire hydrant water skier. The piece required extensive time and patience to refine details, blend images, make the water look real and consistent, and perfect the overall composition, resulting in a whimsical and visually striking final work.'
-      ];
-      var gd4Srcs = ['images/poster1.jpeg','images/poster2.jpeg','images/poster3.jpeg','images/poster4.jpeg'];
-      function expandGD4(i) {
-        document.getElementById('gd4-grid').style.display = 'none';
-        document.getElementById('gd4-expanded').style.display = 'block';
-        document.getElementById('gd4-big').src = gd4Srcs[i];
-        document.getElementById('gd4-desc').textContent = gd4Descs[i];
-      }
-      function collapseGD4() {
-        document.getElementById('gd4-grid').style.display = 'grid';
-        document.getElementById('gd4-expanded').style.display = 'none';
-        document.getElementById('gd4-desc').textContent = 'Click an image to see it in detail!';
-      }
-    </script>
-
-    <!-- section 5 -->
-    <div class="gd-section gd-pg">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
-        <div>
-          <p class="gd-label">05</p>
-          <h2 style="font-family:'Risque',cursive; font-size:clamp(1.6rem,2.5vw,2.4rem); color:#ffffff; text-transform:uppercase; margin-bottom:14px;">The Essence Of <span style="color:#C93535;">Vania</span></h2>
-          <p style="font-family:'DM Sans',sans-serif; font-size:0.97rem; font-weight:300; color:#7A4500; line-height:1.85;">This was my first ever composition piece, created back in 2022 for my friend Vania, featuring all of her favorite things at the time. Even though it's an older work, I still really enjoy it — if I were to make another one today, it would be a million times more refined. Seeing this piece reminds me of my passion for visual storytelling, experimenting with composition, and bringing imaginative ideas to life.</p>
-        </div>
-        <div style="border-radius:16px; overflow:hidden;">
-          <img src="images/vania.jpeg" alt="The Essence of Vania" style="width:70%; display:block; border-radius:16px; margin:0 auto;" />
-        </div>
-      </div>
-    </div>
-
     <div class="gd-footer gd-pg">
       <p>Ferah Fenton · Passion Project</p>
       <button class="gd-back" onclick="closeProject()">← Back to Portfolio</button>
