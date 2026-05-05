@@ -2626,16 +2626,30 @@
     <!-- nav -->
     <div class="gd-nav">
       <button class="gd-back" onclick="closeProject()">← Back to Portfolio</button>
-      <span style="width:120px;"></span>
+      <span id="gd-nav-heading" style="font-family:'Risque',cursive; font-size:1.15rem; color:#ffffff; text-transform:uppercase; letter-spacing:0.02em; opacity:0; transition:opacity 0.25s ease; pointer-events:none;">Passion <span style="color:#C93535;">Projects</span></span>
       <span style="width:120px;"></span>
     </div>
 
     <!-- hero -->
     <div style="background:#E8A838; width:100%;">
       <div class="gd-pg" style="text-align:center; padding-top:20px; padding-bottom:36px;">
-        <h1 style="font-family:'Risque',cursive; font-size:clamp(2.4rem,5vw,4.5rem); font-weight:700; line-height:1.05; color:#ffffff; text-transform:uppercase; margin:0;">Passion<br><span style="color:#C93535;">Projects</span></h1>
+        <h1 id="gd-hero-title" style="font-family:'Risque',cursive; font-size:clamp(2.4rem,5vw,4.5rem); font-weight:700; line-height:1.05; color:#ffffff; text-transform:uppercase; margin:0;">Passion<br><span style="color:#C93535;">Projects</span></h1>
       </div>
     </div>
+
+    <script>
+    (function() {
+      const hero = document.getElementById('gd-hero-title');
+      const navHeading = document.getElementById('gd-nav-heading');
+      if (!hero || !navHeading) return;
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          navHeading.style.opacity = entry.isIntersecting ? '0' : '1';
+        });
+      }, { threshold: 0 });
+      observer.observe(hero);
+    })();
+    </script>
 
     <!-- card grid -->
     <div class="gd-pg" style="padding-top:40px; padding-bottom:60px;">
