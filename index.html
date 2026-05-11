@@ -995,10 +995,10 @@
       <div style="position:relative; display:flex; align-items:center; justify-content:center; width:100%; flex:1; max-height:400px;">
 
         <!-- cue stick: hidden off-screen left -->
-        <img id="passion-cue" src="images/cueblank.png" alt="" style="position:absolute; left:-700px; width:640px; opacity:0; transition:left 0.35s ease-out, opacity 0.3s ease; pointer-events:none; z-index:2;" />
+        <img id="passion-cue" src="images/cueblank.png" alt="" style="position:absolute; left:-900px; width:820px; opacity:0; transition:left 0.35s ease-out, opacity 0.3s ease; pointer-events:none; z-index:2;" />
 
         <!-- 8-ball -->
-        <div id="passion-ball-wrap" style="width:220px; position:relative; z-index:1;">
+        <div id="passion-ball-wrap" style="width:300px; position:relative; z-index:1;">
           <a id="passion-ball-link" href="javascript:void(0)" onclick="openProject('graphicdesign')" style="display:block; border-radius:50%; overflow:hidden; cursor:pointer; transition:transform 0.3s ease;"
             onmouseover="this.style.transform='scale(1.03)'"
             onmouseout="this.style.transform='scale(1)'">
@@ -1037,7 +1037,7 @@
         setTimeout(() => {
           // Phase 3: cue lingers 3 seconds, then slides back off left
           cue.style.transition = 'left 0.5s ease-in, opacity 0.4s ease';
-          cue.style.left = '-700px';
+          cue.style.left = '-900px';
           cue.style.opacity = '0';
 
           setTimeout(() => {
