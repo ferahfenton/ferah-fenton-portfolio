@@ -1047,7 +1047,7 @@
 
             setTimeout(() => {
               // Phase 5: roll back in — exactly 2 full rotations = lands right side up
-              wrap.style.transition = 'transform 1.4s cubic-bezier(0.2,0.8,0.4,1)';
+              wrap.style.transition = 'transform 1.0s cubic-bezier(0.2,0.8,0.4,1)';
               wrap.style.transform = 'translateX(0) rotate(-720deg)';
 
               setTimeout(() => {
@@ -1057,10 +1057,10 @@
                 btn.dataset.animating = 'false';
                 btn.disabled = false;
                 link.style.pointerEvents = 'auto';
-              }, 1450);
+              }, 1050);
             }, 40);
           }, 500);
-        }, 4100); // 1100ms roll off + 3000ms linger
+        }, 2300); // 1100ms roll off + 1200ms linger
       }, 400);
     }
     </script>
