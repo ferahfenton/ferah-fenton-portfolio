@@ -2922,43 +2922,55 @@
 </script>
 
 <script>
-/* ── Showcase carousel: hover pause + wheel/drag control ── */
+/* ── Showcase carousel: 1s auto-scroll on arrival, then user takes the wheel ── */
 (function () {
-  const DURATION = 22; // must match CSS animation duration (seconds)
-  const wrap  = document.querySelector('.sc-carousel-wrap');
-  const track = document.querySelector('.sc-carousel-track');
+  const DURATION      = 22;    // must match CSS animation duration (seconds)
+  const AUTO_SCROLL_MS = 1000; // ms of auto-scroll shown on each arrival
+
+  const section = document.getElementById('p-showcase');
+  const wrap    = document.querySelector('.sc-carousel-wrap');
+  const track   = document.querySelector('.sc-carousel-track');
   if (!wrap || !track) return;
 
-  let userScrolling = false;   // true after first wheel tick
-  let currentOffset = 0;       // px, tracked while user controls
+  let handedOff      = false;  // true once auto-scroll stint is done
+  let autoTimer      = null;
+  let currentOffset  = 0;
+  let touchStartX    = null;
+  let touchLastOffset = 0;
 
   /* ── helpers ── */
   function getComputedOffset() {
     const m = new DOMMatrix(getComputedStyle(track).transform);
-    return m.m41; // translateX in px
+    return m.m41;
   }
 
   function freeze() {
     currentOffset = getComputedOffset();
     track.style.animation = 'none';
-    track.style.transform  = `translateX(${currentOffset}px)`;
+    track.style.transform = `translateX(${currentOffset}px)`;
   }
 
-  function thaw() {
-    // normalise offset into [-halfWidth, 0]
+  function startAnimation() {
+    // Resume CSS animation from the current logical offset
     const halfWidth = track.scrollWidth / 2;
     let off = currentOffset % halfWidth;
-    if (off > 0)  off -= halfWidth;
+    if (off > 0)         off -= halfWidth;
     if (off < -halfWidth) off += halfWidth;
-
-    const progress = Math.abs(off) / halfWidth;       // 0 → 1
-    const delay    = -(progress * DURATION).toFixed(4); // negative = start mid-way
-
+    const progress = Math.abs(off) / halfWidth;
+    const delay = -(progress * DURATION).toFixed(4);
     track.style.transform = '';
-    // force reflow so removing the transform is registered before animation starts
     void track.offsetWidth;
     track.style.animation = `sc-scroll ${DURATION}s ${delay}s linear infinite`;
-    userScrolling = false;
+  }
+
+  function reset() {
+    // Clear everything so animation plays from scratch next arrival
+    clearTimeout(autoTimer);
+    autoTimer = null;
+    track.style.animation = '';
+    track.style.transform = '';
+    currentOffset = 0;
+    handedOff = false;
   }
 
   function wrapOffset() {
@@ -2967,19 +2979,43 @@
     if (currentOffset > 0)          currentOffset -= halfWidth;
   }
 
-  /* ── hover: pause / resume ── */
-  wrap.addEventListener('mouseenter', freeze);
+  /* ── hand off: stop auto-scroll and give user control ── */
+  function handOff() {
+    if (handedOff) return;
+    handedOff = true;
+    clearTimeout(autoTimer);
+    autoTimer = null;
+    freeze();
+  }
 
-  wrap.addEventListener('mouseleave', function () {
-    thaw();
+  /* ── IntersectionObserver: trigger 1s preview on each arrival ── */
+  if (section) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !handedOff) {
+          // Section just came into view — let it scroll for AUTO_SCROLL_MS, then stop
+          startAnimation();
+          autoTimer = setTimeout(handOff, AUTO_SCROLL_MS);
+        } else if (!entry.isIntersecting) {
+          // Scrolled away — reset so the preview plays fresh next visit
+          reset();
+        }
+      });
+    }, { threshold: 0.5 });
+    observer.observe(section);
+  }
+
+  /* ── hover: freeze while looking, but don't auto-resume (user is in control) ── */
+  wrap.addEventListener('mouseenter', function () {
+    handOff(); // also cancels the 1s timer if still running
   });
+
+  // mouseleave intentionally does nothing — once handed off, user stays in control
 
   /* ── wheel: manual horizontal scrub ── */
   wrap.addEventListener('wheel', function (e) {
-    e.preventDefault();          // stop the page from scrolling vertically
-    if (!userScrolling) userScrolling = true;
-
-    // prefer real horizontal delta; fall back to vertical (e.g. scroll wheel)
+    e.preventDefault();
+    handOff();
     const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
     currentOffset -= delta * 1.4;
     wrapOffset();
@@ -2987,13 +3023,10 @@
   }, { passive: false });
 
   /* ── touch drag ── */
-  let touchStartX = null;
-  let touchLastOffset = 0;
-
   wrap.addEventListener('touchstart', function (e) {
+    handOff();
     touchStartX     = e.touches[0].clientX;
-    touchLastOffset = getComputedOffset();
-    freeze();
+    touchLastOffset = currentOffset;
   }, { passive: true });
 
   wrap.addEventListener('touchmove', function (e) {
@@ -3006,7 +3039,6 @@
 
   wrap.addEventListener('touchend', function () {
     touchStartX = null;
-    thaw();
   });
 })();
 </script>
