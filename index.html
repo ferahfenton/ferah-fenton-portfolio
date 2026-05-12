@@ -453,7 +453,6 @@
     width: max-content;
     animation: sc-scroll 22s linear infinite;
   }
-  /* carousel keeps playing on hover */
   .sc-carousel-item {
     flex: 0 0 auto;
     width: 380px;
@@ -2920,6 +2919,96 @@
     tipOpen ? hideTip() : showTip();
   });
   document.addEventListener('click', hideTip);
+</script>
+
+<script>
+/* ── Showcase carousel: hover pause + wheel/drag control ── */
+(function () {
+  const DURATION = 22; // must match CSS animation duration (seconds)
+  const wrap  = document.querySelector('.sc-carousel-wrap');
+  const track = document.querySelector('.sc-carousel-track');
+  if (!wrap || !track) return;
+
+  let userScrolling = false;   // true after first wheel tick
+  let currentOffset = 0;       // px, tracked while user controls
+
+  /* ── helpers ── */
+  function getComputedOffset() {
+    const m = new DOMMatrix(getComputedStyle(track).transform);
+    return m.m41; // translateX in px
+  }
+
+  function freeze() {
+    currentOffset = getComputedOffset();
+    track.style.animation = 'none';
+    track.style.transform  = `translateX(${currentOffset}px)`;
+  }
+
+  function thaw() {
+    // normalise offset into [-halfWidth, 0]
+    const halfWidth = track.scrollWidth / 2;
+    let off = currentOffset % halfWidth;
+    if (off > 0)  off -= halfWidth;
+    if (off < -halfWidth) off += halfWidth;
+
+    const progress = Math.abs(off) / halfWidth;       // 0 → 1
+    const delay    = -(progress * DURATION).toFixed(4); // negative = start mid-way
+
+    track.style.transform = '';
+    // force reflow so removing the transform is registered before animation starts
+    void track.offsetWidth;
+    track.style.animation = `sc-scroll ${DURATION}s ${delay}s linear infinite`;
+    userScrolling = false;
+  }
+
+  function wrapOffset() {
+    const halfWidth = track.scrollWidth / 2;
+    if (currentOffset < -halfWidth) currentOffset += halfWidth;
+    if (currentOffset > 0)          currentOffset -= halfWidth;
+  }
+
+  /* ── hover: pause / resume ── */
+  wrap.addEventListener('mouseenter', freeze);
+
+  wrap.addEventListener('mouseleave', function () {
+    thaw();
+  });
+
+  /* ── wheel: manual horizontal scrub ── */
+  wrap.addEventListener('wheel', function (e) {
+    e.preventDefault();          // stop the page from scrolling vertically
+    if (!userScrolling) userScrolling = true;
+
+    // prefer real horizontal delta; fall back to vertical (e.g. scroll wheel)
+    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    currentOffset -= delta * 1.4;
+    wrapOffset();
+    track.style.transform = `translateX(${currentOffset}px)`;
+  }, { passive: false });
+
+  /* ── touch drag ── */
+  let touchStartX = null;
+  let touchLastOffset = 0;
+
+  wrap.addEventListener('touchstart', function (e) {
+    touchStartX     = e.touches[0].clientX;
+    touchLastOffset = getComputedOffset();
+    freeze();
+  }, { passive: true });
+
+  wrap.addEventListener('touchmove', function (e) {
+    if (touchStartX === null) return;
+    const dx = e.touches[0].clientX - touchStartX;
+    currentOffset = touchLastOffset + dx;
+    wrapOffset();
+    track.style.transform = `translateX(${currentOffset}px)`;
+  }, { passive: true });
+
+  wrap.addEventListener('touchend', function () {
+    touchStartX = null;
+    thaw();
+  });
+})();
 </script>
 </body>
 </html>
