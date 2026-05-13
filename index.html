@@ -3036,7 +3036,7 @@
       ![...el.classList].some(c => c.includes('nav') || c.includes('footer'))
     );
 
-    targets.forEach(t => { t.style.transition = 'opacity 0.5s ease'; });
+    targets.forEach(t => { t.style.transition = 'filter 0.5s ease'; });
 
     function update() {
       const panelTop    = panel.getBoundingClientRect().top;
@@ -3044,7 +3044,7 @@
       targets.forEach(t => {
         const r = t.getBoundingClientRect();
         const visible = r.bottom > panelTop + 60 && r.top < panelBottom - 60;
-        t.style.opacity = visible ? '1' : '0.3';
+        t.style.filter = visible ? 'brightness(1)' : 'brightness(0.35)';
       });
     }
 
