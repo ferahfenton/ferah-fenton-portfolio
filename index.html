@@ -46,12 +46,19 @@
   #panels::-webkit-scrollbar { display: none; }
   #panels { -ms-overflow-style: none; scrollbar-width: none; }
 
+  @keyframes projDrawerUp {
+    from { transform: translateY(100vh); }
+    to   { transform: translateY(0); }
+  }
   @keyframes projContentIn {
-    from { opacity: 0; transform: translateY(14px); }
+    from { opacity: 0; transform: translateY(18px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+  .proj-panel-open {
+    animation: projDrawerUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
   .proj-panel-open > * {
-    animation: projContentIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: projContentIn 0.45s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .panel {
