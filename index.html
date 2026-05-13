@@ -2922,43 +2922,45 @@
 </script>
 
 <script>
-/* ── Showcase carousel: hover pause + wheel/drag control ── */
+/* ── Showcase carousel: auto-scrolls on arrival, pauses only on intentional hover ── */
 (function () {
   const DURATION = 22; // must match CSS animation duration (seconds)
   const wrap  = document.querySelector('.sc-carousel-wrap');
   const track = document.querySelector('.sc-carousel-track');
   if (!wrap || !track) return;
 
-  let userScrolling = false;   // true after first wheel tick
-  let currentOffset = 0;       // px, tracked while user controls
+  let frozen        = false;
+  let mouseOver     = false;
+  let currentOffset = 0;
+  let touchStartX   = null;
+  let touchLastOffset = 0;
 
   /* ── helpers ── */
   function getComputedOffset() {
     const m = new DOMMatrix(getComputedStyle(track).transform);
-    return m.m41; // translateX in px
+    return m.m41;
   }
 
   function freeze() {
+    if (frozen) return;
+    frozen = true;
     currentOffset = getComputedOffset();
     track.style.animation = 'none';
-    track.style.transform  = `translateX(${currentOffset}px)`;
+    track.style.transform = `translateX(${currentOffset}px)`;
   }
 
   function thaw() {
-    // normalise offset into [-halfWidth, 0]
+    if (!frozen) return;
+    frozen = false;
     const halfWidth = track.scrollWidth / 2;
     let off = currentOffset % halfWidth;
-    if (off > 0)  off -= halfWidth;
+    if (off > 0)         off -= halfWidth;
     if (off < -halfWidth) off += halfWidth;
-
-    const progress = Math.abs(off) / halfWidth;       // 0 → 1
-    const delay    = -(progress * DURATION).toFixed(4); // negative = start mid-way
-
+    const progress = Math.abs(off) / halfWidth;
+    const delay = -(progress * DURATION).toFixed(4);
     track.style.transform = '';
-    // force reflow so removing the transform is registered before animation starts
-    void track.offsetWidth;
+    void track.offsetWidth; // force reflow before re-applying animation
     track.style.animation = `sc-scroll ${DURATION}s ${delay}s linear infinite`;
-    userScrolling = false;
   }
 
   function wrapOffset() {
@@ -2967,19 +2969,27 @@
     if (currentOffset > 0)          currentOffset -= halfWidth;
   }
 
-  /* ── hover: pause / resume ── */
-  wrap.addEventListener('mouseenter', freeze);
+  /* ── hover: only pause on intentional cursor movement, not on page-scroll-under-cursor ──
+     mouseenter fires even if the page scrolled under a still cursor.
+     mousemove only fires when the user actually moves the mouse — that's the real intent signal. */
+  wrap.addEventListener('mouseenter', function () {
+    mouseOver = true;
+    // Don't freeze yet — wait to see if cursor actually moves
+  });
+
+  wrap.addEventListener('mousemove', function () {
+    if (mouseOver) freeze(); // cursor moved intentionally over carousel
+  });
 
   wrap.addEventListener('mouseleave', function () {
-    thaw();
+    mouseOver = false;
+    thaw(); // cursor left → hand back to auto-scroll
   });
 
   /* ── wheel: manual horizontal scrub ── */
   wrap.addEventListener('wheel', function (e) {
-    e.preventDefault();          // stop the page from scrolling vertically
-    if (!userScrolling) userScrolling = true;
-
-    // prefer real horizontal delta; fall back to vertical (e.g. scroll wheel)
+    e.preventDefault();
+    freeze();
     const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
     currentOffset -= delta * 1.4;
     wrapOffset();
@@ -2987,9 +2997,6 @@
   }, { passive: false });
 
   /* ── touch drag ── */
-  let touchStartX = null;
-  let touchLastOffset = 0;
-
   wrap.addEventListener('touchstart', function (e) {
     touchStartX     = e.touches[0].clientX;
     touchLastOffset = getComputedOffset();
@@ -3006,7 +3013,7 @@
 
   wrap.addEventListener('touchend', function () {
     touchStartX = null;
-    thaw();
+    thaw(); // touch released → resume auto-scroll
   });
 })();
 </script>
