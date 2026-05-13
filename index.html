@@ -3026,12 +3026,11 @@
   }, { passive: true });
 
   // Project panel open/close
-  const dimObservers = {};
+  const dimHandlers = {};
 
   function setupScrollDim(panel, id) {
-    if (dimObservers[id]) dimObservers[id].disconnect();
+    if (dimHandlers[id]) panel.removeEventListener('scroll', dimHandlers[id]);
 
-    // Target direct div/section children, skip nav and footer elements
     const targets = [...panel.children].filter(el =>
       (el.tagName === 'DIV' || el.tagName === 'SECTION') &&
       ![...el.classList].some(c => c.includes('nav') || c.includes('footer'))
@@ -3039,14 +3038,19 @@
 
     targets.forEach(t => { t.style.transition = 'opacity 0.5s ease'; });
 
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        entry.target.style.opacity = entry.isIntersecting ? '1' : '0.3';
+    function update() {
+      const panelTop    = panel.getBoundingClientRect().top;
+      const panelBottom = panel.getBoundingClientRect().bottom;
+      targets.forEach(t => {
+        const r = t.getBoundingClientRect();
+        const visible = r.bottom > panelTop + 60 && r.top < panelBottom - 60;
+        t.style.opacity = visible ? '1' : '0.3';
       });
-    }, { root: panel, threshold: 0.08 });
+    }
 
-    targets.forEach(t => obs.observe(t));
-    dimObservers[id] = obs;
+    update();
+    panel.addEventListener('scroll', update, { passive: true });
+    dimHandlers[id] = update;
   }
 
   function openProject(id) {
@@ -3059,16 +3063,16 @@
     document.getElementById('panels').style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     panel.scrollTop = 0;
-    // small delay so panel is laid out before observing
     setTimeout(() => setupScrollDim(panel, id), 50);
   }
 
   function closeProject() {
     document.querySelectorAll('.proj-panel').forEach(p => {
+      const key = p.id.replace('proj-', '');
+      if (dimHandlers[key]) p.removeEventListener('scroll', dimHandlers[key]);
       p.style.display = 'none';
       [...p.children].forEach(c => { if (c.style) c.style.opacity = ''; });
     });
-    Object.values(dimObservers).forEach(obs => obs.disconnect());
     document.getElementById('panels').style.overflow = 'scroll';
     document.body.style.overflow = 'hidden';
   }
