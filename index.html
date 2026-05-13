@@ -953,7 +953,7 @@
           <div class="project-thumb pt-b"></div>
           <div class="project-body"><p class="project-tag">Product Design · Card Game</p><h3>Service Design Uno</h3><p>An educational card game that teaches service design principles — built for 3–8 players in 30–45 minutes.</p></div>
         </a>
-        <a class="project-card magazine-card" href="#">
+        <a class="project-card magazine-card" href="javascript:void(0)" onclick="openProject('moneytree')"  >
           <img class="magazine-card-hover-img" src="images/moneytreecard.png" alt="" />
           <div class="project-thumb" style="background:#476C28;"></div>
           <div class="project-body"><p class="project-tag">Web App · Educational Prototype</p><h3>Money Tree</h3><p>A web app designed to teach young adults financial literacy through interactive, beginner-friendly lessons. Because financial education is often very overwhelming and undertaught.</p></div>
@@ -2562,6 +2562,85 @@
     <div class="mm-footer">
       <p>Ferah Fenton · 2025 · Design Project</p>
       <button class="mm-back" onclick="closeProject()">← Back to Portfolio</button>
+    </div>
+
+  </section>
+
+  <!-- MONEY TREE PROJECT PANEL -->
+  <section class="panel proj-panel" id="proj-moneytree" style="display:none; background:#ffffff; flex-direction:column; align-items:flex-start; justify-content:flex-start; overflow-y:auto; position:fixed; inset:0; z-index:500;">
+    <style>
+      .mt-pg { padding-left: 56px; padding-right: 56px; width: 100%; box-sizing: border-box; }
+      .mt-nav {
+        width: 100%; padding: 22px 56px;
+        display: flex; align-items: center; justify-content: space-between;
+        position: sticky; top: 0; z-index: 9999;
+        background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+        box-sizing: border-box; border-bottom: 1px solid rgba(0,0,0,0.08);
+      }
+      .mt-back {
+        font-family: 'Manrope', sans-serif; font-size: 0.88rem; font-weight: 500;
+        color: rgba(0,0,0,0.4); background: none; border: none; cursor: pointer;
+        letter-spacing: 0.03em; transition: color 0.2s;
+      }
+      .mt-back:hover { color: rgba(0,0,0,0.8); }
+      .mt-nav-title {
+        font-family: 'Manrope', sans-serif; font-size: 0.82rem; font-weight: 500;
+        color: rgba(0,0,0,0.3); letter-spacing: 0.05em;
+      }
+      .mt-section {
+        padding: 48px 56px; border-top: 1px solid rgba(0,0,0,0.08);
+        box-sizing: border-box; width: 100%;
+      }
+      .mt-label {
+        font-family: 'Manrope', sans-serif; font-size: 0.75rem;
+        font-weight: 500; color: rgba(0,0,0,0.35);
+        text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px;
+      }
+      .mt-section h2 {
+        font-family: 'Manrope', sans-serif;
+        font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+        font-weight: 800; color: #1a1a1a; margin-bottom: 18px; letter-spacing: -0.03em;
+      }
+      .mt-section h2 span { color: #476C28; }
+      .mt-section p {
+        font-family: 'Manrope', sans-serif; font-size: 1rem;
+        font-weight: 400; color: rgba(0,0,0,0.55); line-height: 1.85;
+      }
+      .mt-footer {
+        width: 100%; display: flex; align-items: center; justify-content: space-between;
+        padding: 32px 56px 60px; border-top: 1px solid rgba(0,0,0,0.08);
+        font-family: 'Manrope', sans-serif; font-size: 0.82rem; font-weight: 500;
+        color: rgba(0,0,0,0.25); box-sizing: border-box;
+      }
+    </style>
+
+    <!-- nav -->
+    <div class="mt-nav">
+      <button class="mt-back" onclick="closeProject()">← Back to Portfolio</button>
+      <span class="mt-nav-title">Money Tree — 2025</span>
+      <span style="width:120px"></span>
+    </div>
+
+    <!-- hero -->
+    <div style="padding: 64px 56px 48px; box-sizing: border-box; width: 100%;">
+      <p class="mt-label">Web App · Educational Prototype</p>
+      <h1 style="font-family:'Manrope',sans-serif; font-size:clamp(3rem,7vw,6rem); font-weight:800; color:#1a1a1a; line-height:1.0; letter-spacing:-0.04em; margin-bottom:28px;">Money <span style="color:#476C28;">Tree</span></h1>
+      <p style="font-family:'Manrope',sans-serif; font-size:1.1rem; font-weight:400; color:rgba(0,0,0,0.55); line-height:1.8; max-width:680px; padding-bottom:28px; border-bottom:1px solid rgba(0,0,0,0.08);">A web app designed to teach young adults financial literacy through interactive, beginner-friendly lessons. Because financial education is often very overwhelming and undertaught.</p>
+      <div style="display:flex; gap:32px; margin-top:28px;">
+        <div>
+          <p style="font-family:'Manrope',sans-serif; font-size:0.72rem; font-weight:500; color:rgba(0,0,0,0.3); text-transform:uppercase; letter-spacing:2px; margin-bottom:6px;">Type</p>
+          <p style="font-family:'Manrope',sans-serif; font-size:1rem; font-weight:700; color:rgba(0,0,0,0.65);">Web App</p>
+        </div>
+        <div>
+          <p style="font-family:'Manrope',sans-serif; font-size:0.72rem; font-weight:500; color:rgba(0,0,0,0.3); text-transform:uppercase; letter-spacing:2px; margin-bottom:6px;">Category</p>
+          <p style="font-family:'Manrope',sans-serif; font-size:1rem; font-weight:700; color:rgba(0,0,0,0.65);">Educational Prototype</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-footer">
+      <p>Ferah Fenton · 2025 · Design Project</p>
+      <button class="mt-back" onclick="closeProject()">← Back to Portfolio</button>
     </div>
 
   </section>
