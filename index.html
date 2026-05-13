@@ -46,14 +46,6 @@
   #panels::-webkit-scrollbar { display: none; }
   #panels { -ms-overflow-style: none; scrollbar-width: none; }
 
-  @keyframes projFadeIn {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .proj-panel-fadein {
-    animation: projFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-
   .panel {
     height: 100vh;
     width: 100%;
@@ -3022,10 +3014,7 @@
   function openProject(id) {
     const panel = document.getElementById('proj-' + id);
     if (!panel) return;
-    panel.classList.remove('proj-panel-fadein');
-    void panel.offsetWidth; // force reflow to restart animation
     panel.style.display = 'flex';
-    panel.classList.add('proj-panel-fadein');
     document.getElementById('panels').style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     panel.scrollTop = 0;
