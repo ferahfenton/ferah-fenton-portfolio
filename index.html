@@ -513,12 +513,14 @@
   }
 
   .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 12px;
   }
 
   .project-card {
+    flex: 0 0 calc(33.333% - 8px);
     background: white;
     border: 2px solid #1a1a1a;
     border-radius: 18px; overflow: hidden;
@@ -895,14 +897,14 @@
             <div class="sc-carousel-item"><img src="images/5gum.png" alt="5Gum Rebrand" /></div>
             <div class="sc-carousel-item"><img src="images/loadup.png" alt="LoadUP" /></div>
             <div class="sc-carousel-item"><img src="images/sdcover.png" alt="Service Design Uno" /></div>
-            <div class="sc-carousel-item"><img src="images/mtcover.png" alt="Magazine" /></div>
+            <div class="sc-carousel-item"><img src="images/mtcover.png?v=1778693500" alt="Magazine" /></div>
             <div class="sc-carousel-item"><img src="images/designcover.png" alt="Designer Cover" /></div>
             <div class="sc-carousel-item"><img src="images/mealmap.png" alt="Meal Map" /></div>
             <!-- duplicated for seamless loop -->
             <div class="sc-carousel-item"><img src="images/5gum.png" alt="5Gum Rebrand" /></div>
             <div class="sc-carousel-item"><img src="images/loadup.png" alt="LoadUP" /></div>
             <div class="sc-carousel-item"><img src="images/sdcover.png" alt="Service Design Uno" /></div>
-            <div class="sc-carousel-item"><img src="images/mtcover.png" alt="Magazine" /></div>
+            <div class="sc-carousel-item"><img src="images/mtcover.png?v=1778693500" alt="Magazine" /></div>
             <div class="sc-carousel-item"><img src="images/designcover.png" alt="Designer Cover" /></div>
             <div class="sc-carousel-item"><img src="images/mealmap.png" alt="Meal Map" /></div>
           </div>
@@ -983,10 +985,7 @@
           <div class="project-thumb" style="background:#A2C496;"></div>
           <div class="project-body"><p class="project-tag">UX Design · Mobile App · Prototype</p><h3>Meal Map</h3><p>A prototype app helping students navigate university cafeterias safely through a standardized, reliable system for allergy communication, management, and education.</p></div>
         </a>
-        <a class="project-card" href="#">
-          <div class="project-thumb" style="background:#6B6B6B;"></div>
-          <div class="project-body"><p class="project-tag">Film · Camera Work</p><h3>Film Projects</h3><p>From place pieces to documentary — a collection of camera work projects exploring visual storytelling through the lens.</p></div>
-        </a>
+
       </div>
     </div>
   </section>
@@ -2683,10 +2682,15 @@
     </div>
 
     <!-- problem -->
-    <div class="mt-section">
-      <p class="mt-label">Overview</p>
-      <h2>The <span>Problem</span></h2>
-      <p>As a young adult who struggled to understand basic financial concepts, I found it frustrating how difficult it was to access clear, and easily digestible information without falling down endless research rabbit holes. After talking with friends my age, I realized how common this knowledge gap really is, and research shows that financial literacy among younger generations is alarmingly low, with studies showing only 9–35% of young adults who genuinely demonstrate strong financial understanding. And coming from personal experience, this lack of financial knowledge can create confidence gaps, independence challenges and digital reliance. Wanting to make financial education feel more approachable and accessible, I created Money Tree — the app that teaches financial fundamentals in an unintimidating and welcoming approach.</p>
+    <div class="mt-section" style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:flex-start;">
+      <div>
+        <p class="mt-label">Overview</p>
+        <h2>The <span>Problem</span></h2>
+        <p>As a young adult who struggled to understand basic financial concepts, I found it frustrating how difficult it was to access clear, and easily digestible information without falling down endless research rabbit holes. After talking with friends my age, I realized how common this knowledge gap really is, and research shows that financial literacy among younger generations is alarmingly low, with studies showing only 9–35% of young adults who genuinely demonstrate strong financial understanding. And coming from personal experience, this lack of financial knowledge can create confidence gaps, independence challenges and digital reliance. Wanting to make financial education feel more approachable and accessible, I created Money Tree — the app that teaches financial fundamentals in an unintimidating and welcoming approach.</p>
+      </div>
+      <div style="display:flex; align-items:flex-start; justify-content:center;">
+        <img src="images/money.png" alt="Money Tree illustration" style="width:62%; border-radius:20px; display:block;" />
+      </div>
     </div>
 
     <div class="mt-footer">
