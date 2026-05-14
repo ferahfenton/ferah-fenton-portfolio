@@ -873,7 +873,18 @@
     .c-icon { width: 30px; height: 30px; font-size: 0.8rem; }
 
     /* Dot nav: keep but smaller */
-    #dot-nav { right: auto; top: auto; transform: translateX(-50%); bottom: 16px; left: 50%; flex-direction: row; gap: 8px; }
+    /* Dot nav: anchor top-left, use transform for both positions so animation is smooth */
+    #dot-nav {
+      right: auto !important; top: 0 !important; left: 0 !important; bottom: auto !important;
+      flex-direction: column; gap: 8px;
+      /* right-side starting position */
+      transform: translate(calc(100vw - 22px), calc(50vh - 45px));
+      transition: transform 0.55s cubic-bezier(0.22,1,0.36,1);
+    }
+    #dot-nav.nav-bottom {
+      flex-direction: row;
+      transform: translate(calc(50vw - 45px), calc(100vh - 22px));
+    }
     .dot { width: 6px; height: 6px; }
 
     /* ── Mobile stacking helpers ── */
@@ -3350,6 +3361,10 @@
     navbar.classList.toggle('dark-nav', i === 5);
     navbar.classList.toggle('red-nav', i === 3);
     navbar.classList.toggle('lime-nav', i === 4);
+    // Mobile: slide dots to bottom when leaving hero, back to right on hero
+    if (window.innerWidth <= 520) {
+      document.getElementById('dot-nav').classList.toggle('nav-bottom', i !== 0);
+    }
   }, { passive: true });
 
   // Project panel open/close
