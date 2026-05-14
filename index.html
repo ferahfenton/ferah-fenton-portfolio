@@ -786,9 +786,18 @@
   }
 
   @media (max-width: 520px) {
-    /* Nav: hide links on phone, dots handle navigation */
-    nav { padding: 14px 18px; }
+    /* Nav: hide links on phone, center logo */
+    nav { padding: 14px 18px; justify-content: center; }
     .nav-links { display: none; }
+
+    /* Project page headers + footnotes: center on mobile */
+    .proj-nav, .sdu-nav, .lup-nav, .mm-nav, .mt-nav, .gd-nav {
+      justify-content: center !important; gap: 12px !important; padding: 14px 18px !important;
+    }
+    .proj-footer, .sdu-footer, .lup-footer, .mm-footer, .mt-footer, .gd-footer {
+      flex-direction: column !important; align-items: center !important;
+      gap: 12px !important; padding: 28px 18px !important; text-align: center !important;
+    }
 
     /* Hero */
     .hero-inner { padding: 0 20px; }
