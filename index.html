@@ -520,9 +520,12 @@
   }
 
   .desc-mobile { display: none; }
+  .back-mobile { display: none; }
   @media (max-width: 600px) {
     .desc-desktop { display: none; }
     .desc-mobile { display: inline; }
+    .back-desktop { display: none; }
+    .back-mobile { display: inline; }
   }
   .project-card {
     flex: 0 0 calc(33.333% - 8px);
@@ -1379,7 +1382,7 @@
 
     <!-- sticky nav -->
     <div class="proj-nav pg">
-      <button class="proj-back" onclick="closeProject()">← Back to Portfolio</button>
+      <button class="proj-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
       <span class="proj-nav-title">5Gum Rebrand — 2026</span>
       <span style="width:120px"></span>
     </div>
@@ -1580,7 +1583,7 @@
 
     <div class="proj-footer pg">
       <p>Ferah Fenton · 2026 · Design Project</p>
-      <button class="proj-back" onclick="closeProject()">← Back to Portfolio</button>
+      <button class="proj-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
     </div>
 
   </section>
@@ -1681,7 +1684,7 @@
 
     <!-- sticky nav -->
     <div class="sdu-nav sdu-pg">
-      <button class="sdu-back" onclick="closeProject()">← Back to Portfolio</button>
+      <button class="sdu-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
       <span class="sdu-nav-title">Service Design Uno — 2025</span>
       <span style="width:120px"></span>
     </div>
@@ -2017,7 +2020,7 @@
 
     <div class="sdu-footer sdu-pg">
       <p>Ferah Fenton · 2025 · Team Project</p>
-      <button class="sdu-back" onclick="closeProject()">← Back to Portfolio</button>
+      <button class="sdu-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
     </div>
 
   </section>
@@ -2025,7 +2028,7 @@
   <!-- RESUME PANEL -->
   <section class="panel proj-panel" id="proj-resume" style="display:none; background:#1a1a1a; flex-direction:column; align-items:stretch; justify-content:flex-start; overflow-y:auto; position:fixed; inset:0; z-index:500;">
     <div style="width:100%; padding:20px 40px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; background:rgba(26,26,26,0.92); backdrop-filter:blur(12px); z-index:9999; box-sizing:border-box;">
-      <button onclick="closeProject()" style="font-family:'Manrope',sans-serif; font-size:0.9rem; color:rgba(255,255,255,0.6); background:none; border:none; cursor:pointer; letter-spacing:0.04em; transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">← Back to Portfolio</button>
+      <button onclick="closeProject()" style="font-family:'Manrope',sans-serif; font-size:0.9rem; color:rgba(255,255,255,0.6); background:none; border:none; cursor:pointer; letter-spacing:0.04em; transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.6)'"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
       <span style="font-family:'Manrope',sans-serif; font-size:0.85rem; color:rgba(255,255,255,0.3); letter-spacing:0.06em; text-transform:uppercase;">Ferah Fenton — Resume</span>
       <span style="width:140px;"></span>
     </div>
@@ -2157,7 +2160,7 @@
 
     <!-- sticky nav -->
     <div class="lup-nav">
-      <button class="lup-back" onclick="closeProject()">← Back to Portfolio</button>
+      <button class="lup-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
       <span class="lup-nav-title">LoadUP! — 2025</span>
       <span style="width:120px"></span>
     </div>
@@ -2354,7 +2357,7 @@
 
     <div class="lup-footer">
       <p>Ferah Fenton · 2025 · Design Project</p>
-      <button class="lup-back" onclick="closeProject()">← Back to Portfolio</button>
+      <button class="lup-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
     </div>
 
   </section>
@@ -2469,7 +2472,7 @@
 
     <!-- sticky nav -->
     <div class="mm-nav">
-      <button class="mm-back" onclick="closeProject()">← Back to Portfolio</button>
+      <button class="mm-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
       <span class="mm-nav-title">Meal Map — 2025</span>
       <span style="width:120px"></span>
     </div>
@@ -2651,7 +2654,7 @@
 
     <div class="mm-footer">
       <p>Ferah Fenton · 2025 · Design Project</p>
-      <button class="mm-back" onclick="closeProject()">← Back to Portfolio</button>
+      <button class="mm-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
     </div>
 
   </section>
@@ -2731,7 +2734,7 @@
 
     <!-- nav -->
     <div class="mt-nav">
-      <button class="mt-back" onclick="closeProject()">← Back to Portfolio</button>
+      <button class="mt-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
       <span class="mt-nav-title">Money Tree — 2026</span>
       <span style="width:120px"></span>
     </div>
@@ -2892,7 +2895,7 @@
 
     <div class="mt-footer">
       <p>Ferah Fenton · 2026 · Design Project</p>
-      <button class="mt-back" onclick="closeProject()">← Back to Portfolio</button>
+      <button class="mt-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
     </div>
 
   </section>
@@ -2966,7 +2969,7 @@
 
     <!-- nav -->
     <div class="gd-nav">
-      <button class="gd-back" onclick="closeProject()">← Back to Portfolio</button>
+      <button class="gd-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
       <span id="gd-nav-heading" style="font-family:'Risque',cursive; font-size:1.15rem; color:#ffffff; text-transform:uppercase; letter-spacing:0.02em; opacity:0; transition:opacity 0.25s ease; pointer-events:none;">Passion <span style="color:#C93535;">Pieces</span></span>
       <span style="width:120px;"></span>
     </div>
@@ -3198,7 +3201,7 @@
 
     <div class="gd-footer gd-pg">
       <p>Ferah Fenton · Passion Pieces</p>
-      <button class="gd-back" onclick="closeProject()">← Back to Portfolio</button>
+      <button class="gd-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
     </div>
 
   </section>
