@@ -930,6 +930,45 @@
     /* Logo showcase row */
     .logo-showcase { flex-direction: column !important; align-items: center !important; gap: 24px !important; }
     .logo-item { height: auto !important; }
+
+    /* ── Project page image centering ── */
+    .mob-stack img, .mob-stack-flex img, .mob-order-1 img, .mob-order-2 img {
+      display: block !important; margin-left: auto !important; margin-right: auto !important; max-width: 100% !important;
+    }
+
+    /* ── Design approach 3-col grids → single col ── */
+    .lup-feature-card-grid, .mm-feature-card-grid { display: block !important; }
+    .lup-feature-card-grid > *, .mm-feature-card-grid > * { width: 100% !important; margin-top: 16px !important; }
+
+    /* ── Carousel mobile mode ── */
+    /* Wrapper: let active card dictate height; full-width */
+    #lup-carousel-wrap, #mm-carousel-wrap, #mt-carousel-wrap {
+      height: auto !important; min-height: 0 !important;
+      max-width: 100% !important; margin-top: 24px !important;
+    }
+    /* All slides: hidden by default, no absolute stacking */
+    .lup-fcard-slide, .mm-fcard-slide, .mt-fcard-slide {
+      position: relative !important; display: none !important;
+      transform: none !important; opacity: 1 !important; pointer-events: auto !important;
+      min-height: auto !important;
+    }
+    /* Active slide only: show as single-column (text above, image below) */
+    .lup-fcard-slide.carousel-front, .mm-fcard-slide.carousel-front {
+      display: grid !important; grid-template-columns: 1fr !important;
+    }
+    .mt-fcard-slide.carousel-front {
+      display: flex !important; justify-content: center !important; min-height: auto !important;
+    }
+    /* Carousel images: reasonable height on mobile */
+    .lup-fcard-slide img, .mm-fcard-slide img {
+      max-height: 55vw !important; width: auto !important; max-width: 80% !important;
+      margin: 16px auto 0 !important;
+    }
+    .mt-fcard-slide img { max-height: 55vw !important; max-width: 90% !important; margin: 0 auto !important; }
+    /* Carousel nav: full-width on mobile */
+    #lup-carousel-wrap ~ div, #mm-carousel-wrap ~ div, #mt-carousel-wrap ~ div {
+      max-width: 100% !important;
+    }
   }
 </style>
 </head>
@@ -2406,6 +2445,7 @@
             card.style.opacity    = o.opacity;
             card.style.zIndex     = o.z;
             card.style.pointerEvents = o.pe;
+            card.classList.toggle('carousel-front', pos === 0);
           });
           dots.forEach(function(dot) {
             dot.style.opacity = parseInt(dot.getAttribute('data-dot')) === lupIdx ? '1' : '0.3';
@@ -2426,7 +2466,7 @@
       <p class="lup-label">Design Approach</p>
       <h2>Useful, Usable, <span>Desirable</span></h2>
       <p>Throughout the design process, we applied three core principles to every decision:</p>
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:28px;">
+      <div class="lup-feature-card-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:28px;">
         <div class="lup-feature-card">
           <div class="lup-feature-title" style="color:#63A7CD;">Useful</div>
           <div class="lup-feature-desc">Solving the core problem — students need to know machine availability without physically checking.</div>
@@ -2704,6 +2744,7 @@
             card.style.opacity    = o.opacity;
             card.style.zIndex     = o.z;
             card.style.pointerEvents = o.pe;
+            card.classList.toggle('carousel-front', pos === 0);
           });
           dots.forEach(function(dot) {
             dot.style.opacity = parseInt(dot.getAttribute('data-dot')) === mmIdx ? '1' : '0.3';
@@ -2723,7 +2764,7 @@
       <p class="mm-label">Design Approach</p>
       <h2>Safe, Clear, <span>Empowering</span></h2>
       <p>Every design decision was guided by three principles that put students with dietary restrictions first.</p>
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:28px;">
+      <div class="mm-feature-card-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:28px;">
         <div class="mm-feature-card">
           <div class="mm-feature-title" style="color:#B0C9A7;">Safe</div>
           <div class="mm-feature-desc">Accurate and continuously updated allergen data so students can trust every meal decision they make.</div>
@@ -2961,6 +3002,7 @@
             card.style.opacity    = o.opacity;
             card.style.zIndex     = o.z;
             card.style.pointerEvents = o.pe;
+            card.classList.toggle('carousel-front', pos === 0);
           });
           dots.forEach(function(dot) {
             dot.style.opacity = parseInt(dot.getAttribute('data-dot')) === mtIdx ? '1' : '0.3';
