@@ -856,6 +856,25 @@
     /* Dot nav: keep but smaller */
     #dot-nav { right: 14px; gap: 8px; }
     .dot { width: 6px; height: 6px; }
+
+    /* ── Mobile stacking helpers ── */
+    /* Generic: collapse any two-column grid/flex into single column */
+    .mob-stack { display: block !important; }
+    .mob-stack > * { width: 100% !important; max-width: 100% !important; flex: unset !important; }
+    .mob-stack > * + * { margin-top: 24px !important; }
+    /* Flex variant with DOM-order override support */
+    .mob-stack-flex { display: flex !important; flex-direction: column !important; gap: 24px !important; }
+    .mob-stack-flex > * { width: 100% !important; max-width: 100% !important; }
+    .mob-order-1 { order: 1 !important; }
+    .mob-order-2 { order: 2 !important; }
+    .mob-no-tx { transform: none !important; }
+    /* CSS-class-based hero grids */
+    .proj-hero, .sdu-hero, .lup-hero, .mm-hero {
+      grid-template-columns: 1fr !important; padding: 48px 18px 32px !important;
+    }
+    /* Logo showcase row */
+    .logo-showcase { flex-direction: column !important; align-items: center !important; gap: 24px !important; }
+    .logo-item { height: auto !important; }
   }
 </style>
 </head>
@@ -1454,7 +1473,7 @@
       <!-- overview -->
     <div class="proj-section pg" style="padding-top:90px;">
       <p class="proj-section-label">Overview</p>
-      <div style="display:grid; grid-template-columns:3fr 2fr; gap:48px; align-items:center;">
+      <div class="mob-stack" style="display:grid; grid-template-columns:3fr 2fr; gap:48px; align-items:center;">
         <div>
           <h2>Flavour as a sensory system</h2>
           <p>The 5Gum rebrand reframes the brand around a core idea: flavour isn't just a taste — it's a full sensory experience. Each flavour has its own tactile texture, visual language, and identity system that translates across packaging, social media, and immersive brand moments.</p>
@@ -1557,7 +1576,7 @@
 
     <!-- socials -->
     <div class="proj-section pg">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:flex-start;">
+      <div class="mob-stack" style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:flex-start;">
         <div>
           <p class="proj-section-label">Socials</p>
           <h2>The Sensational Lock In</h2>
@@ -2007,7 +2026,7 @@
       </div>
     </div>
     <!-- role and impact -->
-    <div style="padding: 32px 56px 72px; border-top: 1px solid rgba(255,255,255,0.07); display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:flex-start;">
+    <div class="mob-stack" style="padding: 32px 56px 72px; border-top: 1px solid rgba(255,255,255,0.07); display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:flex-start;">
       <!-- left: text -->
       <div>
         <p style="font-family:'Space Grotesk',sans-serif; font-size:0.7rem; font-weight:500; color:rgba(255,255,255,0.25); text-transform:uppercase; letter-spacing:3px; margin-bottom:18px;">Contribution</p>
@@ -2339,7 +2358,7 @@
 
     <!-- role and impact -->
     <div class="lup-section lup-pg">
-      <div style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;">
+      <div class="mob-stack" style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;">
         <div>
           <p class="lup-label">Contribution</p>
           <h2>Role And <span>Impact</span></h2>
@@ -2636,7 +2655,7 @@
 
     <!-- role and impact -->
     <div class="mm-section mm-pg">
-      <div style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;">
+      <div class="mob-stack" style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;">
         <div>
           <p class="mm-label">Contribution</p>
           <h2>Role And <span>Impact</span></h2>
@@ -2749,7 +2768,7 @@
     </div>
 
     <!-- hero -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:flex-start; padding:64px 72px 48px 100px; box-sizing:border-box; width:100%;">
+    <div class="mob-stack" style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:flex-start; padding:64px 72px 48px 100px; box-sizing:border-box; width:100%;">
       <!-- left: text -->
       <div>
         <h1 style="font-family:'Manrope',sans-serif; font-size:clamp(3rem,7vw,6rem); font-weight:800; color:#4F7033; line-height:1.0; letter-spacing:-0.04em; margin-bottom:28px;">Money Tree</h1>
@@ -2778,11 +2797,11 @@
     </div>
 
     <!-- problem -->
-    <div class="mt-section" style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:flex-start;">
-      <div style="display:flex; align-items:flex-start; justify-content:flex-start;">
+    <div class="mt-section mob-stack-flex" style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:flex-start;">
+      <div class="mob-order-2" style="display:flex; align-items:flex-start; justify-content:flex-start;">
         <img src="images/money.png" alt="Money Tree illustration" style="width:72%; border-radius:20px; display:block;" />
       </div>
-      <div style="transform:translateX(-40px);">
+      <div class="mob-order-1 mob-no-tx" style="transform:translateX(-40px);">
         <p class="mt-label">Overview</p>
         <h2>The <span>Problem</span></h2>
         <p>As a young adult who struggled to understand basic financial concepts, I found it frustrating how difficult it was to access clear, and easily digestible information without falling down endless research rabbit holes. After talking with friends my age, I realized how common this knowledge gap really is, and <strong>research shows that financial literacy among younger generations is alarmingly low, with studies showing only 9–35% of young adults who genuinely demonstrate strong financial understanding</strong>. Coming from personal experience, this lack of financial knowledge can create confidence gaps, independence challenges and digital reliance. Wanting to make financial education feel more approachable and accessible, I created Money Tree — the app that teaches financial fundamentals in an unintimidating and welcoming approach.</p>
@@ -2877,7 +2896,7 @@
       <p class="mt-label">Design Process</p>
       <h2>Behind the <span>Scenes</span></h2>
       <p style="max-width:780px; margin-left:auto; margin-right:auto;">With the problem and research in mind, I immediately began planning how I wanted to make financial education feel easier to learn through personal experiences and learning preferences, taking inspiration from learning apps like Duolingo.</p>
-      <div style="display:flex; gap:24px; justify-content:center; margin-top:36px;">
+      <div class="mob-stack" style="display:flex; gap:24px; justify-content:center; margin-top:36px;">
         <div style="width:48%; display:flex; flex-direction:column; align-items:center; gap:12px;">
           <img src="images/brainstorm.jpeg?v=1778700000" alt="Brainstorm" style="width:100%; border-radius:16px; display:block;" />
           <p class="mt-label" style="margin:0;">Ideation</p>
