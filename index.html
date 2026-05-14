@@ -2021,7 +2021,7 @@
       <span style="width:140px;"></span>
     </div>
     <div style="flex:1; width:100%; height:calc(100vh - 65px);">
-      <iframe src="images/resume.pdf" style="width:100%; height:100%; border:none; display:block;"></iframe>
+      <iframe src="images/resume2026.pdf" style="width:100%; height:100%; border:none; display:block;"></iframe>
     </div>
   </section>
 
@@ -2127,11 +2127,12 @@
         margin-bottom: 10px;
       }
       .lup-feature-img-wrap img {
-        transition: transform 0.35s ease;
-        transform-origin: center center;
+        transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), filter 0.4s ease;
+        transform-origin: center bottom;
       }
       .lup-feature-img-wrap:hover img {
-        transform: scale(1.18);
+        transform: scale(1.08) translateY(-10px);
+        filter: drop-shadow(0 24px 32px rgba(0,0,0,0.55)) drop-shadow(0 8px 12px rgba(0,0,0,0.35));
       }
       .lup-feature-desc {
         font-family: 'Poppins', sans-serif; font-size: 0.93rem;
@@ -2187,62 +2188,110 @@
       </div>
     </div>
 
-    <!-- core features -->
+    <!-- core features carousel -->
     <div class="lup-section lup-pg">
       <p class="lup-label">Solution</p>
       <h2>Core <span>Features</span></h2>
       <p>LoadUP's solution focuses on four core features that directly address the pain points identified through user research and validated by surveys and interviews with students in shared housing.</p>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+      <div id="lup-carousel-wrap" style="position:relative; height:calc(52vh + 90px); margin-top:32px; max-width:75%; margin-left:auto; margin-right:auto;">
 
         <!-- 01 -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; background:#3D6E8A; border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:32px; align-items:center; min-height:55vh;">
+        <div class="lup-fcard-slide" data-card="0" style="position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:1fr 1fr;gap:20px;background:#3D6E8A;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;align-items:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
           <div>
             <div class="lup-feature-num">01</div>
             <div class="lup-feature-title">Live Visibility</div>
             <div class="lup-feature-desc">Real-time machine status shows which washers and dryers are available, including exact cycle times remaining. This allows students to plan ahead and avoid unnecessary trips, making laundry more efficient and predictable.</div>
           </div>
           <div class="lup-feature-img-wrap">
-            <img src="images/livevis.png" alt="Live Visibility" style="width:100%; max-height:62vh; object-fit:contain; display:block; border-radius:12px;" />
+            <img src="images/livevis.png" alt="Live Visibility" style="width:100%; max-height:55vh; object-fit:contain; display:block; border-radius:12px;" />
           </div>
         </div>
 
         <!-- 02 -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; background:#3D6E8A; border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:32px; align-items:center; min-height:55vh;">
+        <div class="lup-fcard-slide" data-card="1" style="position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:1fr 1fr;gap:20px;background:#3D6E8A;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;align-items:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
           <div>
             <div class="lup-feature-num">02</div>
             <div class="lup-feature-title">Virtual Queue</div>
             <div class="lup-feature-desc">Reserve a spot in line without standing in the laundry room. Push notifications alert you when your machine is ready.</div>
           </div>
           <div class="lup-feature-img-wrap">
-            <img src="images/queue.png" alt="Virtual Queue" style="width:100%; max-height:62vh; object-fit:contain; display:block; border-radius:12px;" />
+            <img src="images/queue.png" alt="Virtual Queue" style="width:100%; max-height:55vh; object-fit:contain; display:block; border-radius:12px;" />
           </div>
         </div>
 
         <!-- 03 -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; background:#3D6E8A; border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:32px; align-items:center; min-height:55vh;">
+        <div class="lup-fcard-slide" data-card="2" style="position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:1fr 1fr;gap:20px;background:#3D6E8A;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;align-items:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
           <div>
             <div class="lup-feature-num">03</div>
             <div class="lup-feature-title">Digital Payment</div>
             <div class="lup-feature-desc">The integrated payment methods eliminate the need for coins and finicky card readers; it is a "Reserve &amp; Pay" method that locks in machines for users, and lets them seamlessly pay for their loads.</div>
           </div>
           <div class="lup-feature-img-wrap">
-            <img src="images/digpay.png" alt="Digital Payment" style="width:100%; max-height:62vh; object-fit:contain; display:block; border-radius:12px;" />
+            <img src="images/digpay.png" alt="Digital Payment" style="width:100%; max-height:55vh; object-fit:contain; display:block; border-radius:12px;" />
           </div>
         </div>
 
         <!-- 04 -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; background:#3D6E8A; border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:32px; align-items:center; min-height:55vh;">
+        <div class="lup-fcard-slide" data-card="3" style="position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:1fr 1fr;gap:20px;background:#3D6E8A;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;align-items:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
           <div>
             <div class="lup-feature-num">04</div>
             <div class="lup-feature-title">Activity &amp; Impact</div>
             <div class="lup-feature-desc">The profile feature gives users a personalized snapshot of their laundry habits, including a "good neighbour" rating based on how quickly they collect their laundry. It also tracks time saved and loads completed each month, encouraging more efficient and respectful use of shared machines.</div>
           </div>
           <div class="lup-feature-img-wrap">
-            <img src="images/actim.png" alt="Activity & Impact" style="width:100%; max-height:62vh; object-fit:contain; display:block; border-radius:12px;" />
+            <img src="images/actim.png" alt="Activity & Impact" style="width:100%; max-height:55vh; object-fit:contain; display:block; border-radius:12px;" />
           </div>
         </div>
 
       </div>
+
+      <!-- nav -->
+      <div style="display:flex; align-items:center; gap:20px; margin-top:28px;">
+        <button onclick="lupPrev()" style="background:rgba(99,167,205,0.15); border:1px solid rgba(99,167,205,0.3); color:#63A7CD; font-family:'Poppins',sans-serif; font-size:1.1rem; width:44px; height:44px; border-radius:50%; cursor:pointer; transition:background 0.2s;" onmouseover="this.style.background='rgba(99,167,205,0.3)'" onmouseout="this.style.background='rgba(99,167,205,0.15)'">←</button>
+        <span id="lup-carousel-counter" style="font-family:'Lilita One',cursive; font-size:1rem; color:rgba(255,255,255,0.4); letter-spacing:2px;">01 / 04</span>
+        <button onclick="lupNext()" style="background:rgba(99,167,205,0.15); border:1px solid rgba(99,167,205,0.3); color:#63A7CD; font-family:'Poppins',sans-serif; font-size:1.1rem; width:44px; height:44px; border-radius:50%; cursor:pointer; transition:background 0.2s;" onmouseover="this.style.background='rgba(99,167,205,0.3)'" onmouseout="this.style.background='rgba(99,167,205,0.15)'">→</button>
+        <div style="display:flex; gap:8px; margin-left:8px;">
+          <span class="lup-dot" data-dot="0" onclick="lupGoTo(0)" style="width:8px;height:8px;border-radius:50%;background:#63A7CD;cursor:pointer;transition:opacity 0.2s;"></span>
+          <span class="lup-dot" data-dot="1" onclick="lupGoTo(1)" style="width:8px;height:8px;border-radius:50%;background:#63A7CD;opacity:0.3;cursor:pointer;transition:opacity 0.2s;"></span>
+          <span class="lup-dot" data-dot="2" onclick="lupGoTo(2)" style="width:8px;height:8px;border-radius:50%;background:#63A7CD;opacity:0.3;cursor:pointer;transition:opacity 0.2s;"></span>
+          <span class="lup-dot" data-dot="3" onclick="lupGoTo(3)" style="width:8px;height:8px;border-radius:50%;background:#63A7CD;opacity:0.3;cursor:pointer;transition:opacity 0.2s;"></span>
+        </div>
+      </div>
+
+      <script>
+        var lupIdx = 0;
+        function updateLupCarousel() {
+          var cards = document.querySelectorAll('.lup-fcard-slide');
+          var dots  = document.querySelectorAll('.lup-dot');
+          var total = cards.length;
+          cards.forEach(function(card) {
+            var ci = parseInt(card.getAttribute('data-card'));
+            var pos = (ci - lupIdx + total) % total;
+            var offsets = [
+              { ty: 0,  tx: 0,  scale: 1,    opacity: 1,   z: 4, pe: 'auto' },
+              { ty: 18, tx: 18, scale: 0.97, opacity: 0.65, z: 3, pe: 'none' },
+              { ty: 36, tx: 36, scale: 0.94, opacity: 0.38, z: 2, pe: 'none' },
+              { ty: 54, tx: 54, scale: 0.91, opacity: 0.15, z: 1, pe: 'none' }
+            ];
+            var o = offsets[pos];
+            card.style.transition = 'transform 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.55s ease';
+            card.style.transform  = 'translateY('+o.ty+'px) translateX('+o.tx+'px) scale('+o.scale+')';
+            card.style.opacity    = o.opacity;
+            card.style.zIndex     = o.z;
+            card.style.pointerEvents = o.pe;
+          });
+          dots.forEach(function(dot) {
+            dot.style.opacity = parseInt(dot.getAttribute('data-dot')) === lupIdx ? '1' : '0.3';
+          });
+          var n = lupIdx + 1;
+          document.getElementById('lup-carousel-counter').textContent = (n < 10 ? '0'+n : n) + ' / 04';
+        }
+        function lupNext() { lupIdx = (lupIdx + 1) % 4; updateLupCarousel(); }
+        function lupPrev() { lupIdx = (lupIdx + 3) % 4; updateLupCarousel(); }
+        function lupGoTo(i) { lupIdx = i; updateLupCarousel(); }
+        updateLupCarousel();
+      </script>
     </div>
 
 
@@ -2381,7 +2430,7 @@
       }
       .mm-feature-desc {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 1rem; font-weight: 400;
-        color: rgba(255,255,255,0.55); line-height: 1.7;
+        color: rgba(255,255,255,0.38); line-height: 1.7;
       }
       .mm-feature-card .mm-feature-desc {
         color: white;
@@ -2390,11 +2439,12 @@
         border-radius: 12px;
       }
       .mm-feature-img-wrap img {
-        transition: transform 0.35s ease;
-        transform-origin: center center;
+        transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), filter 0.4s ease !important;
+        transform-origin: center bottom !important;
       }
       .mm-feature-img-wrap:hover img {
-        transform: scale(1.18);
+        transform: scale(1.08) translateY(-10px) !important;
+        filter: drop-shadow(0 24px 32px rgba(0,0,0,0.55)) drop-shadow(0 8px 12px rgba(0,0,0,0.35)) !important;
       }
       .mm-feature-card {
         background: #608359; border: 1px solid rgba(176,201,167,0.25);
@@ -2450,79 +2500,96 @@
       </div>
     </div>
 
-    <!-- core features -->
+    <!-- core features carousel -->
     <div class="mm-section mm-pg">
       <p class="mm-label">Solution</p>
       <h2>Core <span>Features</span></h2>
-      <p>Meal Map's solution focuses on three core features that directly address the pain points students with food allergies face every day on campus.</p>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:28px;">
-        <!-- 01 -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; background:#608359; border:1px solid rgba(176,201,167,0.35); border-radius:16px; padding:24px; align-items:center;">
-          <div>
-            <div class="mm-feature-num">01</div>
-            <div class="mm-feature-title">Allergy Filtering</div>
-            <div class="mm-feature-desc">Students set up their allergy profile once — the app then filters every menu item across all campus locations to show only what's safe for them to eat.</div>
-          </div>
-          <div class="mm-feature-img-wrap">
-            <img src="images/profile.png" alt="Allergy Filtering" style="width:80%; margin:0 auto; object-fit:contain; display:block; border-radius:12px;" />
-          </div>
+      <p>Meal Map's solution focuses on six core features that directly address the pain points students with food allergies face every day on campus.</p>
+
+      <div id="mm-carousel-wrap" style="position:relative; height:calc(52vh + 90px); margin-top:32px; max-width:75%; margin-left:auto; margin-right:auto;">
+
+        <div class="mm-fcard-slide" data-card="0" style="position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#608359;border:1px solid rgba(176,201,167,0.35);border-radius:16px;padding:32px;align-items:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
+          <div><div class="mm-feature-num">01</div><div class="mm-feature-title">Allergy Filtering</div><div class="mm-feature-desc">Students set up their allergy profile once — the app then filters every menu item across all campus locations to show only what's safe for them to eat.</div></div>
+          <div class="mm-feature-img-wrap"><img src="images/profile.png" alt="Allergy Filtering" style="width:100%; max-height:55vh; object-fit:contain; display:block; border-radius:12px;" /></div>
         </div>
-        <!-- 02 -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; background:#608359; border:1px solid rgba(176,201,167,0.35); border-radius:16px; padding:24px; align-items:center;">
-          <div>
-            <div class="mm-feature-num">02</div>
-            <div class="mm-feature-title">Live Menu Info</div>
-            <div class="mm-feature-desc">Real-time ingredient and allergen information for every item at every cafeteria, updated daily so students can always trust what they're seeing. When safe search is off, it uses a flag-based system that signals if an item is cautionary, high-risk, or can be safely customized for the user.</div>
-          </div>
-          <div class="mm-feature-img-wrap">
-            <img src="images/menurisk.png" alt="Live Menu Info" style="width:80%; margin:0 auto; object-fit:contain; display:block; border-radius:12px;" />
-          </div>
+
+        <div class="mm-fcard-slide" data-card="1" style="position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#608359;border:1px solid rgba(176,201,167,0.35);border-radius:16px;padding:32px;align-items:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
+          <div><div class="mm-feature-num">02</div><div class="mm-feature-title">Live Menu Info</div><div class="mm-feature-desc">Real-time ingredient and allergen information for every item at every cafeteria, updated daily so students can always trust what they're seeing. When safe search is off, it uses a flag-based system that signals if an item is cautionary, high-risk, or can be safely customized for the user.</div></div>
+          <div class="mm-feature-img-wrap"><img src="images/menurisk.png" alt="Live Menu Info" style="width:100%; max-height:55vh; object-fit:contain; display:block; border-radius:12px;" /></div>
         </div>
-        <!-- 03 -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; background:#608359; border:1px solid rgba(176,201,167,0.35); border-radius:16px; padding:24px; align-items:center;">
-          <div>
-            <div class="mm-feature-num">03</div>
-            <div class="mm-feature-title">Risk Indicator</div>
-            <div class="mm-feature-desc">A feature that clearly alerts users when a dish contains an allergen in its ingredients, helping them quickly identify potential risks and avoid unsafe choices.</div>
-          </div>
-          <div class="mm-feature-img-wrap">
-            <img src="images/riskindicator.png" alt="Risk Indicator" style="width:80%; margin:0 auto; object-fit:contain; display:block; border-radius:12px;" />
-          </div>
+
+        <div class="mm-fcard-slide" data-card="2" style="position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#608359;border:1px solid rgba(176,201,167,0.35);border-radius:16px;padding:32px;align-items:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
+          <div><div class="mm-feature-num">03</div><div class="mm-feature-title">Risk Indicator</div><div class="mm-feature-desc">A feature that clearly alerts users when a dish contains an allergen in its ingredients, helping them quickly identify potential risks and avoid unsafe choices.</div></div>
+          <div class="mm-feature-img-wrap"><img src="images/riskindicator.png" alt="Risk Indicator" style="width:100%; max-height:55vh; object-fit:contain; display:block; border-radius:12px;" /></div>
         </div>
-        <!-- 04 -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; background:#608359; border:1px solid rgba(176,201,167,0.35); border-radius:16px; padding:24px; align-items:center;">
-          <div>
-            <div class="mm-feature-num">04</div>
-            <div class="mm-feature-title">Smart Substitutions</div>
-            <div class="mm-feature-desc">The app automatically suggests safe substitutions for menu items, adapting ingredients where possible to meet the user's allergen needs.</div>
-          </div>
-          <div class="mm-feature-img-wrap">
-            <img src="images/substitution.png" alt="Smart Substitutions" style="width:80%; margin:0 auto; object-fit:contain; display:block; border-radius:12px;" />
-          </div>
+
+        <div class="mm-fcard-slide" data-card="3" style="position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#608359;border:1px solid rgba(176,201,167,0.35);border-radius:16px;padding:32px;align-items:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
+          <div><div class="mm-feature-num">04</div><div class="mm-feature-title">Smart Substitutions</div><div class="mm-feature-desc">The app automatically suggests safe substitutions for menu items, adapting ingredients where possible to meet the user's allergen needs.</div></div>
+          <div class="mm-feature-img-wrap"><img src="images/substitution.png" alt="Smart Substitutions" style="width:100%; max-height:55vh; object-fit:contain; display:block; border-radius:12px;" /></div>
         </div>
-        <!-- 05 -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; background:#608359; border:1px solid rgba(176,201,167,0.35); border-radius:16px; padding:24px; align-items:center;">
-          <div>
-            <div class="mm-feature-num">05</div>
-            <div class="mm-feature-title">Safety Reporting</div>
-            <div class="mm-feature-desc">An easy-to-use reporting feature that lets users flag food handling issues in real time, keeping cafeteria staff informed, accountable, and continuously improving their allergen safety practices.</div>
-          </div>
-          <div class="mm-feature-img-wrap">
-            <img src="images/report.png" alt="Safety Reporting" style="width:80%; margin:0 auto; object-fit:contain; display:block; border-radius:12px;" />
-          </div>
+
+        <div class="mm-fcard-slide" data-card="4" style="position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#608359;border:1px solid rgba(176,201,167,0.35);border-radius:16px;padding:32px;align-items:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
+          <div><div class="mm-feature-num">05</div><div class="mm-feature-title">Safety Reporting</div><div class="mm-feature-desc">An easy-to-use reporting feature that lets users flag food handling issues in real time, keeping cafeteria staff informed, accountable, and continuously improving their allergen safety practices.</div></div>
+          <div class="mm-feature-img-wrap"><img src="images/report.png" alt="Safety Reporting" style="width:100%; max-height:55vh; object-fit:contain; display:block; border-radius:12px;" /></div>
         </div>
-        <!-- 06 -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; background:#608359; border:1px solid rgba(176,201,167,0.35); border-radius:16px; padding:24px; align-items:center;">
-          <div>
-            <div class="mm-feature-num">06</div>
-            <div class="mm-feature-title">Scan to Identify</div>
-            <div class="mm-feature-desc">Alongside a browsable menu, the app works in real time — if you're unsure about a menu item, cafeterias can provide QR codes in food station areas that link directly to its most up-to-date food details and ingredients in our app!</div>
-          </div>
-          <div class="mm-feature-img-wrap">
-            <img src="images/scanqr.png" alt="Scan to Identify" style="width:80%; margin:0 auto; object-fit:contain; display:block; border-radius:12px;" />
-          </div>
+
+        <div class="mm-fcard-slide" data-card="5" style="position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#608359;border:1px solid rgba(176,201,167,0.35);border-radius:16px;padding:32px;align-items:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
+          <div><div class="mm-feature-num">06</div><div class="mm-feature-title">Scan to Identify</div><div class="mm-feature-desc">Alongside a browsable menu, the app works in real time — if you're unsure about a menu item, cafeterias can provide QR codes in food station areas that link directly to its most up-to-date food details and ingredients in our app!</div></div>
+          <div class="mm-feature-img-wrap"><img src="images/scanqr.png" alt="Scan to Identify" style="width:100%; max-height:55vh; object-fit:contain; display:block; border-radius:12px;" /></div>
+        </div>
+
+      </div>
+
+      <!-- nav -->
+      <div style="display:flex; align-items:center; gap:20px; margin-top:28px; max-width:75%; margin-left:auto; margin-right:auto;">
+        <button onclick="mmPrev()" style="background:rgba(176,201,167,0.15); border:1px solid rgba(176,201,167,0.3); color:#B0C9A7; font-family:'Helvetica Neue',sans-serif; font-size:1.1rem; width:44px; height:44px; border-radius:50%; cursor:pointer; transition:background 0.2s;" onmouseover="this.style.background='rgba(176,201,167,0.3)'" onmouseout="this.style.background='rgba(176,201,167,0.15)'">←</button>
+        <span id="mm-carousel-counter" style="font-family:'Gasoek One',sans-serif; font-size:1rem; color:rgba(255,255,255,0.4); letter-spacing:2px;">01 / 06</span>
+        <button onclick="mmNext()" style="background:rgba(176,201,167,0.15); border:1px solid rgba(176,201,167,0.3); color:#B0C9A7; font-family:'Helvetica Neue',sans-serif; font-size:1.1rem; width:44px; height:44px; border-radius:50%; cursor:pointer; transition:background 0.2s;" onmouseover="this.style.background='rgba(176,201,167,0.3)'" onmouseout="this.style.background='rgba(176,201,167,0.15)'">→</button>
+        <div style="display:flex; gap:8px; margin-left:8px;">
+          <span class="mm-dot" data-dot="0" onclick="mmGoTo(0)" style="width:8px;height:8px;border-radius:50%;background:#B0C9A7;cursor:pointer;transition:opacity 0.2s;"></span>
+          <span class="mm-dot" data-dot="1" onclick="mmGoTo(1)" style="width:8px;height:8px;border-radius:50%;background:#B0C9A7;opacity:0.3;cursor:pointer;transition:opacity 0.2s;"></span>
+          <span class="mm-dot" data-dot="2" onclick="mmGoTo(2)" style="width:8px;height:8px;border-radius:50%;background:#B0C9A7;opacity:0.3;cursor:pointer;transition:opacity 0.2s;"></span>
+          <span class="mm-dot" data-dot="3" onclick="mmGoTo(3)" style="width:8px;height:8px;border-radius:50%;background:#B0C9A7;opacity:0.3;cursor:pointer;transition:opacity 0.2s;"></span>
+          <span class="mm-dot" data-dot="4" onclick="mmGoTo(4)" style="width:8px;height:8px;border-radius:50%;background:#B0C9A7;opacity:0.3;cursor:pointer;transition:opacity 0.2s;"></span>
+          <span class="mm-dot" data-dot="5" onclick="mmGoTo(5)" style="width:8px;height:8px;border-radius:50%;background:#B0C9A7;opacity:0.3;cursor:pointer;transition:opacity 0.2s;"></span>
         </div>
       </div>
+
+      <script>
+        var mmIdx = 0;
+        var mmTotal = 6;
+        function updateMmCarousel() {
+          var cards = document.querySelectorAll('.mm-fcard-slide');
+          var dots  = document.querySelectorAll('.mm-dot');
+          cards.forEach(function(card) {
+            var ci = parseInt(card.getAttribute('data-card'));
+            var pos = (ci - mmIdx + mmTotal) % mmTotal;
+            var offsets = [
+              { ty: 0,  tx: 0,  scale: 1,    opacity: 1,    z: 6, pe: 'auto' },
+              { ty: 18, tx: 18, scale: 0.97, opacity: 0.65, z: 5, pe: 'none' },
+              { ty: 36, tx: 36, scale: 0.94, opacity: 0.38, z: 4, pe: 'none' },
+              { ty: 54, tx: 54, scale: 0.91, opacity: 0.15, z: 3, pe: 'none' },
+              { ty: 54, tx: 54, scale: 0.91, opacity: 0,    z: 2, pe: 'none' },
+              { ty: 54, tx: 54, scale: 0.91, opacity: 0,    z: 1, pe: 'none' }
+            ];
+            var o = offsets[pos];
+            card.style.transition = 'transform 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.55s ease';
+            card.style.transform  = 'translateY('+o.ty+'px) translateX('+o.tx+'px) scale('+o.scale+')';
+            card.style.opacity    = o.opacity;
+            card.style.zIndex     = o.z;
+            card.style.pointerEvents = o.pe;
+          });
+          dots.forEach(function(dot) {
+            dot.style.opacity = parseInt(dot.getAttribute('data-dot')) === mmIdx ? '1' : '0.3';
+          });
+          var n = mmIdx + 1;
+          document.getElementById('mm-carousel-counter').textContent = (n < 10 ? '0'+n : n) + ' / 06';
+        }
+        function mmNext() { mmIdx = (mmIdx + 1) % mmTotal; updateMmCarousel(); }
+        function mmPrev() { mmIdx = (mmIdx + mmTotal - 1) % mmTotal; updateMmCarousel(); }
+        function mmGoTo(i) { mmIdx = i; updateMmCarousel(); }
+        updateMmCarousel();
+      </script>
     </div>
 
     <!-- design approach -->
@@ -2581,7 +2648,7 @@
   </section>
 
   <!-- MONEY TREE PROJECT PANEL -->
-  <section class="panel proj-panel" id="proj-moneytree" style="display:none; background:#E7DCB5; flex-direction:column; align-items:flex-start; justify-content:flex-start; overflow-y:auto; position:fixed; inset:0; z-index:500;">
+  <section class="panel proj-panel" id="proj-moneytree" style="display:none; background:#E7DCB5; flex-direction:column; align-items:stretch; justify-content:flex-start; overflow-y:auto; position:fixed; inset:0; z-index:500;">
     <style>
       .mt-pg { padding-left: 56px; padding-right: 56px; width: 100%; box-sizing: border-box; }
       .mt-nav {
@@ -2602,7 +2669,7 @@
         color: rgba(0,0,0,0.3); letter-spacing: 0.05em;
       }
       .mt-section {
-        padding: 48px 56px; border-top: 1px solid rgba(0,0,0,0.08);
+        padding: 48px 72px 48px 100px; border-top: 1px solid rgba(0,0,0,0.08);
         box-sizing: border-box; width: 100%;
       }
       .mt-label {
@@ -2628,9 +2695,17 @@
       }
       .mt-footer {
         width: 100%; display: flex; align-items: center; justify-content: space-between;
-        padding: 32px 56px 60px; border-top: 1px solid rgba(0,0,0,0.08);
+        padding: 32px 72px 60px 100px; border-top: 1px solid rgba(0,0,0,0.08);
         font-family: 'Manrope', sans-serif; font-size: 0.82rem; font-weight: 500;
         color: rgba(0,0,0,0.25); box-sizing: border-box;
+      }
+      .mt-fcard-slide img {
+        transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), filter 0.4s ease;
+        transform-origin: center bottom;
+      }
+      .mt-fcard-slide img:hover {
+        transform: scale(1.08) translateY(-10px);
+        filter: drop-shadow(0 24px 32px rgba(0,0,0,0.45)) drop-shadow(0 8px 12px rgba(0,0,0,0.25));
       }
       .mt-tag-pill {
         display: inline-block; padding: 6px 16px;
@@ -2653,7 +2728,7 @@
     </div>
 
     <!-- hero -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:flex-start; padding:64px 56px 48px; box-sizing:border-box; width:100%;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:flex-start; padding:64px 72px 48px 100px; box-sizing:border-box; width:100%;">
       <!-- left: text -->
       <div>
         <h1 style="font-family:'Manrope',sans-serif; font-size:clamp(3rem,7vw,6rem); font-weight:800; color:#4F7033; line-height:1.0; letter-spacing:-0.04em; margin-bottom:28px;">Money Tree</h1>
@@ -2676,21 +2751,134 @@
         </div>
       </div>
       <!-- right: app mockup -->
-      <div style="display:flex; align-items:flex-start; justify-content:center; align-self:stretch;">
+      <div style="display:flex; align-items:flex-start; justify-content:center; align-self:stretch; padding-left:20px;">
         <img src="images/mtapp.png" alt="Money Tree App" style="width:62%; border-radius:20px; display:block;" />
       </div>
     </div>
 
     <!-- problem -->
-    <div class="mt-section" style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:flex-start;">
-      <div>
+    <div class="mt-section" style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:flex-start;">
+      <div style="display:flex; align-items:flex-start; justify-content:flex-start;">
+        <img src="images/money.png" alt="Money Tree illustration" style="width:72%; border-radius:20px; display:block;" />
+      </div>
+      <div style="transform:translateX(-40px);">
         <p class="mt-label">Overview</p>
         <h2>The <span>Problem</span></h2>
-        <p>As a young adult who struggled to understand basic financial concepts, I found it frustrating how difficult it was to access clear, and easily digestible information without falling down endless research rabbit holes. After talking with friends my age, I realized how common this knowledge gap really is, and research shows that financial literacy among younger generations is alarmingly low, with studies showing only 9–35% of young adults who genuinely demonstrate strong financial understanding. And coming from personal experience, this lack of financial knowledge can create confidence gaps, independence challenges and digital reliance. Wanting to make financial education feel more approachable and accessible, I created Money Tree — the app that teaches financial fundamentals in an unintimidating and welcoming approach.</p>
+        <p>As a young adult who struggled to understand basic financial concepts, I found it frustrating how difficult it was to access clear, and easily digestible information without falling down endless research rabbit holes. After talking with friends my age, I realized how common this knowledge gap really is, and <strong>research shows that financial literacy among younger generations is alarmingly low, with studies showing only 9–35% of young adults who genuinely demonstrate strong financial understanding</strong>. Coming from personal experience, this lack of financial knowledge can create confidence gaps, independence challenges and digital reliance. Wanting to make financial education feel more approachable and accessible, I created Money Tree — the app that teaches financial fundamentals in an unintimidating and welcoming approach.</p>
       </div>
-      <div style="display:flex; align-items:flex-start; justify-content:center;">
-        <img src="images/money.png" alt="Money Tree illustration" style="width:62%; border-radius:20px; display:block;" />
+    </div>
+
+    <!-- solution -->
+    <div class="mt-section">
+      <p class="mt-label">Solution</p>
+      <h2>The Educational <span>Web App</span></h2>
+
+      <div id="mt-carousel-wrap" style="position:relative; height:calc(62vh + 90px); margin-top:32px; max-width:75%; margin-left:auto; margin-right:auto;">
+
+        <!-- on-slide arrows -->
+        <button onclick="mtPrev()" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);z-index:99;background:rgba(255,255,255,0.25);backdrop-filter:blur(6px);border:none;color:#4F7033;font-size:1.2rem;width:40px;height:40px;border-radius:50%;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.45)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'">←</button>
+        <button onclick="mtNext()" style="position:absolute;right:72px;top:50%;transform:translateY(-50%);z-index:99;background:rgba(255,255,255,0.25);backdrop-filter:blur(6px);border:none;color:#4F7033;font-size:1.2rem;width:40px;height:40px;border-radius:50%;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.45)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'">→</button>
+
+        <div class="mt-fcard-slide" data-card="0" style="position:absolute;left:0;right:0;top:0;background:#C4B47E;border:1px solid rgba(79,112,51,0.2);border-radius:16px;padding:32px;display:flex;align-items:center;justify-content:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
+          <img src="images/beginning.png?v=1778710000" alt="Beginning" style="max-height:56vh; max-width:100%; object-fit:contain; display:block; border-radius:12px;" />
+        </div>
+
+        <div class="mt-fcard-slide" data-card="1" style="position:absolute;left:0;right:0;top:0;background:#C4B47E;border:1px solid rgba(79,112,51,0.2);border-radius:16px;padding:32px;display:flex;align-items:center;justify-content:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
+          <img src="images/home1.png" alt="Home" style="max-height:56vh; max-width:100%; object-fit:contain; display:block; border-radius:12px;" />
+        </div>
+
+        <div class="mt-fcard-slide" data-card="2" style="position:absolute;left:0;right:0;top:0;background:#C4B47E;border:1px solid rgba(79,112,51,0.2);border-radius:16px;padding:32px;display:flex;align-items:center;justify-content:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
+          <img src="images/chat1.png" alt="Chat" style="max-height:56vh; max-width:100%; object-fit:contain; display:block; border-radius:12px;" />
+        </div>
+
+        <div class="mt-fcard-slide" data-card="3" style="position:absolute;left:0;right:0;top:0;background:#C4B47E;border:1px solid rgba(79,112,51,0.2);border-radius:16px;padding:32px;display:flex;align-items:center;justify-content:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
+          <img src="images/lesson.png" alt="Lesson" style="max-height:56vh; max-width:100%; object-fit:contain; display:block; border-radius:12px;" />
+        </div>
+
+        <div class="mt-fcard-slide" data-card="4" style="position:absolute;left:0;right:0;top:0;background:#C4B47E;border:1px solid rgba(79,112,51,0.2);border-radius:16px;padding:32px;display:flex;align-items:center;justify-content:center;min-height:52vh;box-sizing:border-box;will-change:transform,opacity;">
+          <img src="images/home2.png" alt="Home 2" style="max-height:56vh; max-width:100%; object-fit:contain; display:block; border-radius:12px;" />
+        </div>
+
       </div>
+
+      <!-- nav -->
+      <div style="display:flex; align-items:center; gap:20px; margin-top:28px; max-width:75%; margin-left:auto; margin-right:auto;">
+        <span id="mt-carousel-counter" style="font-family:'Manrope',sans-serif; font-size:1rem; font-weight:700; color:rgba(0,0,0,0.3); letter-spacing:2px;">01 / 05</span>
+        <div style="display:flex; gap:8px; margin-left:8px;">
+          <span class="mt-cdot" data-dot="0" onclick="mtGoTo(0)" style="width:8px;height:8px;border-radius:50%;background:#4F7033;cursor:pointer;transition:opacity 0.2s;"></span>
+          <span class="mt-cdot" data-dot="1" onclick="mtGoTo(1)" style="width:8px;height:8px;border-radius:50%;background:#4F7033;opacity:0.3;cursor:pointer;transition:opacity 0.2s;"></span>
+          <span class="mt-cdot" data-dot="2" onclick="mtGoTo(2)" style="width:8px;height:8px;border-radius:50%;background:#4F7033;opacity:0.3;cursor:pointer;transition:opacity 0.2s;"></span>
+          <span class="mt-cdot" data-dot="3" onclick="mtGoTo(3)" style="width:8px;height:8px;border-radius:50%;background:#4F7033;opacity:0.3;cursor:pointer;transition:opacity 0.2s;"></span>
+          <span class="mt-cdot" data-dot="4" onclick="mtGoTo(4)" style="width:8px;height:8px;border-radius:50%;background:#4F7033;opacity:0.3;cursor:pointer;transition:opacity 0.2s;"></span>
+        </div>
+      </div>
+
+      <script>
+        var mtIdx = 0;
+        var mtTotal = 5;
+        function updateMtCarousel() {
+          var cards = document.querySelectorAll('.mt-fcard-slide');
+          var dots  = document.querySelectorAll('.mt-cdot');
+          cards.forEach(function(card) {
+            var ci = parseInt(card.getAttribute('data-card'));
+            var pos = (ci - mtIdx + mtTotal) % mtTotal;
+            var offsets = [
+              { ty: 0,  tx: 0,  scale: 1,    opacity: 1,    z: 5, pe: 'auto' },
+              { ty: 18, tx: 18, scale: 0.97, opacity: 0.65, z: 4, pe: 'none' },
+              { ty: 36, tx: 36, scale: 0.94, opacity: 0.38, z: 3, pe: 'none' },
+              { ty: 54, tx: 54, scale: 0.91, opacity: 0.15, z: 2, pe: 'none' },
+              { ty: 54, tx: 54, scale: 0.91, opacity: 0,    z: 1, pe: 'none' }
+            ];
+            var o = offsets[pos];
+            card.style.transition = 'transform 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.55s ease';
+            card.style.transform  = 'translateY('+o.ty+'px) translateX('+o.tx+'px) scale('+o.scale+')';
+            card.style.opacity    = o.opacity;
+            card.style.zIndex     = o.z;
+            card.style.pointerEvents = o.pe;
+          });
+          dots.forEach(function(dot) {
+            dot.style.opacity = parseInt(dot.getAttribute('data-dot')) === mtIdx ? '1' : '0.3';
+          });
+          var n = mtIdx + 1;
+          document.getElementById('mt-carousel-counter').textContent = (n < 10 ? '0'+n : n) + ' / 05';
+        }
+        function mtNext() { mtIdx = (mtIdx + 1) % mtTotal; updateMtCarousel(); }
+        function mtPrev() { mtIdx = (mtIdx + mtTotal - 1) % mtTotal; updateMtCarousel(); }
+        function mtGoTo(i) { mtIdx = i; updateMtCarousel(); }
+        updateMtCarousel();
+      </script>
+
+      <p style="max-width:75%; margin: 32px auto 0; font-family:'Manrope',sans-serif; font-size:1rem; font-weight:400; color:rgba(0,0,0,0.55); line-height:1.85;">The core concept behind Money Tree was to turn financial growth into a visual experience. Users begin by selecting their learning goals, and <strong>as they complete lessons and build financial knowledge, their tree gradually grows alongside their progress.</strong> With AI-curated lessons tailored to each user's learning goals, alongside Planty — an in-app chatbot designed to answer financial questions and provide guidance throughout the learning experience.</p>
+    </div>
+
+    <!-- design process -->
+    <div class="mt-section" style="text-align:center;">
+      <p class="mt-label">Design Process</p>
+      <h2>Behind the <span>Scenes</span></h2>
+      <p style="max-width:780px; margin-left:auto; margin-right:auto;">With the problem and research in mind, I immediately began planning how I wanted to make financial education feel easier to learn through personal experiences and learning preferences, taking inspiration from learning apps like Duolingo.</p>
+      <div style="display:flex; gap:24px; justify-content:center; margin-top:36px;">
+        <div style="width:48%; display:flex; flex-direction:column; align-items:center; gap:12px;">
+          <img src="images/brainstorm.jpeg?v=1778700000" alt="Brainstorm" style="width:100%; border-radius:16px; display:block;" />
+          <p class="mt-label" style="margin:0;">Ideation</p>
+        </div>
+        <div style="width:48%; display:flex; flex-direction:column; align-items:center; gap:12px;">
+          <img src="images/lowfidel.jpeg?v=1778700000" alt="Low Fidelity" style="width:100%; border-radius:16px; display:block;" />
+          <p class="mt-label" style="margin:0;">Wireframe</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- prototype link -->
+    <div class="mt-section" style="text-align:center; padding-top:60px; padding-bottom:60px;">
+      <p class="mt-label" style="text-align:center;">Prototype</p>
+      <h2 style="margin-bottom:20px;">Check Out The <span>Prototype</span></h2>
+      <p style="font-family:'Manrope',sans-serif; font-size:1rem; color:rgba(0,0,0,0.45); max-width:500px; margin:0 auto 32px;">See Money Tree in action — explore the full interactive Figma prototype.</p>
+      <a href="https://www.figma.com/proto/K8Yex0YOEGsLeEanjvzfWk/MT-FINAL?node-id=20-47&t=IaCFMzc7KXfVrq8n-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=137%3A65" target="_blank" rel="noopener"
+        style="display:inline-block; background:#4F7033; color:#fff; font-family:'Manrope',sans-serif; font-weight:600; font-size:1rem; padding:16px 40px; border-radius:999px; text-decoration:none; letter-spacing:0.03em; transition:background 0.2s, transform 0.2s;"
+        onmouseover="this.style.background='#324D1C'; this.style.transform='translateY(-2px)'"
+        onmouseout="this.style.background='#4F7033'; this.style.transform='translateY(0)'">
+        View Prototype →
+      </a>
     </div>
 
     <div class="mt-footer">
