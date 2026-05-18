@@ -1128,6 +1128,10 @@
           <div class="project-thumb" style="background:#A2C496;"></div>
           <div class="project-body"><p class="project-tag">UX Design · Mobile App · Prototype</p><h3>Meal Map</h3><p><span class="desc-desktop">A prototype app helping students navigate university cafeterias safely through a standardized, reliable system for allergy communication, management, and education.</span><span class="desc-mobile">Reliable food restriction communication app</span></p></div>
         </a>
+        <a class="project-card" href="javascript:void(0)" onclick="openProject('videoprod')">
+          <div class="project-thumb" style="background:#5C5C5C;"></div>
+          <div class="project-body"><p class="project-tag">Documentary · Advertising · Cinematography</p><h3>Video Production</h3><p><span class="desc-desktop">A collection of video projects — from documentary filmmaking to commercial advertising, produced and directed across different timelines and teams.</span><span class="desc-mobile">Documentary &amp; ad video projects</span></p></div>
+        </a>
 
       </div>
     </div>
@@ -3336,6 +3340,187 @@
     <div class="gd-footer gd-pg">
       <p>Ferah Fenton · Passion Pieces</p>
       <button class="gd-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
+    </div>
+
+  </section>
+
+  <!-- PROJECT: VIDEO PRODUCTION -->
+  <section class="panel proj-panel" id="proj-videoprod" style="display:none; background:#ffffff; flex-direction:column; align-items:flex-start; justify-content:flex-start; overflow-y:auto; position:fixed; inset:0; z-index:500;">
+    <style>
+      .vp-nav {
+        width:100%; padding:22px 56px; display:flex; justify-content:space-between; align-items:center;
+        position:sticky; top:0; z-index:9999;
+        background:rgba(255,255,255,0.95); backdrop-filter:blur(10px);
+        border-bottom:1px solid rgba(0,0,0,0.06); box-sizing:border-box;
+      }
+      .vp-back {
+        font-family:'Manrope',sans-serif; font-size:0.82rem; font-weight:500;
+        color:rgba(0,0,0,0.35); letter-spacing:0.03em; cursor:pointer;
+        border:none; background:none; transition:color 0.2s;
+      }
+      .vp-back:hover { color:#000; }
+      .vp-nav-title {
+        font-family:'Manrope',sans-serif; font-size:0.82rem; font-weight:500;
+        color:rgba(0,0,0,0.25); letter-spacing:0.04em;
+      }
+      .vp-hero {
+        width:100%; max-width:860px; margin:0 auto;
+        padding:72px 56px 48px; box-sizing:border-box;
+        border-bottom:1px solid rgba(0,0,0,0.07);
+      }
+      .vp-hero h1 {
+        font-family:'Manrope',sans-serif; font-size:clamp(2.8rem,6vw,5rem);
+        font-weight:800; letter-spacing:-0.04em; color:#111; margin-bottom:18px; line-height:1;
+      }
+      .vp-hero p {
+        font-family:'Manrope',sans-serif; font-size:1rem; font-weight:400;
+        color:rgba(0,0,0,0.45); line-height:1.8; max-width:580px;
+      }
+      .vp-section {
+        width:100%; max-width:860px; margin:0 auto;
+        padding:56px 56px; box-sizing:border-box;
+        border-bottom:1px solid rgba(0,0,0,0.07);
+      }
+      .vp-num {
+        font-family:'Manrope',sans-serif; font-size:0.72rem; font-weight:700;
+        color:rgba(0,0,0,0.25); text-transform:uppercase; letter-spacing:3px; margin-bottom:12px;
+      }
+      .vp-section h2 {
+        font-family:'Manrope',sans-serif; font-size:clamp(1.4rem,2.5vw,2rem);
+        font-weight:800; color:#111; letter-spacing:-0.02em; margin-bottom:28px;
+      }
+      .vp-meta-row {
+        display:flex; gap:40px; flex-wrap:wrap; margin-bottom:24px;
+      }
+      .vp-meta-item {}
+      .vp-meta-label {
+        font-family:'Manrope',sans-serif; font-size:0.65rem; font-weight:700;
+        text-transform:uppercase; letter-spacing:2px; color:rgba(0,0,0,0.3); margin-bottom:4px;
+      }
+      .vp-meta-value {
+        font-family:'Manrope',sans-serif; font-size:0.92rem; font-weight:500; color:#333;
+      }
+      .vp-desc-label {
+        font-family:'Manrope',sans-serif; font-size:0.65rem; font-weight:700;
+        text-transform:uppercase; letter-spacing:2px; color:rgba(0,0,0,0.3);
+        margin-bottom:6px; margin-top:20px;
+      }
+      .vp-desc {
+        font-family:'Manrope',sans-serif; font-size:0.95rem; font-weight:400;
+        color:rgba(0,0,0,0.55); line-height:1.75; margin-bottom:0;
+      }
+      .vp-embed {
+        margin-top:32px; position:relative; width:100%;
+        padding-bottom:56.25%; border-radius:14px; overflow:hidden;
+        background:#f0f0f0;
+      }
+      .vp-embed iframe {
+        position:absolute; top:0; left:0; width:100%; height:100%; border:none;
+      }
+      .vp-footer {
+        width:100%; max-width:860px; margin:0 auto;
+        padding:40px 56px 60px; box-sizing:border-box;
+        display:flex; justify-content:space-between; align-items:center;
+        border-top:1px solid rgba(0,0,0,0.07);
+      }
+      .vp-footer p {
+        font-family:'Manrope',sans-serif; font-size:0.82rem;
+        font-weight:500; color:rgba(0,0,0,0.2);
+      }
+      @media (max-width:600px) {
+        .vp-nav { padding:14px 18px !important; }
+        .vp-hero, .vp-section { padding-left:18px !important; padding-right:18px !important; }
+        .vp-footer { padding-left:18px !important; padding-right:18px !important; flex-direction:column; align-items:center; gap:12px; text-align:center; }
+        .vp-meta-row { gap:20px; }
+      }
+    </style>
+
+    <!-- nav -->
+    <div class="vp-nav">
+      <button class="vp-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
+      <span class="vp-nav-title">Video Production</span>
+      <span style="width:120px"></span>
+    </div>
+
+    <!-- hero -->
+    <div class="vp-hero">
+      <h1>Video<br>Production</h1>
+      <p>A collection of video projects spanning documentary filmmaking, commercial advertising, and visual storytelling — produced, directed, and edited across different timelines, teams, and creative briefs.</p>
+    </div>
+
+    <!-- Video 1 -->
+    <div class="vp-section">
+      <p class="vp-num">01</p>
+      <h2>UWaterloo Women's Basketball Documentary</h2>
+      <div class="vp-meta-row">
+        <div class="vp-meta-item"><p class="vp-meta-label">Goal</p><p class="vp-meta-value">Create an 8-minute documentary on any subject</p></div>
+        <div class="vp-meta-item"><p class="vp-meta-label">Concept</p><p class="vp-meta-value">The hardships of being on a women's sports team</p></div>
+        <div class="vp-meta-item"><p class="vp-meta-label">Timeline</p><p class="vp-meta-value">1 Month</p></div>
+      </div>
+      <p class="vp-desc-label">Production</p>
+      <p class="vp-desc">In a group of 4 we had to come up with an engaging concept, pitch it and get approval, coordinate with the team on filming dates.</p>
+      <p class="vp-desc-label">Role &amp; Impact</p>
+      <p class="vp-desc">I helped the team develop the creative direction of spotlighting a women's team, while leading audio production, capturing select shots, and assisting with the set up and recording of interviews as well as editing them during the final post-production stage.</p>
+      <div class="vp-embed">
+        <iframe src="https://www.youtube.com/embed/sdLxqR46s_E" title="UWaterloo Women's Basketball Documentary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="vp-section">
+      <p class="vp-num">02</p>
+      <h2>Jansport Ad — Lightens the Load</h2>
+      <div class="vp-meta-row">
+        <div class="vp-meta-item"><p class="vp-meta-label">Goal</p><p class="vp-meta-value">Create an engaging ad for any existing company</p></div>
+        <div class="vp-meta-item"><p class="vp-meta-label">Concept</p><p class="vp-meta-value">Jansport lightens the load</p></div>
+        <div class="vp-meta-item"><p class="vp-meta-label">Timeline</p><p class="vp-meta-value">2 Weeks</p></div>
+      </div>
+      <p class="vp-desc-label">Production</p>
+      <p class="vp-desc">In a group of 4 we were tasked to create the set, set up props, act, film and edit on Premiere Pro.</p>
+      <p class="vp-desc-label">Role &amp; Impact</p>
+      <p class="vp-desc">Entirely written, directed and pitched by me — with the help of my 3 group members.</p>
+      <div class="vp-embed">
+        <iframe src="https://www.youtube.com/embed/B05rgktYEPI" title="Jansport Ad" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="vp-section">
+      <p class="vp-num">03</p>
+      <h2>Bic Mechanical Pencil Ad — Never Fails</h2>
+      <div class="vp-meta-row">
+        <div class="vp-meta-item"><p class="vp-meta-label">Goal</p><p class="vp-meta-value">Create an engaging ad for any existing company</p></div>
+        <div class="vp-meta-item"><p class="vp-meta-label">Concept</p><p class="vp-meta-value">Bic never fails</p></div>
+        <div class="vp-meta-item"><p class="vp-meta-label">Timeline</p><p class="vp-meta-value">1 Week</p></div>
+      </div>
+      <p class="vp-desc-label">Production</p>
+      <p class="vp-desc">In a group of 3 we were tasked to create the set, set up props, act, film and edit on Premiere Pro.</p>
+      <p class="vp-desc-label">Role &amp; Impact</p>
+      <p class="vp-desc">Entirely written, directed and pitched by me — with the help of my 2 other group members.</p>
+      <div class="vp-embed">
+        <iframe src="https://www.youtube.com/embed/VWw_nB4esJo" title="Bic Mechanical Pencil Ad" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Video 4 -->
+    <div class="vp-section">
+      <p class="vp-num">04</p>
+      <h2>K Goodmart — Silent Portrait</h2>
+      <div class="vp-meta-row">
+        <div class="vp-meta-item"><p class="vp-meta-label">Goal</p><p class="vp-meta-value">Represent the vibe of a place entirely through visual representation (no sound)</p></div>
+        <div class="vp-meta-item"><p class="vp-meta-label">Timeline</p><p class="vp-meta-value">2 Weeks</p></div>
+      </div>
+      <p class="vp-desc-label">Production</p>
+      <p class="vp-desc">Produced entirely independently, I was tasked with finding a location that could capture its atmosphere both day and night. With the help of friends, I shot and curated visuals that highlight the warm, familiar charm of the corner convenience store, K Goodmart.</p>
+      <div class="vp-embed">
+        <iframe src="https://www.youtube.com/embed/QrFuTloSeLY" title="K Goodmart Silent Portrait" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="vp-footer">
+      <p>Ferah Fenton · Video Production</p>
+      <button class="vp-back" onclick="closeProject()"><span class="back-desktop">← Back to Portfolio</span><span class="back-mobile">← Back</span></button>
     </div>
 
   </section>
